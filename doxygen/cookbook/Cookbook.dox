@@ -7,15 +7,16 @@ namespace tf {
   + @subpage ProjectMotivation
   + @subpage StaticTasking
   + @subpage ExecuteTaskflow
-  + @subpage DynamicTasking
+  + @subpage SubflowTasking
   + @subpage ConditionalTasking
   + @subpage ComposableTasking
   + @subpage AsyncTasking
+  + @subpage DependentAsyncTasking
   + @subpage RuntimeTasking
   + @subpage PrioritizedTasking
+  + @subpage ExceptionHandling
   + @subpage GPUTaskingcudaFlow
   + @subpage GPUTaskingcudaFlowCapturer
-  + @subpage GPUTaskingsyclFlow
   + @subpage LimitTheMaximumConcurrency 
   + @subpage RequestCancellation
   + @subpage Profiler

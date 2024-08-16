@@ -5,7 +5,7 @@
   <title>Learning from Examples &raquo; Taskflow Processing Pipeline | Taskflow QuickStart</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#22272e" />
 </head>
@@ -64,243 +64,243 @@
             </li>
           </ul>
         </nav>
-<p>We study a taskflow processing pipeline that propagates a sequence of tokens through linearly dependent taskflows. The pipeline embeds a taskflow in each pipe to run a parallel algorithm using task graph parallelism.</p><section id="FormulateTheTaskflowProcessingPipelineProblem"><h2><a href="#FormulateTheTaskflowProcessingPipelineProblem">Formulate the Taskflow Processing Pipeline Problem</a></h2><p>Many complex and irregular pipeline applications require each pipe to run a parallel algorithm using task graph parallelism. We can formulate such applications as scheduling a sequence of tokens through linearly dependent taskflows. The following example illustrates the pipeline propagation of three scheduling tokens through three linearly dependent taskflows:</p><div class="m-graph"><svg style="width: 33.500rem; height: 11.750rem;" viewBox="0.00 0.00 536.00 188.00">
+<p>We study a taskflow processing pipeline that propagates a sequence of tokens through linearly dependent taskflows. The pipeline embeds a taskflow in each pipe to run a parallel algorithm using task graph parallelism.</p><section id="FormulateTheTaskflowProcessingPipelineProblem"><h2><a href="#FormulateTheTaskflowProcessingPipelineProblem">Formulate the Taskflow Processing Pipeline Problem</a></h2><p>Many complex and irregular pipeline applications require each pipe to run a parallel algorithm using task graph parallelism. We can formulate such applications as scheduling a sequence of tokens through linearly dependent taskflows. The following example illustrates the pipeline propagation of three scheduling tokens through three linearly dependent taskflows:</p><div class="m-graph"><svg style="width: 39.800rem; height: 18.800rem;" viewBox="0.00 0.00 398.00 188.00">
 <g transform="scale(1 1) rotate(0) translate(4 184)">
 <title>R</title>
 <g class="m-node m-flat">
 <title>f1_A</title>
-<polygon points="164,-180 0,-180 0,-144 164,-144 164,-180"/>
-<text text-anchor="middle" x="82" y="-158.2">taskflow1 on token 1</text>
+<polygon points="118,-180 0,-180 0,-144 118,-144 118,-180"/>
+<text text-anchor="middle" x="59" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">taskflow1 on token 1</text>
 </g>
 <g class="m-node m-flat">
 <title>f1_B</title>
-<polygon points="346,-180 182,-180 182,-144 346,-144 346,-180"/>
-<text text-anchor="middle" x="264" y="-158.2">taskflow2 on token 1</text>
+<polygon points="254,-180 136,-180 136,-144 254,-144 254,-180"/>
+<text text-anchor="middle" x="195" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">taskflow2 on token 1</text>
 </g>
 <g class="m-edge">
 <title>f1_A&#45;&gt;f1_B</title>
-<path d="M164.11,-162C166.58,-162 169.05,-162 171.52,-162"/>
-<polygon points="171.67,-165.5 181.67,-162 171.67,-158.5 171.67,-165.5"/>
+<path d="M118.23,-162C120.72,-162 123.21,-162 125.7,-162"/>
+<polygon points="125.93,-165.5 135.93,-162 125.93,-158.5 125.93,-165.5"/>
 </g>
 <g class="m-node m-flat">
 <title>f2_A</title>
-<polygon points="164,-108 0,-108 0,-72 164,-72 164,-108"/>
-<text text-anchor="middle" x="82" y="-86.2">taskflow1 on token 2</text>
+<polygon points="118,-108 0,-108 0,-72 118,-72 118,-108"/>
+<text text-anchor="middle" x="59" y="-87.5" font-family="Helvetica,sans-Serif" font-size="10.00">taskflow1 on token 2</text>
 </g>
 <g class="m-edge">
 <title>f1_A&#45;&gt;f2_A</title>
-<path d="M82,-143.7C82,-135.98 82,-126.71 82,-118.11"/>
-<polygon points="85.5,-118.1 82,-108.1 78.5,-118.1 85.5,-118.1"/>
+<path d="M59,-143.7C59,-135.98 59,-126.71 59,-118.11"/>
+<polygon points="62.5,-118.1 59,-108.1 55.5,-118.1 62.5,-118.1"/>
 </g>
 <g class="m-node m-flat">
 <title>f1_C</title>
-<polygon points="528,-180 364,-180 364,-144 528,-144 528,-180"/>
-<text text-anchor="middle" x="446" y="-158.2">taskflow3 on token 1</text>
+<polygon points="390,-180 272,-180 272,-144 390,-144 390,-180"/>
+<text text-anchor="middle" x="331" y="-159.5" font-family="Helvetica,sans-Serif" font-size="10.00">taskflow3 on token 1</text>
 </g>
 <g class="m-edge">
 <title>f1_B&#45;&gt;f1_C</title>
-<path d="M346.11,-162C348.58,-162 351.05,-162 353.52,-162"/>
-<polygon points="353.67,-165.5 363.67,-162 353.67,-158.5 353.67,-165.5"/>
+<path d="M254.23,-162C256.72,-162 259.21,-162 261.7,-162"/>
+<polygon points="261.93,-165.5 271.93,-162 261.93,-158.5 261.93,-165.5"/>
 </g>
 <g class="m-node m-flat">
 <title>f2_B</title>
-<polygon points="346,-108 182,-108 182,-72 346,-72 346,-108"/>
-<text text-anchor="middle" x="264" y="-86.2">taskflow2 on token 2</text>
+<polygon points="254,-108 136,-108 136,-72 254,-72 254,-108"/>
+<text text-anchor="middle" x="195" y="-87.5" font-family="Helvetica,sans-Serif" font-size="10.00">taskflow2 on token 2</text>
 </g>
 <g class="m-edge">
 <title>f1_B&#45;&gt;f2_B</title>
-<path d="M264,-143.7C264,-135.98 264,-126.71 264,-118.11"/>
-<polygon points="267.5,-118.1 264,-108.1 260.5,-118.1 267.5,-118.1"/>
+<path d="M195,-143.7C195,-135.98 195,-126.71 195,-118.11"/>
+<polygon points="198.5,-118.1 195,-108.1 191.5,-118.1 198.5,-118.1"/>
 </g>
 <g class="m-node m-flat">
 <title>f2_C</title>
-<polygon points="528,-108 364,-108 364,-72 528,-72 528,-108"/>
-<text text-anchor="middle" x="446" y="-86.2">taskflow3 on token 2</text>
+<polygon points="390,-108 272,-108 272,-72 390,-72 390,-108"/>
+<text text-anchor="middle" x="331" y="-87.5" font-family="Helvetica,sans-Serif" font-size="10.00">taskflow3 on token 2</text>
 </g>
 <g class="m-edge">
 <title>f1_C&#45;&gt;f2_C</title>
-<path d="M446,-143.7C446,-135.98 446,-126.71 446,-118.11"/>
-<polygon points="449.5,-118.1 446,-108.1 442.5,-118.1 449.5,-118.1"/>
+<path d="M331,-143.7C331,-135.98 331,-126.71 331,-118.11"/>
+<polygon points="334.5,-118.1 331,-108.1 327.5,-118.1 334.5,-118.1"/>
 </g>
 <g class="m-edge">
 <title>f2_A&#45;&gt;f2_B</title>
-<path d="M164.11,-90C166.58,-90 169.05,-90 171.52,-90"/>
-<polygon points="171.67,-93.5 181.67,-90 171.67,-86.5 171.67,-93.5"/>
+<path d="M118.23,-90C120.72,-90 123.21,-90 125.7,-90"/>
+<polygon points="125.93,-93.5 135.93,-90 125.93,-86.5 125.93,-93.5"/>
 </g>
 <g class="m-node m-flat">
 <title>f3_A</title>
-<polygon points="164,-36 0,-36 0,0 164,0 164,-36"/>
-<text text-anchor="middle" x="82" y="-14.2">taskflow1 on token 3</text>
+<polygon points="118,-36 0,-36 0,0 118,0 118,-36"/>
+<text text-anchor="middle" x="59" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">taskflow1 on token 3</text>
 </g>
 <g class="m-edge">
 <title>f2_A&#45;&gt;f3_A</title>
-<path d="M82,-71.7C82,-63.98 82,-54.71 82,-46.11"/>
-<polygon points="85.5,-46.1 82,-36.1 78.5,-46.1 85.5,-46.1"/>
+<path d="M59,-71.7C59,-63.98 59,-54.71 59,-46.11"/>
+<polygon points="62.5,-46.1 59,-36.1 55.5,-46.1 62.5,-46.1"/>
 </g>
 <g class="m-edge">
 <title>f2_B&#45;&gt;f2_C</title>
-<path d="M346.11,-90C348.58,-90 351.05,-90 353.52,-90"/>
-<polygon points="353.67,-93.5 363.67,-90 353.67,-86.5 353.67,-93.5"/>
+<path d="M254.23,-90C256.72,-90 259.21,-90 261.7,-90"/>
+<polygon points="261.93,-93.5 271.93,-90 261.93,-86.5 261.93,-93.5"/>
 </g>
 <g class="m-node m-flat">
 <title>f3_B</title>
-<polygon points="346,-36 182,-36 182,0 346,0 346,-36"/>
-<text text-anchor="middle" x="264" y="-14.2">taskflow2 on token 3</text>
+<polygon points="254,-36 136,-36 136,0 254,0 254,-36"/>
+<text text-anchor="middle" x="195" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">taskflow2 on token 3</text>
 </g>
 <g class="m-edge">
 <title>f2_B&#45;&gt;f3_B</title>
-<path d="M264,-71.7C264,-63.98 264,-54.71 264,-46.11"/>
-<polygon points="267.5,-46.1 264,-36.1 260.5,-46.1 267.5,-46.1"/>
+<path d="M195,-71.7C195,-63.98 195,-54.71 195,-46.11"/>
+<polygon points="198.5,-46.1 195,-36.1 191.5,-46.1 198.5,-46.1"/>
 </g>
 <g class="m-node m-flat">
 <title>f3_C</title>
-<polygon points="528,-36 364,-36 364,0 528,0 528,-36"/>
-<text text-anchor="middle" x="446" y="-14.2">taskflow3 on token 3</text>
+<polygon points="390,-36 272,-36 272,0 390,0 390,-36"/>
+<text text-anchor="middle" x="331" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">taskflow3 on token 3</text>
 </g>
 <g class="m-edge">
 <title>f2_C&#45;&gt;f3_C</title>
-<path d="M446,-71.7C446,-63.98 446,-54.71 446,-46.11"/>
-<polygon points="449.5,-46.1 446,-36.1 442.5,-46.1 449.5,-46.1"/>
+<path d="M331,-71.7C331,-63.98 331,-54.71 331,-46.11"/>
+<polygon points="334.5,-46.1 331,-36.1 327.5,-46.1 334.5,-46.1"/>
 </g>
 <g class="m-edge">
 <title>f3_A&#45;&gt;f3_B</title>
-<path d="M164.11,-18C166.58,-18 169.05,-18 171.52,-18"/>
-<polygon points="171.67,-21.5 181.67,-18 171.67,-14.5 171.67,-21.5"/>
+<path d="M118.23,-18C120.72,-18 123.21,-18 125.7,-18"/>
+<polygon points="125.93,-21.5 135.93,-18 125.93,-14.5 125.93,-21.5"/>
 </g>
 <g class="m-edge">
 <title>f3_B&#45;&gt;f3_C</title>
-<path d="M346.11,-18C348.58,-18 351.05,-18 353.52,-18"/>
-<polygon points="353.67,-21.5 363.67,-18 353.67,-14.5 353.67,-21.5"/>
+<path d="M254.23,-18C256.72,-18 259.21,-18 261.7,-18"/>
+<polygon points="261.93,-21.5 271.93,-18 261.93,-14.5 261.93,-21.5"/>
 </g>
 </g>
 </svg>
-</div><div class="m-graph"><svg style="width: 30.000rem; height: 20.062rem;" viewBox="0.00 0.00 480.00 321.08">
-<g transform="scale(1 1) rotate(0) translate(4 317.08)">
+</div><div class="m-graph"><svg style="width: 46.600rem; height: 31.100rem;" viewBox="0.00 0.00 466.00 311.00">
+<g transform="scale(1 1) rotate(0) translate(4 307)">
 <title>G</title>
 <g class="m-cluster">
 <title>cluster_1</title>
-<polygon points="8,-80.77 8,-305.08 150,-305.08 150,-80.77 8,-80.77"/>
-<text text-anchor="middle" x="79" y="-288.28">taskflow1</text>
+<polygon points="8,-80 8,-295 150,-295 150,-80 8,-80"/>
+<text text-anchor="middle" x="79" y="-283" font-family="Helvetica,sans-Serif" font-size="10.00">taskflow1</text>
 </g>
 <g class="m-cluster">
 <title>cluster_2</title>
-<polygon points="158,-8 158,-305.08 242,-305.08 242,-8 158,-8"/>
-<text text-anchor="middle" x="200" y="-288.28">taskflow2</text>
+<polygon points="158,-8 158,-295 228,-295 228,-8 158,-8"/>
+<text text-anchor="middle" x="193" y="-283" font-family="Helvetica,sans-Serif" font-size="10.00">taskflow2</text>
 </g>
 <g class="m-cluster">
 <title>cluster_3</title>
-<polygon points="250,-153.54 250,-305.08 464,-305.08 464,-153.54 250,-153.54"/>
-<text text-anchor="middle" x="357" y="-288.28">taskflow3</text>
+<polygon points="236,-152 236,-295 450,-295 450,-152 236,-152"/>
+<text text-anchor="middle" x="343" y="-283" font-family="Helvetica,sans-Serif" font-size="10.00">taskflow3</text>
 </g>
 <g class="m-node m-flat">
 <title>A1</title>
-<ellipse cx="79" cy="-252.69" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="79" y="-248.89">A1</text>
+<ellipse cx="79" cy="-250" rx="27" ry="18"/>
+<text text-anchor="middle" x="79" y="-247.5" font-family="Helvetica,sans-Serif" font-size="10.00">A1</text>
 </g>
 <g class="m-node m-flat">
 <title>B1</title>
-<ellipse cx="43" cy="-179.92" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="43" y="-176.12">B1</text>
+<ellipse cx="43" cy="-178" rx="27" ry="18"/>
+<text text-anchor="middle" x="43" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">B1</text>
 </g>
 <g class="m-edge">
 <title>A1&#45;&gt;B1</title>
-<path d="M70.47,-234.92C66.16,-226.46 60.85,-216.02 56.05,-206.57"/>
-<polygon points="59.12,-204.9 51.47,-197.57 52.88,-208.07 59.12,-204.9"/>
+<path d="M70.65,-232.76C66.29,-224.28 60.85,-213.71 55.96,-204.2"/>
+<polygon points="58.99,-202.44 51.3,-195.15 52.77,-205.64 58.99,-202.44"/>
 </g>
 <g class="m-node m-flat">
 <title>C1</title>
-<ellipse cx="115" cy="-179.92" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="115" y="-176.12">C1</text>
+<ellipse cx="115" cy="-178" rx="27" ry="18"/>
+<text text-anchor="middle" x="115" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">C1</text>
 </g>
 <g class="m-edge">
 <title>A1&#45;&gt;C1</title>
-<path d="M87.53,-234.92C91.84,-226.46 97.15,-216.02 101.95,-206.57"/>
-<polygon points="105.12,-208.07 106.53,-197.57 98.88,-204.9 105.12,-208.07"/>
+<path d="M87.35,-232.76C91.71,-224.28 97.15,-213.71 102.04,-204.2"/>
+<polygon points="105.23,-205.64 106.7,-195.15 99.01,-202.44 105.23,-205.64"/>
 </g>
 <g class="m-node m-flat">
 <title>D1</title>
-<ellipse cx="79" cy="-107.15" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="79" y="-103.35">D1</text>
+<ellipse cx="79" cy="-106" rx="27" ry="18"/>
+<text text-anchor="middle" x="79" y="-103.5" font-family="Helvetica,sans-Serif" font-size="10.00">D1</text>
 </g>
 <g class="m-edge">
 <title>B1&#45;&gt;D1</title>
-<path d="M51.53,-162.15C55.84,-153.69 61.15,-143.25 65.95,-133.8"/>
-<polygon points="69.12,-135.31 70.53,-124.81 62.88,-132.13 69.12,-135.31"/>
+<path d="M51.35,-160.76C55.71,-152.28 61.15,-141.71 66.04,-132.2"/>
+<polygon points="69.23,-133.64 70.7,-123.15 63.01,-130.44 69.23,-133.64"/>
 </g>
 <g class="m-edge">
 <title>C1&#45;&gt;D1</title>
-<path d="M106.47,-162.15C102.16,-153.69 96.85,-143.25 92.05,-133.8"/>
-<polygon points="95.12,-132.13 87.47,-124.81 88.88,-135.31 95.12,-132.13"/>
+<path d="M106.65,-160.76C102.29,-152.28 96.85,-141.71 91.96,-132.2"/>
+<polygon points="94.99,-130.44 87.3,-123.15 88.77,-133.64 94.99,-130.44"/>
 </g>
 <g class="m-node m-flat">
 <title>A2</title>
-<ellipse cx="200" cy="-252.69" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="200" y="-248.89">A2</text>
+<ellipse cx="193" cy="-250" rx="27" ry="18"/>
+<text text-anchor="middle" x="193" y="-247.5" font-family="Helvetica,sans-Serif" font-size="10.00">A2</text>
 </g>
 <g class="m-node m-flat">
 <title>B2</title>
-<ellipse cx="200" cy="-179.92" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="200" y="-176.12">B2</text>
+<ellipse cx="193" cy="-178" rx="27" ry="18"/>
+<text text-anchor="middle" x="193" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">B2</text>
 </g>
 <g class="m-edge">
 <title>A2&#45;&gt;B2</title>
-<path d="M200,-234.2C200,-226.52 200,-217.31 200,-208.72"/>
-<polygon points="203.5,-208.71 200,-198.71 196.5,-208.71 203.5,-208.71"/>
+<path d="M193,-231.7C193,-223.98 193,-214.71 193,-206.11"/>
+<polygon points="196.5,-206.1 193,-196.1 189.5,-206.1 196.5,-206.1"/>
 </g>
 <g class="m-node m-flat">
 <title>C2</title>
-<ellipse cx="200" cy="-107.15" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="200" y="-103.35">C2</text>
+<ellipse cx="193" cy="-106" rx="27" ry="18"/>
+<text text-anchor="middle" x="193" y="-103.5" font-family="Helvetica,sans-Serif" font-size="10.00">C2</text>
 </g>
 <g class="m-edge">
 <title>B2&#45;&gt;C2</title>
-<path d="M200,-161.43C200,-153.75 200,-144.54 200,-135.95"/>
-<polygon points="203.5,-135.94 200,-125.94 196.5,-135.94 203.5,-135.94"/>
+<path d="M193,-159.7C193,-151.98 193,-142.71 193,-134.11"/>
+<polygon points="196.5,-134.1 193,-124.1 189.5,-134.1 196.5,-134.1"/>
 </g>
 <g class="m-node m-flat">
 <title>D2</title>
-<ellipse cx="200" cy="-34.38" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="200" y="-30.58">D2</text>
+<ellipse cx="193" cy="-34" rx="27" ry="18"/>
+<text text-anchor="middle" x="193" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">D2</text>
 </g>
 <g class="m-edge">
 <title>C2&#45;&gt;D2</title>
-<path d="M200,-88.66C200,-80.98 200,-71.77 200,-63.19"/>
-<polygon points="203.5,-63.17 200,-53.17 196.5,-63.17 203.5,-63.17"/>
+<path d="M193,-87.7C193,-79.98 193,-70.71 193,-62.11"/>
+<polygon points="196.5,-62.1 193,-52.1 189.5,-62.1 196.5,-62.1"/>
 </g>
 <g class="m-node m-flat">
 <title>A3</title>
-<ellipse cx="357" cy="-252.69" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="357" y="-248.89">A3</text>
+<ellipse cx="343" cy="-250" rx="27" ry="18"/>
+<text text-anchor="middle" x="343" y="-247.5" font-family="Helvetica,sans-Serif" font-size="10.00">A3</text>
 </g>
 <g class="m-node m-flat">
 <title>B3</title>
-<ellipse cx="285" cy="-179.92" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="285" y="-176.12">B3</text>
+<ellipse cx="271" cy="-178" rx="27" ry="18"/>
+<text text-anchor="middle" x="271" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">B3</text>
 </g>
 <g class="m-edge">
 <title>A3&#45;&gt;B3</title>
-<path d="M342.08,-237.03C332.04,-227.16 318.62,-213.97 307.32,-202.86"/>
-<polygon points="309.48,-200.08 299.9,-195.57 304.58,-205.07 309.48,-200.08"/>
+<path d="M328.43,-234.83C318.25,-224.94 304.48,-211.55 292.97,-200.36"/>
+<polygon points="295.41,-197.85 285.8,-193.38 290.53,-202.87 295.41,-197.85"/>
 </g>
 <g class="m-node m-flat">
 <title>C3</title>
-<ellipse cx="357" cy="-179.92" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="357" y="-176.12">C3</text>
+<ellipse cx="343" cy="-178" rx="27" ry="18"/>
+<text text-anchor="middle" x="343" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">C3</text>
 </g>
 <g class="m-edge">
 <title>A3&#45;&gt;C3</title>
-<path d="M357,-234.2C357,-226.52 357,-217.31 357,-208.72"/>
-<polygon points="360.5,-208.71 357,-198.71 353.5,-208.71 360.5,-208.71"/>
+<path d="M343,-231.7C343,-223.98 343,-214.71 343,-206.11"/>
+<polygon points="346.5,-206.1 343,-196.1 339.5,-206.1 346.5,-206.1"/>
 </g>
 <g class="m-node m-flat">
 <title>D3</title>
-<ellipse cx="429" cy="-179.92" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="429" y="-176.12">D3</text>
+<ellipse cx="415" cy="-178" rx="27" ry="18"/>
+<text text-anchor="middle" x="415" y="-175.5" font-family="Helvetica,sans-Serif" font-size="10.00">D3</text>
 </g>
 <g class="m-edge">
 <title>A3&#45;&gt;D3</title>
-<path d="M371.92,-237.03C381.96,-227.16 395.38,-213.97 406.68,-202.86"/>
-<polygon points="409.42,-205.07 414.1,-195.57 404.52,-200.08 409.42,-205.07"/>
+<path d="M357.57,-234.83C367.75,-224.94 381.52,-211.55 393.03,-200.36"/>
+<polygon points="395.47,-202.87 400.2,-193.38 390.59,-197.85 395.47,-202.87"/>
 </g>
 </g>
 </svg>
@@ -369,17 +369,17 @@
 <span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="p">}</span><span class="w"></span>
 <span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;begin token %zu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pf</span><span class="p">.</span><span class="n">token</span><span class="p">());</span><span class="w"></span>
-<span class="w">      </span><span class="n">executor</span><span class="p">.</span><span class="n">run_and_wait</span><span class="p">(</span><span class="n">taskflows</span><span class="p">[</span><span class="n">pf</span><span class="p">.</span><span class="n">pipe</span><span class="p">()]);</span><span class="w"></span>
+<span class="w">      </span><span class="n">executor</span><span class="p">.</span><span class="n">corun</span><span class="p">(</span><span class="n">taskflows</span><span class="p">[</span><span class="n">pf</span><span class="p">.</span><span class="n">pipe</span><span class="p">()]);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}},</span><span class="w"></span>
 <span class="w">    </span>
 <span class="w">    </span><span class="c1">// second pipe runs taskflow2</span>
 <span class="w">    </span><span class="n">tf</span><span class="o">::</span><span class="n">Pipe</span><span class="p">{</span><span class="n">tf</span><span class="o">::</span><span class="n">PipeType</span><span class="o">::</span><span class="n">SERIAL</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="n">tf</span><span class="o">::</span><span class="n">Pipeflow</span><span class="o">&amp;</span><span class="w"> </span><span class="n">pf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">executor</span><span class="p">.</span><span class="n">run_and_wait</span><span class="p">(</span><span class="n">taskflows</span><span class="p">[</span><span class="n">pf</span><span class="p">.</span><span class="n">pipe</span><span class="p">()]);</span><span class="w"></span>
+<span class="w">      </span><span class="n">executor</span><span class="p">.</span><span class="n">corun</span><span class="p">(</span><span class="n">taskflows</span><span class="p">[</span><span class="n">pf</span><span class="p">.</span><span class="n">pipe</span><span class="p">()]);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}},</span><span class="w"></span>
 
 <span class="w">    </span><span class="c1">// third pipe calls taskflow3</span>
 <span class="w">    </span><span class="n">tf</span><span class="o">::</span><span class="n">Pipe</span><span class="p">{</span><span class="n">tf</span><span class="o">::</span><span class="n">PipeType</span><span class="o">::</span><span class="n">SERIAL</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="n">tf</span><span class="o">::</span><span class="n">Pipeflow</span><span class="o">&amp;</span><span class="w"> </span><span class="n">pf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">executor</span><span class="p">.</span><span class="n">run_and_wait</span><span class="p">(</span><span class="n">taskflows</span><span class="p">[</span><span class="n">pf</span><span class="p">.</span><span class="n">pipe</span><span class="p">()]);</span><span class="w"></span>
+<span class="w">      </span><span class="n">executor</span><span class="p">.</span><span class="n">corun</span><span class="p">(</span><span class="n">taskflows</span><span class="p">[</span><span class="n">pf</span><span class="p">.</span><span class="n">pipe</span><span class="p">()]);</span><span class="w"></span>
 <span class="w">    </span><span class="p">}}</span><span class="w"></span>
 <span class="w">  </span><span class="p">);</span><span class="w"></span>
 
@@ -444,95 +444,95 @@
 <span class="w">    </span><span class="k">return</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
 <span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;begin token %zu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pf</span><span class="p">.</span><span class="n">token</span><span class="p">());</span><span class="w"></span>
-<span class="w">  </span><span class="n">executor</span><span class="p">.</span><span class="n">run_and_wait</span><span class="p">(</span><span class="n">taskflows</span><span class="p">[</span><span class="n">pf</span><span class="p">.</span><span class="n">pipe</span><span class="p">()]);</span><span class="w"></span>
+<span class="w">  </span><span class="n">executor</span><span class="p">.</span><span class="n">corun</span><span class="p">(</span><span class="n">taskflows</span><span class="p">[</span><span class="n">pf</span><span class="p">.</span><span class="n">pipe</span><span class="p">()]);</span><span class="w"></span>
 <span class="p">}},</span><span class="w"></span>
 
 <span class="c1">// second pipe runs taskflow2</span>
 <span class="n">tf</span><span class="o">::</span><span class="n">Pipe</span><span class="p">{</span><span class="n">tf</span><span class="o">::</span><span class="n">PipeType</span><span class="o">::</span><span class="n">SERIAL</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="n">tf</span><span class="o">::</span><span class="n">Pipeflow</span><span class="o">&amp;</span><span class="w"> </span><span class="n">pf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">executor</span><span class="p">.</span><span class="n">run_and_wait</span><span class="p">(</span><span class="n">taskflows</span><span class="p">[</span><span class="n">pf</span><span class="p">.</span><span class="n">pipe</span><span class="p">()]);</span><span class="w"></span>
+<span class="w">  </span><span class="n">executor</span><span class="p">.</span><span class="n">corun</span><span class="p">(</span><span class="n">taskflows</span><span class="p">[</span><span class="n">pf</span><span class="p">.</span><span class="n">pipe</span><span class="p">()]);</span><span class="w"></span>
 <span class="p">}},</span><span class="w"></span>
 
 <span class="c1">// third pipe calls taskflow3</span>
 <span class="n">tf</span><span class="o">::</span><span class="n">Pipe</span><span class="p">{</span><span class="n">tf</span><span class="o">::</span><span class="n">PipeType</span><span class="o">::</span><span class="n">SERIAL</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="n">tf</span><span class="o">::</span><span class="n">Pipeflow</span><span class="o">&amp;</span><span class="w"> </span><span class="n">pf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="n">executor</span><span class="p">.</span><span class="n">run_and_wait</span><span class="p">(</span><span class="n">taskflows</span><span class="p">[</span><span class="n">pf</span><span class="p">.</span><span class="n">pipe</span><span class="p">()]);</span><span class="w"></span>
-<span class="p">}}</span><span class="w"></span></pre><p>At each pipe, we use <a href="classtf_1_1Executor.html#ab05ad34c59cf11a7c4de82cf58bba91e" class="m-doc">tf::<wbr />Executor::<wbr />run_and_wait</a> to execute the corresponding taskflow and wait until the execution completes. This is important because we want te caller thread, which is the worker that invokes the pipe callable, to not block (i.e., <code>executor.run(taskflows[pf.pipe()]).wait()</code>) but participate in the work-stealing loop of the scheduler to avoid deadlock.</p></section><section id="TaskflowPipelineDefineTheTaskGraph"><h3><a href="#TaskflowPipelineDefineTheTaskGraph">Define the Task Graph</a></h3><p>To build up the taskflow for the pipeline, we create a module task with the defined pipeline structure and connect it with two tasks that output helper messages before and after the pipeline:</p><pre class="m-code"><span class="n">tf</span><span class="o">::</span><span class="n">Task</span><span class="w"> </span><span class="n">init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">taskflow</span><span class="p">.</span><span class="n">emplace</span><span class="p">([](){</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;ready</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<span class="w">  </span><span class="n">executor</span><span class="p">.</span><span class="n">corun</span><span class="p">(</span><span class="n">taskflows</span><span class="p">[</span><span class="n">pf</span><span class="p">.</span><span class="n">pipe</span><span class="p">()]);</span><span class="w"></span>
+<span class="p">}}</span><span class="w"></span></pre><p>At each pipe, we use tf::Executor::corun to execute the corresponding taskflow and wait until the execution completes. This is important because we want the caller thread, which is the worker that invokes the pipe callable, to not block (i.e., <code>executor.run(taskflows[pf.pipe()]).wait()</code>) but participate in the work-stealing loop of the scheduler to avoid deadlock.</p></section><section id="TaskflowPipelineDefineTheTaskGraph"><h3><a href="#TaskflowPipelineDefineTheTaskGraph">Define the Task Graph</a></h3><p>To build up the taskflow for the pipeline, we create a module task with the defined pipeline structure and connect it with two tasks that output helper messages before and after the pipeline:</p><pre class="m-code"><span class="n">tf</span><span class="o">::</span><span class="n">Task</span><span class="w"> </span><span class="n">init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">taskflow</span><span class="p">.</span><span class="n">emplace</span><span class="p">([](){</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;ready</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
 <span class="w">                        </span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;starting pipeline&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="n">tf</span><span class="o">::</span><span class="n">Task</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">taskflow</span><span class="p">.</span><span class="n">composed_of</span><span class="p">(</span><span class="n">pl</span><span class="p">)</span><span class="w"></span>
 <span class="w">                        </span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;pipeline&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="n">tf</span><span class="o">::</span><span class="n">Task</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">taskflow</span><span class="p">.</span><span class="n">emplace</span><span class="p">([](){</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;stopped</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
 <span class="w">                        </span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;pipeline stopped&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="n">init</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">task</span><span class="p">);</span><span class="w"></span>
-<span class="n">task</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">stop</span><span class="p">);</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 25.000rem; height: 17.625rem;" viewBox="0.00 0.00 400.00 281.77">
-<g transform="scale(1 1) rotate(0) translate(4 277.77)">
+<span class="n">task</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">stop</span><span class="p">);</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 33.000rem; height: 25.100rem;" viewBox="0.00 0.00 330.00 251.00">
+<g transform="scale(1 1) rotate(0) translate(4 247)">
 <title>Taskflow</title>
 <g class="m-cluster">
 <title>cluster_p0x7ffd7418c200</title>
-<polygon points="8,-8 8,-258.15 234,-258.15 234,-8 8,-8"/>
-<text text-anchor="middle" x="121" y="-241.35">Taskflow Processing Pipeline</text>
+<polygon points="8,-8 8,-235 164,-235 164,-8 8,-8"/>
+<text text-anchor="middle" x="86" y="-223" font-family="Helvetica,sans-Serif" font-size="10.00">Taskflow Processing Pipeline</text>
 </g>
 <g class="m-cluster">
 <title>cluster_p0x7ffd7418c110</title>
-<polygon points="242,-81.77 242,-265.77 384,-265.77 384,-81.77 242,-81.77"/>
-<text text-anchor="middle" x="313" y="-248.97">m1</text>
+<polygon points="172,-81 172,-235 314,-235 314,-81 172,-81"/>
+<text text-anchor="middle" x="243" y="-223" font-family="Helvetica,sans-Serif" font-size="10.00">m1</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7bc4000142e8</title>
-<ellipse cx="121" cy="-205.77" rx="92.76" ry="18.27"/>
-<text text-anchor="middle" x="121" y="-201.97">starting pipeline</text>
+<ellipse cx="86" cy="-190" rx="56.52" ry="18"/>
+<text text-anchor="middle" x="86" y="-187.5" font-family="Helvetica,sans-Serif" font-size="10.00">starting pipeline</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7bc4000143d0</title>
-<polygon points="175.5,-125.77 70.5,-125.77 66.5,-121.77 66.5,-89.77 171.5,-89.77 175.5,-93.77 175.5,-125.77"/>
-<polyline points="171.5,-121.77 66.5,-121.77"/>
-<polyline points="171.5,-121.77 171.5,-89.77"/>
-<polyline points="171.5,-121.77 175.5,-125.77"/>
-<text text-anchor="middle" x="121" y="-103.97">pipeline [m1]</text>
+<polygon points="127,-125 49,-125 45,-121 45,-89 123,-89 127,-93 127,-125"/>
+<polyline points="123,-121 45,-121 "/>
+<polyline points="123,-121 123,-89 "/>
+<polyline points="123,-121 127,-125 "/>
+<text text-anchor="middle" x="86" y="-104.5" font-family="Helvetica,sans-Serif" font-size="10.00">pipeline [m1]</text>
 </g>
 <g class="m-edge">
 <title>p0x7bc4000142e8&#45;&gt;p0x7bc4000143d0</title>
-<path d="M121,-187.16C121,-172.86 121,-152.45 121,-136.04"/>
-<polygon points="124.5,-135.94 121,-125.94 117.5,-135.94 124.5,-135.94"/>
+<path d="M86,-171.82C86,-161.19 86,-147.31 86,-135.2"/>
+<polygon points="89.5,-135.15 86,-125.15 82.5,-135.15 89.5,-135.15"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x7bc4000144b8</title>
-<ellipse cx="121" cy="-34.38" rx="95.42" ry="18.27"/>
-<text text-anchor="middle" x="121" y="-30.58">pipeline stopped</text>
+<ellipse cx="86" cy="-34" rx="57.88" ry="18"/>
+<text text-anchor="middle" x="86" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">pipeline stopped</text>
 </g>
 <g class="m-edge">
 <title>p0x7bc4000143d0&#45;&gt;p0x7bc4000144b8</title>
-<path d="M121,-89.49C121,-81.63 121,-72.12 121,-63.29"/>
-<polygon points="124.5,-63 121,-53 117.5,-63 124.5,-63"/>
+<path d="M86,-88.81C86,-80.79 86,-71.05 86,-62.07"/>
+<polygon points="89.5,-62.03 86,-52.03 82.5,-62.03 89.5,-62.03"/>
 </g>
 <g class="m-node">
 <title>p0x7bc400014030</title>
-<polygon points="311,-231.77 259,-205.77 311,-179.77 363,-205.77 311,-231.77"/>
-<text text-anchor="middle" x="311" y="-201.97">cond</text>
+<polygon points="225,-208 191.9,-190 225,-172 258.1,-190 225,-208"/>
+<text text-anchor="middle" x="225" y="-187.5" font-family="Helvetica,sans-Serif" font-size="10.00">cond</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7bc400014118</title>
-<polygon points="304,-125.77 250,-125.77 250,-121.77 246,-121.77 246,-117.77 250,-117.77 250,-97.77 246,-97.77 246,-93.77 250,-93.77 250,-89.77 304,-89.77 304,-125.77"/>
-<polyline points="250,-121.77 254,-121.77 254,-117.77 250,-117.77"/>
-<polyline points="250,-97.77 254,-97.77 254,-93.77 250,-93.77"/>
-<text text-anchor="middle" x="277" y="-103.97">rt&#45;0</text>
+<polygon points="234,-125 180,-125 180,-121 176,-121 176,-117 180,-117 180,-97 176,-97 176,-93 180,-93 180,-89 234,-89 234,-125"/>
+<polyline points="180,-121 184,-121 184,-117 180,-117 "/>
+<polyline points="180,-97 184,-97 184,-93 180,-93 "/>
+<text text-anchor="middle" x="207" y="-104.5" font-family="Helvetica,sans-Serif" font-size="10.00">rt&#45;0</text>
 </g>
 <g class="m-edge">
 <title>p0x7bc400014030&#45;&gt;p0x7bc400014118</title>
-<path stroke-dasharray="5,2" d="M299.24,-185.62C295.19,-178.36 290.94,-169.89 288,-161.77 285.03,-153.57 282.76,-144.35 281.09,-135.93"/>
-<polygon points="284.48,-135.04 279.27,-125.82 277.59,-136.28 284.48,-135.04"/>
-<text text-anchor="middle" x="293" y="-148.97">0</text>
+<path stroke-dasharray="5,2" d="M221.61,-173.76C219.19,-162.84 215.85,-147.84 212.98,-134.93"/>
+<polygon points="216.39,-134.13 210.81,-125.13 209.56,-135.65 216.39,-134.13"/>
+<text text-anchor="middle" x="220.5" y="-146" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7bc400014200</title>
-<polygon points="376,-125.77 322,-125.77 322,-121.77 318,-121.77 318,-117.77 322,-117.77 322,-97.77 318,-97.77 318,-93.77 322,-93.77 322,-89.77 376,-89.77 376,-125.77"/>
-<polyline points="322,-121.77 326,-121.77 326,-117.77 322,-117.77"/>
-<polyline points="322,-97.77 326,-97.77 326,-93.77 322,-93.77"/>
-<text text-anchor="middle" x="349" y="-103.97">rt&#45;1</text>
+<polygon points="306,-125 252,-125 252,-121 248,-121 248,-117 252,-117 252,-97 248,-97 248,-93 252,-93 252,-89 306,-89 306,-125"/>
+<polyline points="252,-121 256,-121 256,-117 252,-117 "/>
+<polyline points="252,-97 256,-97 256,-93 252,-93 "/>
+<text text-anchor="middle" x="279" y="-104.5" font-family="Helvetica,sans-Serif" font-size="10.00">rt&#45;1</text>
 </g>
 <g class="m-edge">
 <title>p0x7bc400014030&#45;&gt;p0x7bc400014200</title>
-<path stroke-dasharray="5,2" d="M319.43,-183.46C325.07,-169.24 332.51,-150.42 338.53,-135.23"/>
-<polygon points="341.81,-136.45 342.24,-125.86 335.3,-133.87 341.81,-136.45"/>
-<text text-anchor="middle" x="339" y="-148.97">1</text>
+<path stroke-dasharray="5,2" d="M233.44,-176.34C241.05,-164.92 252.49,-147.77 261.99,-133.51"/>
+<polygon points="264.98,-135.34 267.61,-125.08 259.15,-131.46 264.98,-135.34"/>
+<text text-anchor="middle" x="258.5" y="-146" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 </g>
 </svg>
@@ -647,7 +647,7 @@
   <div class="m-container">
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
-        <p>Taskflow handbook is part of the <a href="https://taskflow.github.io">Taskflow project</a>, copyright © <a href="https://tsung-wei-huang.github.io/">Dr. Tsung-Wei Huang</a>, 2018&ndash;2022.<br />Generated by <a href="https://doxygen.org/">Doxygen</a> 1.8.20 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+        <p>Taskflow handbook is part of the <a href="https://taskflow.github.io">Taskflow project</a>, copyright © <a href="https://tsung-wei-huang.github.io/">Dr. Tsung-Wei Huang</a>, 2018&ndash;2024.<br />Generated by <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
       </div>
     </div>
   </div>

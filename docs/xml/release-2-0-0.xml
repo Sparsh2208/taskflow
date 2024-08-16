@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="release-2-0-0" kind="page">
     <compoundname>release-2-0-0</compoundname>
     <title>Release 2.0.0 (2018/08/28)</title>
@@ -38,7 +38,7 @@
 <para><itemizedlist>
 <listitem><para>New dynamic tasking capability through tf::SubflowBuilder to spawn tasks at runtime. </para>
 </listitem>
-<listitem><para>New algorithm collections (<ref refid="classtf_1_1FlowBuilder_1aa9494fe7b862fc832884ce318e8a37f5" kindref="member">tf::FlowBuilder::reduce</ref>, <ref refid="classtf_1_1FlowBuilder_1a024a1e5b4f138b6caebb427411fb0a2d" kindref="member">tf::FlowBuilder::transform_reduce</ref>) added to <ref refid="classtf_1_1FlowBuilder" kindref="compound">tf::FlowBuilder</ref>. </para>
+<listitem><para>New algorithm collections (<ref refid="classtf_1_1FlowBuilder_1afb24798ebf46e253a40b01bffb1da6a7" kindref="member">tf::FlowBuilder::reduce</ref>, <ref refid="classtf_1_1FlowBuilder_1aa62d24438c0860e76153ffd129deba41" kindref="member">tf::FlowBuilder::transform_reduce</ref>) added to <ref refid="classtf_1_1FlowBuilder" kindref="compound">tf::FlowBuilder</ref>. </para>
 </listitem>
 <listitem><para>New schedulers tf::ProactiveThreadpool, tf::SpeculativeThreadpool, and tf::WorkStealingThreadpool.</para>
 </listitem>
@@ -70,5 +70,6 @@
 <para>There are no major bug fixes in this release. </para>
 </sect1>
     </detaileddescription>
+    <location file="releases/release-2.0.0.dox"/>
   </compounddef>
 </doxygen>

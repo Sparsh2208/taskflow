@@ -7,7 +7,7 @@ task programs with <i>high performance</i>
 and simultaneous <i>high productivity</i>.
 It is faster, more expressive, fewer lines of code, and easier for drop-in integration
 than many of existing task programming libraries.
-The source code is available in @ProjectGitHub.
+The source code is available in our @ProjectGitHub.
 
 @tableofcontents
 
@@ -52,7 +52,7 @@ tell the compiler to include the headers under @c taskflow/.
 
 @code{.shell-session}
 ~$ git clone https://github.com/taskflow/taskflow.git  # clone it only once
-~$ g++ -std=c++17 simple.cpp -I taskflow/ -O2 -pthread -o simple
+~$ g++ -std=c++20 simple.cpp -I taskflow/ -O2 -pthread -o simple
 ~$ ./simple
 TaskA
 TaskC 
@@ -78,8 +78,8 @@ in an easy-to-use web-based interface.
 
 @section QuickStartCreateASubflowGraph Create a Subflow Graph
 
-%Taskflow supports <i>dynamic tasking</i> for you to create a subflow
-graph from the execution of a task to perform dynamic parallelism.
+%Taskflow supports <i>recursive tasking</i> for you to create a subflow
+graph from the execution of a task to perform recursive parallelism.
 The following program spawns a task dependency graph parented at task @c B.
 
 @code{.cpp}
@@ -171,26 +171,25 @@ f1_module_task.succeed(f2A, f2B)
 @section QuickStartLaunchAsyncTasks Launch Asynchronous Tasks
 
 %Taskflow supports @em asynchronous tasking.
-You can launch tasks asynchronously to incorporate independent, dynamic 
-parallelism in your taskflows.
+You can launch tasks asynchronously to dynamically explore task graph parallelism.
 
 @code{.cpp}
 tf::Executor executor;
-tf::Taskflow taskflow;
 
 // create asynchronous tasks directly from an executor
-tf::Future<std::optional<int>> future = executor.async([](){ 
+std::future<int> future = executor.async([](){ 
   std::cout << "async task returns 1\n";
   return 1;
 }); 
 executor.silent_async([](){ std::cout << "async task does not return\n"; });
 
-// launch an asynchronous task from a running task
-taskflow.emplace([&](){
-  executor.async([](){ std::cout << "async task created within a task\n"; });
-});
+// create asynchronous tasks with dynamic dependencies
+tf::AsyncTask A = executor.silent_dependent_async([](){ printf("A\n"); });
+tf::AsyncTask B = executor.silent_dependent_async([](){ printf("B\n"); }, A);
+tf::AsyncTask C = executor.silent_dependent_async([](){ printf("C\n"); }, A);
+tf::AsyncTask D = executor.silent_dependent_async([](){ printf("D\n"); }, B, C);
 
-executor.run(taskflow).wait();
+executor.wait_for_all();
 @endcode
 
 
@@ -235,17 +234,6 @@ tf::Task task2 = taskflow.reduce(   // reduce a range of items in parallel
 );
 tf::Task task3 = taskflow.sort(     // sort a range of items in parallel
   first, last, [] (auto a, auto b) { return a < b; }
-);
-
-// standard parallel GPU algorithms
-tf::cudaTask cuda1 = cudaflow.for_each( // assign each element to 100 on GPU
-  dfirst, dlast, [] __device__ (auto i) { i = 100; }
-);
-tf::cudaTask cuda2 = cudaflow.reduce(   // reduce a range of items on GPU
-  dfirst, dlast, init, [] __device__ (auto a, auto b) { return a + b; }
-);
-tf::cudaTask cuda3 = cudaflow.sort(     // sort a range of items on GPU
-  dfirst, dlast, [] __device__ (auto a, auto b) { return a < b; }
 );
 @endcode
 
@@ -302,12 +290,16 @@ To use %Taskflow, you only need a compiler that supports C++17:
 @li GNU C++ Compiler at least v8.4 with -std=c++17
 @li Clang C++ Compiler at least v6.0 with -std=c++17
 @li Microsoft Visual Studio at least v19.27 with /std:c++17
-@li AppleClang Xode Version at least v12.0 with -std=c++17
+@li AppleClang Xcode Version at least v12.0 with -std=c++17
 @li Nvidia CUDA Toolkit and Compiler (nvcc) at least v11.1 with -std=c++17
 @li Intel C++ Compiler at least v19.0.1 with -std=c++17
 @li Intel DPC++ Clang Compiler at least v13.0.0 with -std=c++17 and SYCL20
 
 %Taskflow works on Linux, Windows, and Mac OS X.
+
+@note
+Although %Taskflow supports primarily C++17, you can enable C++20 compilation
+through `-std=c++20` to achieve better performance due to new C++20 features.
 
 @section QuickStartGetInvolved Get Involved
 
@@ -323,7 +315,7 @@ to learn more about %Taskflow. To get involved:
 We are committed to support trustworthy developments for 
 both academic and industrial research projects in parallel 
 and heterogeneous computing. 
-If you are using %Taskflow, please cite the following paper we publised at 2022 IEEE TPDS:
+If you are using %Taskflow, please cite the following paper we published at 2022 IEEE TPDS:
 
 + Tsung-Wei Huang, Dian-Lun Lin, Chun-Xun Lin, and Yibo Lin, &quot;[Taskflow: A Lightweight Parallel and Heterogeneous Task Graph Computing System](https://tsung-wei-huang.github.io/papers/tpds21-taskflow.pdf),&quot; <i>IEEE Transactions on Parallel and Distributed Systems (TPDS)</i>, vol. 33, no. 6, pp. 1303-1320, June 2022
 
@@ -343,7 +335,7 @@ the following organizations for sponsoring the %Taskflow project!
 You are completely free to use, modify, and redistribute any work 
 on top of %Taskflow.
 The source code is available in @ProjectGitHub and is actively
-maintained by @twhuang and his research group at the University of Utah.
+maintained by @twhuang and his research group at the University of Wisconsin at Madison.
 
 */
 

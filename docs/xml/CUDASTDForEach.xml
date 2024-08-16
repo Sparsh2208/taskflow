@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="CUDASTDForEach" kind="page">
     <compoundname>CUDASTDForEach</compoundname>
     <title>Parallel Iterations</title>
@@ -24,6 +24,8 @@
 <sect1 id="CUDASTDForEach_1CUDASTDParallelIterationIncludeTheHeader">
 <title>Include the Header</title>
 <para>You need to include the header file, <computeroutput>taskflow/cuda/algorithm/for_each.hpp</computeroutput>, for using the parallel-iteration algorithm.</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="preprocessor">#include<sp/>&lt;<ref refid="for__each_8hpp" kindref="compound">taskflow/cuda/algorithm/for_each.hpp</ref>&gt;</highlight></codeline>
+</programlisting></para>
 </sect1>
 <sect1 id="CUDASTDForEach_1CUDASTDIndexBasedParallelFor">
 <title>Index-based Parallel Iterations</title>
@@ -73,5 +75,6 @@
 <para>Each iteration is independent of each other and is assigned one kernel thread to run the callable. Since the callable runs on GPU, it must be declared with a <computeroutput>__device__</computeroutput> specifier. </para>
 </sect1>
     </detaileddescription>
+    <location file="cuda_std_algorithms/cuda_std_for_each.dox"/>
   </compounddef>
 </doxygen>

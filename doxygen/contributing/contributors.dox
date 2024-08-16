@@ -9,8 +9,11 @@ namespace tf {
 We are grateful for the following contributors (alphabetic order) to the %Taskflow project:
 
   @li <a href="https://github.com/Neumann-A">Alexander Neumann</a>: made %Taskflow importable from external CMake projects
+  @li <a href="https://github.com/Anesthesia4">Anesthesia4</a>: added unit tests for parallel-transform algorithms  
   @li <a href="https://antonysigma.github.io/">Antony Chan</a>: added unit tests for parallel-transform algorithms  @li <a href="https://github.com/aolofsson">Andreas Olofsson</a>: supported the %Taskflow project through the DARPA IDEA program
   @li <a href="https://github.com/boxerab">Aaron Boxer</a>: fixed compiler warning caused by unsigned-signed conversion
+  @li <a href="https://github.com/bangerth">Wolfgang Bangerth</a>: fixed the redudndant `nullptr` check
+  @li <a href="https://github.com/bkmgit">Benson Muite</a>: fixed compilation errors of the wavefront benchmark
   @li <a href="https://cheng-hsiang-chiu.github.io/">Cheng-Hsiang Chiu</a>: improved the documentation, fixes typos, and test code examples
   @li <a href="https://www.linkedin.com/in/chandrahas-pundru-04552916a/">Chandrahas Pundru</a>: implemented cancellation of submitted taskflows
   @li <a href="https://github.com/clin99">Chun-Xun Lin</a>: co-created the %Taskflow project and designed the core functionalities
@@ -20,6 +23,7 @@ We are grateful for the following contributors (alphabetic order) to the %Taskfl
   @li <a href="https://github.com/dian-lun-lin">Dian-Lun Lin</a>: applied %Taskflow to win the champion award of the IEEE HPEC 2020 %Graph Challenge 
   @li <a href="https://github.com/fstrugar">Filip Strugar</a>: fixed the bugs in fire-and-get taskflow execution and parallel algorithms
   @li <a href="https://github.com/ForgeMistress">Foge Mistress</a>: helped design the executor interface to avoid over-subscribed threads
+  @li <a href="https://github.com/fran6co">Francisco Facioni</a>: improved the interface of %Taskflow exception support through macro
   @li <a href="https://github.com/largerock">George Price</a>: improved the documentation pages and fixed several typos
   @li <a href="https://github.com/totalgee">Glen Fraser</a>: contributed to the design of executor and threadpool
   @li <a href="https://github.com/guannan-git">Guannan Guo</a>: benchmarked different scheduling algorithms and architectures
@@ -27,10 +31,12 @@ We are grateful for the following contributors (alphabetic order) to the %Taskfl
   @li <a href="https://github.com/xq114">Hoildkv</a>: fixed documentation errors in explaining the observer interface of executor
   @li <a href="https://ossia.io/">Jean Michael</a>: integrated %Taskflow to the OSSIA project and reported feedback in comparison to TBB
   @li <a href="https://jw-liu.xyz/">Jiawei Liu</a>: fixed typos in the documentation
+  @li <a href="https://github.com/juliangilbey">Junlian Gilbey</a>: added the explicit link to libatomic on some archs 
   @li <a href="https://github.com/junlinmessi">Junlin Huang</a>: fixed the erroneous template argument in serializer and deserializer
   @li <a href="https://github.com/KingDuckZ">KingDuckZ</a>: helped discover memory leak in the object pool
   @li <a href="https://github.com/Levi-Armstrong">Levi Armstrong</a>: added threads target to the CMake file as an interface library
   @li <a href="https://github.com/LilyWangL">Lily</a>: helped added %Taskflow to the MS vcpkg project
+  @li <a href="https://github.com/longpractice">Longpractice</a>: fixed the MS compilation error for launch-loop algorithm
   @li <a href="https://github.com/burgholzer">Lukas Burgholzer</a>: improved the MAC OS compatibility with the standard variant library
   @li <a href="https://github.com/lrm77">Luke Majors</a>: implemented a sanitizer algorithm to sanitize deadlock control-flow tasks
   @li <a href="https://github.com/McKayMower">McKay Mower</a>: implemented a sanitizer algorithm to sanitize non-reachable control-flow tasks
@@ -39,6 +45,7 @@ We are grateful for the following contributors (alphabetic order) to the %Taskfl
   @li <a href="https://ece.illinois.edu/about/directory/faculty/mdfwong">Martin Wong</a>: supported the %Taskflow project development through NSF and DARPA grant
   @li <a href="https://github.com/mpowelson">Matthew Powelson:</a> fixed the installation error in the cmake script
   @li <a href="https://github.com/Maxi-git">Maxi-git:</a> improved the scheduler by removing redundant iterations in the busy stealing loop
+  @li <a href="https://github.com/Notallthatevil">Nate</a>: fixed the compilation error of priority task queue on MS platforms
   @li <a href="https://github.com/netcan">Netcan</a>: designed a domain-specific graph language to simplify the creation of taskflows
   @li <a href="https://github.com/NanXiao">Nan Xiao</a>: fixed compilation error of unit tests on the Arch platform
   @li <a href="https://www.linkedin.com/in/ojassm25/">Ojas Mithbavkar</a>: implemented cancellation of submitted taskflows
@@ -46,9 +53,11 @@ We are grateful for the following contributors (alphabetic order) to the %Taskfl
   @li <a href="https://github.com/paolobolzoni">Paolo Bolzoni</a>: helped remove extraneous semicolons to suppress extra warning
   @li <a href="https://github.com/patrikhuber">Patrik Huber</a>: fixed the typos of documentation
   @li <a href="https://github.com/p12tic">Povilas Kanapickas</a>: helped design a new scheduling invariant to avoid busy stealing
+  @li <a href="https://github.com/qbojj">qbojj</a>: helped fixed documentation errors related to dependent asynchronous tasking
   @li <a href="https://github.com/PhrygianGates">Zizheng Xiong</a>: added data-parallel programming models through GSoC 2022
   @li <a href="https://github.com/Pursche">Pursche</a>: fixed compilation warning on MSVC
   @li <a href="https://github.com/remz1337">Remi Bedard-Couture</a>: added big object compilation support on MSVC
+  @li <a href="https://github.com/doocman">Robin Soderholm</a>: fixed the runtime error of cudaEvent destructor
   @li <a href="https://soonhokong.github.io/">Soonho Kong</a>: fixed the compilation warning of unused lambda variables
   @li <a href="https://github.com/Milerius">Sztergbaum Roman</a>: improved the CMake file to remove global setting
   @li <a href="https://github.com/tjhei">Timo Heister</a>: fixed documentation typos and integrated %Taskflow to the deal.ii project
@@ -61,7 +70,10 @@ We are grateful for the following contributors (alphabetic order) to the %Taskfl
   @li <a href="https://github.com/innermous">Vladyslav</a>: fixed comment errors in README.md and examples
   @li <a href="https://github.com/Ya-Za">Yasin Zamani</a>: benchmarked the parallel sort with the TBB baseline
   @li <a href="http://yibolin.com/">Yibo Lin</a>: helped design the interface of conditional tasking
+  @li <a href="https://github.com/QiuYilin">Yilin Qiu</a>: helped implement the dependency removal methods in %Taskflow
+  @li <a href="https://github.com/weilewei">Weile</a>: helped added %Taskflow to the compiler explorer interface
   @li <a href="https://guozz.cn/">Zizheng Guo</a>: applied %Taskflow to speed up VLSI timing analysis and shared his feedback
+
 
 Please @ContactUs if we forgot your name!
 
@@ -76,7 +88,7 @@ We are grateful for the following organizations and projects that are using %Tas
 @li <a href="https://www.mydatamodels.com/">MyDataModels</a>: An online platform for self-service machine learning for small data
 @li <a href="https://www.vlsisystemdesign.com/">VSD</a>: An online education platform for VLSI system design using open-source software 
 @li <a href="https://theopenroadproject.org/">OpenRoad</a>: A 24-hour Fully Automatic Layout Generation Flow
-@li <a href="https://github.com/open-ephys">Open Ephys</a>: Open-source tools for neuroscience researchw
+@li <a href="https://github.com/open-ephys">Open Ephys</a>: Open-source tools for neuroscience research
 @li <a href="https://github.com/masc-ucsc/livehd">LiveHD</a>: An infrastructure designed for Live Hardware Development
 @li <a href="https://rosindustrial.org/ric">ROS-Industrial Consortium</a>: Organization for advanced factory automation
 @li <a href="http://www.revealtech.ai/">revealtech.ai</a>: Mobile application with focused and intelligent analytics on the edge
@@ -94,7 +106,7 @@ We are grateful for the following organizations and projects that are using %Tas
 @li <a href="https://github.com/coder137/build_in_cpp">BuildCC</a>: An alternative to Makefiles while using the feature rich C++ language.
 @li <a href="https://github.com/JetBrains-Research/spla">SPLA</a>: Generalized sparse linear algebra framework for multi-GPU computations.
 @li <a href="https://github.com/egorodet/MethaneKit">MethaneKit</a>: Modern 3D graphics rendering abstraction API and cross-platform application framework
-@li <a href="https://github.com/GameTechDev/XeGTAO">XeGTAO</a>: Implementation of the Practical Realtime Strategies for Accurate Indirect Occlusion
+@li <a href="https://github.com/GameTechDev/XeGTAO">XeGTAO</a>: Implementation of the Practical Real-time Strategies for Accurate Indirect Occlusion
 @li <a href="https://github.com/fragcolor-xyz/chainblocks">ChainBlocks</a>: A scripting tool to build tools
 @li <a href="https://github.com/maxbachmann/RapidFuzz">RapidFuxx</a>: Rapid fuzzy string matching in Python using various string metrics
 @li <a href="https://github.com/KomodoPlatform/atomicDEX-Desktop">AtomicDEX</a>: Secure wallet and decentralized exchange rolled into one application
@@ -106,8 +118,10 @@ We are grateful for the following organizations and projects that are using %Tas
 @li <a href="https://github.com/rapidsai/cucim">RAPIDS CuCim</a>: An open-source, accelerated computer vision and image processing software library
 @li <a href="https://github.com/tesseract-robotics/tesseract">Tesseract Robotics</a>: Lightweight robotics motion planning environment
 @li <a href="https://github.com/NcStudios/NcEngine">NcEngine</a>: 3D game engine written in C++20 targeting Windows
+@li <a href="https://www.xilinx.com/products/design-tools/vivado.html">AMD Vivao</a>: AMD's software synthesis suite for hardware designs
+@li <a href="https://www.moduleworks.com/">ModuleWorks</a>: Industry-proven ModuleWorks CAD/CAM technology into software solutions
 
-... more at [GitHub](https://github.com/search?q=taskflow&type=Code).
+... more at [GitHub](https://github.com/search?q=taskflow&type=commits).
 
 Please @ContactUs if we forgot your name!
 

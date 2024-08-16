@@ -5,7 +5,7 @@
   <title>Learning from Examples &raquo; Wavefront Parallelism | Taskflow QuickStart</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#22272e" />
 </head>
@@ -87,208 +87,208 @@
 
 <span class="w">  </span><span class="c1">// dump the taskflow</span>
 <span class="w">  </span><span class="n">taskflow</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span></pre><p>The figure below shows the wavefront parallelism in a 3x3 grid:</p><div class="m-graph"><svg style="width: 53.000rem; height: 13.125rem;" viewBox="0.00 0.00 847.67 209.77">
-<g transform="scale(1 1) rotate(0) translate(4 205.77)">
+<span class="p">}</span><span class="w"></span></pre><p>The figure below shows the wavefront parallelism in a 3x3 grid:</p><div class="m-graph"><svg style="width: 60.300rem; height: 20.600rem;" viewBox="0.00 0.00 603.10 206.00">
+<g transform="scale(1 1) rotate(0) translate(4 202)">
 <title>Taskflow</title>
 <g class="m-node m-flat">
 <title>p0x563eef67dc70</title>
-<ellipse cx="44.55" cy="-99.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="44.55" y="-95.58">B_0_0</text>
+<ellipse cx="27.08" cy="-99" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="27.08" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_0_0</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x563eef67dd78</title>
-<ellipse cx="169.64" cy="-127.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="169.64" y="-123.58">B_0_1</text>
+<ellipse cx="117.24" cy="-126" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="117.24" y="-123.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_0_1</text>
 </g>
 <g class="m-edge">
 <title>p0x563eef67dc70&#45;&gt;p0x563eef67dd78</title>
-<path d="M83.82,-108.09C95.4,-110.72 108.27,-113.65 120.41,-116.41"/>
-<polygon points="119.87,-119.88 130.39,-118.68 121.42,-113.05 119.87,-119.88"/>
+<path d="M52.17,-106.38C61.5,-109.24 72.34,-112.56 82.43,-115.65"/>
+<polygon points="81.59,-119.05 92.18,-118.63 83.64,-112.36 81.59,-119.05"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x563eef67e090</title>
-<ellipse cx="169.64" cy="-72.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="169.64" y="-68.58">B_1_0</text>
+<ellipse cx="117.24" cy="-72" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="117.24" y="-69.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_1_0</text>
 </g>
 <g class="m-edge">
 <title>p0x563eef67dc70&#45;&gt;p0x563eef67e090</title>
-<path d="M84.16,-90.92C95.51,-88.43 108.07,-85.67 119.96,-83.06"/>
-<polygon points="120.73,-86.48 129.75,-80.92 119.23,-79.64 120.73,-86.48"/>
+<path d="M52.17,-91.62C61.5,-88.76 72.34,-85.44 82.43,-82.35"/>
+<polygon points="83.64,-85.64 92.18,-79.37 81.59,-78.95 83.64,-85.64"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x563eef67de80</title>
-<ellipse cx="294.74" cy="-155.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="294.74" y="-151.58">B_0_2</text>
+<ellipse cx="207.39" cy="-153" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="207.39" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_0_2</text>
 </g>
 <g class="m-edge">
 <title>p0x563eef67dd78&#45;&gt;p0x563eef67de80</title>
-<path d="M208.92,-136.09C220.5,-138.72 233.36,-141.65 245.5,-144.41"/>
-<polygon points="244.96,-147.88 255.49,-146.68 246.51,-141.05 244.96,-147.88"/>
+<path d="M142.32,-133.38C151.65,-136.24 162.5,-139.56 172.58,-142.65"/>
+<polygon points="171.75,-146.05 182.33,-145.63 173.8,-139.36 171.75,-146.05"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x563eef67e198</title>
-<ellipse cx="294.74" cy="-100.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="294.74" y="-96.58">B_1_1</text>
+<ellipse cx="207.39" cy="-99" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="207.39" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_1_1</text>
 </g>
 <g class="m-edge">
 <title>p0x563eef67dd78&#45;&gt;p0x563eef67e198</title>
-<path d="M209.25,-118.92C220.6,-116.43 233.16,-113.67 245.05,-111.06"/>
-<polygon points="245.82,-114.48 254.84,-108.92 244.32,-107.64 245.82,-114.48"/>
+<path d="M142.32,-118.62C151.65,-115.76 162.5,-112.44 172.58,-109.35"/>
+<polygon points="173.8,-112.64 182.33,-106.37 171.75,-105.95 173.8,-112.64"/>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e090&#45;&gt;p0x563eef67e198</title>
-<path d="M208.92,-81.09C220.5,-83.72 233.36,-86.65 245.5,-89.41"/>
-<polygon points="244.96,-92.88 255.49,-91.68 246.51,-86.05 244.96,-92.88"/>
+<path d="M142.32,-79.38C151.65,-82.24 162.5,-85.56 172.58,-88.65"/>
+<polygon points="171.75,-92.05 182.33,-91.63 173.8,-85.36 171.75,-92.05"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x563eef67e4b0</title>
-<ellipse cx="294.74" cy="-45.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="294.74" y="-41.58">B_2_0</text>
+<ellipse cx="207.39" cy="-45" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="207.39" y="-42.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_2_0</text>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e090&#45;&gt;p0x563eef67e4b0</title>
-<path d="M209.25,-63.92C220.6,-61.43 233.16,-58.67 245.05,-56.06"/>
-<polygon points="245.82,-59.48 254.84,-53.92 244.32,-52.64 245.82,-59.48"/>
+<path d="M142.32,-64.62C151.65,-61.76 162.5,-58.44 172.58,-55.35"/>
+<polygon points="173.8,-58.64 182.33,-52.37 171.75,-51.95 173.8,-58.64"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x563eef67df88</title>
-<ellipse cx="419.83" cy="-183.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="419.83" y="-179.58">B_0_3</text>
+<ellipse cx="297.55" cy="-180" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="297.55" y="-177.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_0_3</text>
 </g>
 <g class="m-edge">
 <title>p0x563eef67de80&#45;&gt;p0x563eef67df88</title>
-<path d="M334.01,-164.09C345.59,-166.72 358.46,-169.65 370.6,-172.41"/>
-<polygon points="370.06,-175.88 380.58,-174.68 371.61,-169.05 370.06,-175.88"/>
+<path d="M232.48,-160.38C241.81,-163.24 252.66,-166.56 262.74,-169.65"/>
+<polygon points="261.9,-173.05 272.49,-172.63 263.95,-166.36 261.9,-173.05"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x563eef67e2a0</title>
-<ellipse cx="419.83" cy="-128.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="419.83" y="-124.58">B_1_2</text>
+<ellipse cx="297.55" cy="-126" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="297.55" y="-123.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_1_2</text>
 </g>
 <g class="m-edge">
 <title>p0x563eef67de80&#45;&gt;p0x563eef67e2a0</title>
-<path d="M334.35,-146.92C345.7,-144.43 358.26,-141.67 370.15,-139.06"/>
-<polygon points="370.92,-142.48 379.94,-136.92 369.42,-135.64 370.92,-142.48"/>
+<path d="M232.48,-145.62C241.81,-142.76 252.66,-139.44 262.74,-136.35"/>
+<polygon points="263.95,-139.64 272.49,-133.37 261.9,-132.95 263.95,-139.64"/>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e198&#45;&gt;p0x563eef67e2a0</title>
-<path d="M334.01,-109.09C345.59,-111.72 358.46,-114.65 370.6,-117.41"/>
-<polygon points="370.06,-120.88 380.58,-119.68 371.61,-114.05 370.06,-120.88"/>
+<path d="M232.48,-106.38C241.81,-109.24 252.66,-112.56 262.74,-115.65"/>
+<polygon points="261.9,-119.05 272.49,-118.63 263.95,-112.36 261.9,-119.05"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x563eef67e5b8</title>
-<ellipse cx="419.83" cy="-73.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="419.83" y="-69.58">B_2_1</text>
+<ellipse cx="297.55" cy="-72" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="297.55" y="-69.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_2_1</text>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e198&#45;&gt;p0x563eef67e5b8</title>
-<path d="M334.35,-91.92C345.7,-89.43 358.26,-86.67 370.15,-84.06"/>
-<polygon points="370.92,-87.48 379.94,-81.92 369.42,-80.64 370.92,-87.48"/>
+<path d="M232.48,-91.62C241.81,-88.76 252.66,-85.44 262.74,-82.35"/>
+<polygon points="263.95,-85.64 272.49,-79.37 261.9,-78.95 263.95,-85.64"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x563eef67e3a8</title>
-<ellipse cx="544.93" cy="-155.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="544.93" y="-151.58">B_1_3</text>
+<ellipse cx="387.71" cy="-153" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="387.71" y="-150.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_1_3</text>
 </g>
 <g class="m-edge">
 <title>p0x563eef67df88&#45;&gt;p0x563eef67e3a8</title>
-<path d="M459.11,-174.68C470.69,-172.05 483.55,-169.12 495.7,-166.36"/>
-<polygon points="496.71,-169.72 505.68,-164.09 495.15,-162.89 496.71,-169.72"/>
+<path d="M322.64,-172.62C331.97,-169.76 342.81,-166.44 352.9,-163.35"/>
+<polygon points="354.11,-166.64 362.65,-160.37 352.06,-159.95 354.11,-166.64"/>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e2a0&#45;&gt;p0x563eef67e3a8</title>
-<path d="M459.44,-136.85C470.79,-139.34 483.35,-142.1 495.24,-144.71"/>
-<polygon points="494.52,-148.13 505.03,-146.85 496.01,-141.29 494.52,-148.13"/>
+<path d="M322.64,-133.38C331.97,-136.24 342.81,-139.56 352.9,-142.65"/>
+<polygon points="352.06,-146.05 362.65,-145.63 354.11,-139.36 352.06,-146.05"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x563eef67e6c0</title>
-<ellipse cx="544.93" cy="-100.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="544.93" y="-96.58">B_2_2</text>
+<ellipse cx="387.71" cy="-99" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="387.71" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_2_2</text>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e2a0&#45;&gt;p0x563eef67e6c0</title>
-<path d="M459.11,-119.68C470.69,-117.05 483.55,-114.12 495.7,-111.36"/>
-<polygon points="496.71,-114.72 505.68,-109.09 495.15,-107.89 496.71,-114.72"/>
+<path d="M322.64,-118.62C331.97,-115.76 342.81,-112.44 352.9,-109.35"/>
+<polygon points="354.11,-112.64 362.65,-106.37 352.06,-105.95 354.11,-112.64"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x563eef67e7c8</title>
-<ellipse cx="670.02" cy="-127.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="670.02" y="-123.58">B_2_3</text>
+<ellipse cx="477.86" cy="-126" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="477.86" y="-123.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_2_3</text>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e3a8&#45;&gt;p0x563eef67e7c8</title>
-<path d="M584.2,-146.68C595.78,-144.05 608.65,-141.12 620.79,-138.36"/>
-<polygon points="621.8,-141.72 630.78,-136.09 620.25,-134.89 621.8,-141.72"/>
+<path d="M412.8,-145.62C422.13,-142.76 432.97,-139.44 443.06,-136.35"/>
+<polygon points="444.27,-139.64 452.8,-133.37 442.22,-132.95 444.27,-139.64"/>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e4b0&#45;&gt;p0x563eef67e5b8</title>
-<path d="M334.01,-54.09C345.59,-56.72 358.46,-59.65 370.6,-62.41"/>
-<polygon points="370.06,-65.88 380.58,-64.68 371.61,-59.05 370.06,-65.88"/>
+<path d="M232.48,-52.38C241.81,-55.24 252.66,-58.56 262.74,-61.65"/>
+<polygon points="261.9,-65.05 272.49,-64.63 263.95,-58.36 261.9,-65.05"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x563eef67e8d0</title>
-<ellipse cx="419.83" cy="-18.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="419.83" y="-14.58">B_3_0</text>
+<ellipse cx="297.55" cy="-18" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="297.55" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_3_0</text>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e4b0&#45;&gt;p0x563eef67e8d0</title>
-<path d="M334.35,-36.92C345.7,-34.43 358.26,-31.67 370.15,-29.06"/>
-<polygon points="370.92,-32.48 379.94,-26.92 369.42,-25.64 370.92,-32.48"/>
+<path d="M232.48,-37.62C241.81,-34.76 252.66,-31.44 262.74,-28.35"/>
+<polygon points="263.95,-31.64 272.49,-25.37 261.9,-24.95 263.95,-31.64"/>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e5b8&#45;&gt;p0x563eef67e6c0</title>
-<path d="M459.44,-81.85C470.79,-84.34 483.35,-87.1 495.24,-89.71"/>
-<polygon points="494.52,-93.13 505.03,-91.85 496.01,-86.29 494.52,-93.13"/>
+<path d="M322.64,-79.38C331.97,-82.24 342.81,-85.56 352.9,-88.65"/>
+<polygon points="352.06,-92.05 362.65,-91.63 354.11,-85.36 352.06,-92.05"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x563eef67e9d8</title>
-<ellipse cx="544.93" cy="-45.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="544.93" y="-41.58">B_3_1</text>
+<ellipse cx="387.71" cy="-45" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="387.71" y="-42.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_3_1</text>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e5b8&#45;&gt;p0x563eef67e9d8</title>
-<path d="M459.11,-64.68C470.69,-62.05 483.55,-59.12 495.7,-56.36"/>
-<polygon points="496.71,-59.72 505.68,-54.09 495.15,-52.89 496.71,-59.72"/>
+<path d="M322.64,-64.62C331.97,-61.76 342.81,-58.44 352.9,-55.35"/>
+<polygon points="354.11,-58.64 362.65,-52.37 352.06,-51.95 354.11,-58.64"/>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e6c0&#45;&gt;p0x563eef67e7c8</title>
-<path d="M584.54,-108.85C595.89,-111.34 608.45,-114.1 620.34,-116.71"/>
-<polygon points="619.61,-120.13 630.13,-118.85 621.11,-113.29 619.61,-120.13"/>
+<path d="M412.8,-106.38C422.13,-109.24 432.97,-112.56 443.06,-115.65"/>
+<polygon points="442.22,-119.05 452.8,-118.63 444.27,-112.36 442.22,-119.05"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x563eef67eae0</title>
-<ellipse cx="670.02" cy="-72.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="670.02" y="-68.58">B_3_2</text>
+<ellipse cx="477.86" cy="-72" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="477.86" y="-69.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_3_2</text>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e6c0&#45;&gt;p0x563eef67eae0</title>
-<path d="M584.2,-91.68C595.78,-89.05 608.65,-86.12 620.79,-83.36"/>
-<polygon points="621.8,-86.72 630.78,-81.09 620.25,-79.89 621.8,-86.72"/>
+<path d="M412.8,-91.62C422.13,-88.76 432.97,-85.44 443.06,-82.35"/>
+<polygon points="444.27,-85.64 452.8,-79.37 442.22,-78.95 444.27,-85.64"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x563eef67ebe8</title>
-<ellipse cx="795.12" cy="-99.38" rx="44.6" ry="18.27"/>
-<text text-anchor="middle" x="795.12" y="-95.58">B_3_3</text>
+<ellipse cx="568.02" cy="-99" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="568.02" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">B_3_3</text>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e7c8&#45;&gt;p0x563eef67ebe8</title>
-<path d="M709.3,-118.68C720.88,-116.05 733.75,-113.12 745.89,-110.36"/>
-<polygon points="746.9,-113.72 755.87,-108.09 745.34,-106.89 746.9,-113.72"/>
+<path d="M502.95,-118.62C512.28,-115.76 523.13,-112.44 533.21,-109.35"/>
+<polygon points="534.42,-112.64 542.96,-106.37 532.37,-105.95 534.42,-112.64"/>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e8d0&#45;&gt;p0x563eef67e9d8</title>
-<path d="M459.44,-26.85C470.79,-29.34 483.35,-32.1 495.24,-34.71"/>
-<polygon points="494.52,-38.13 505.03,-36.85 496.01,-31.29 494.52,-38.13"/>
+<path d="M322.64,-25.38C331.97,-28.24 342.81,-31.56 352.9,-34.65"/>
+<polygon points="352.06,-38.05 362.65,-37.63 354.11,-31.36 352.06,-38.05"/>
 </g>
 <g class="m-edge">
 <title>p0x563eef67e9d8&#45;&gt;p0x563eef67eae0</title>
-<path d="M584.54,-53.85C595.89,-56.34 608.45,-59.1 620.34,-61.71"/>
-<polygon points="619.61,-65.13 630.13,-63.85 621.11,-58.29 619.61,-65.13"/>
+<path d="M412.8,-52.38C422.13,-55.24 432.97,-58.56 443.06,-61.65"/>
+<polygon points="442.22,-65.05 452.8,-64.63 444.27,-58.36 442.22,-65.05"/>
 </g>
 <g class="m-edge">
 <title>p0x563eef67eae0&#45;&gt;p0x563eef67ebe8</title>
-<path d="M709.64,-80.85C720.98,-83.34 733.54,-86.1 745.43,-88.71"/>
-<polygon points="744.71,-92.13 755.22,-90.85 746.21,-85.29 744.71,-92.13"/>
+<path d="M502.95,-79.38C512.28,-82.24 523.13,-85.56 533.21,-88.65"/>
+<polygon points="532.37,-92.05 542.96,-91.63 534.42,-85.36 532.37,-92.05"/>
 </g>
 </g>
 </svg>
@@ -337,7 +337,7 @@
   <div class="m-container">
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
-        <p>Taskflow handbook is part of the <a href="https://taskflow.github.io">Taskflow project</a>, copyright © <a href="https://tsung-wei-huang.github.io/">Dr. Tsung-Wei Huang</a>, 2018&ndash;2022.<br />Generated by <a href="https://doxygen.org/">Doxygen</a> 1.8.20 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+        <p>Taskflow handbook is part of the <a href="https://taskflow.github.io">Taskflow project</a>, copyright © <a href="https://tsung-wei-huang.github.io/">Dr. Tsung-Wei Huang</a>, 2018&ndash;2024.<br />Generated by <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
       </div>
     </div>
   </div>

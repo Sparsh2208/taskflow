@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="team" kind="page">
     <compoundname>team</compoundname>
     <title>Team</title>
@@ -44,6 +44,8 @@
 <title>Alumni</title>
 <para>Taskflow would not have reached this far without the work of these individuals who ever participated in its development.</para>
 <para><itemizedlist>
+<listitem><para>Guannan Guo </para>
+</listitem>
 <listitem><para>Martin Wong </para>
 </listitem>
 <listitem><para>Chun-Xun Lin </para>
@@ -58,5 +60,6 @@
 <para>Taskflow is contributed by a distributed set of <ref refid="contributors" kindref="compound">Contributors</ref> all around the world. </para>
 </sect1>
     </detaileddescription>
+    <location file="governance/team.dox"/>
   </compounddef>
 </doxygen>

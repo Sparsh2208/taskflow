@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="BenchmarkTaskflow" kind="page">
     <compoundname>BenchmarkTaskflow</compoundname>
     <title>Benchmark Taskflow</title>
@@ -65,55 +65,55 @@
 </programlisting></para>
 <para>We currently implement the following instances that are commonly used by the parallel computing community to evaluate the system performance.</para>
 <para><table rows="13" cols="2"><row>
-<entry thead="yes" align='center'><para>Instance  </para>
-</entry><entry thead="yes" align='center'><para>Description   </para>
+<entry thead="yes" align='center'><para>Instance   </para>
+</entry><entry thead="yes" align='center'><para>Description    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para>binary_tree  </para>
-</entry><entry thead="no" align='center'><para>traverses a complete binary tree   </para>
+<entry thead="no" align='center'><para>binary_tree   </para>
+</entry><entry thead="no" align='center'><para>traverses a complete binary tree    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para>black_scholes  </para>
-</entry><entry thead="no" align='center'><para>computes option pricing with Black-Shcoles Models   </para>
+<entry thead="no" align='center'><para>black_scholes   </para>
+</entry><entry thead="no" align='center'><para>computes option pricing with Black-Shcoles Models    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para>graph_traversal  </para>
-</entry><entry thead="no" align='center'><para>traverses a randomly generated direct acyclic graph   </para>
+<entry thead="no" align='center'><para>graph_traversal   </para>
+</entry><entry thead="no" align='center'><para>traverses a randomly generated direct acyclic graph    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para>linear_chain  </para>
-</entry><entry thead="no" align='center'><para>traverses a linear chain of tasks   </para>
+<entry thead="no" align='center'><para>linear_chain   </para>
+</entry><entry thead="no" align='center'><para>traverses a linear chain of tasks    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para>mandelbrot  </para>
-</entry><entry thead="no" align='center'><para>exploits imbalanced workloads in a Mandelbrot set   </para>
+<entry thead="no" align='center'><para>mandelbrot   </para>
+</entry><entry thead="no" align='center'><para>exploits imbalanced workloads in a Mandelbrot set    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para>matrix_multiplication  </para>
-</entry><entry thead="no" align='center'><para>multiplies two 2D matrices   </para>
+<entry thead="no" align='center'><para>matrix_multiplication   </para>
+</entry><entry thead="no" align='center'><para>multiplies two 2D matrices    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para>mnist  </para>
-</entry><entry thead="no" align='center'><para>trains a neural network-based image classifier on the MNIST dataset   </para>
+<entry thead="no" align='center'><para>mnist   </para>
+</entry><entry thead="no" align='center'><para>trains a neural network-based image classifier on the MNIST dataset    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para>parallel_sort  </para>
-</entry><entry thead="no" align='center'><para>sorts a range of items   </para>
+<entry thead="no" align='center'><para>parallel_sort   </para>
+</entry><entry thead="no" align='center'><para>sorts a range of items    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para>reduce_sum  </para>
-</entry><entry thead="no" align='center'><para>sums a range of items using reduction   </para>
+<entry thead="no" align='center'><para>reduce_sum   </para>
+</entry><entry thead="no" align='center'><para>sums a range of items using reduction    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para>wavefront  </para>
-</entry><entry thead="no" align='center'><para>propagates computations in a 2D grid   </para>
+<entry thead="no" align='center'><para>wavefront   </para>
+</entry><entry thead="no" align='center'><para>propagates computations in a 2D grid    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para>linear_pipeline  </para>
-</entry><entry thead="no" align='center'><para>pipeline scheduling on a linear chain of pipes   </para>
+<entry thead="no" align='center'><para>linear_pipeline   </para>
+</entry><entry thead="no" align='center'><para>pipeline scheduling on a linear chain of pipes    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para>graph_pipeline  </para>
+<entry thead="no" align='center'><para>graph_pipeline   </para>
 </entry><entry thead="no" align='center'><para>pipeline scheduling on a graph of pipes   </para>
 </entry></row>
 </table>
@@ -123,28 +123,28 @@
 <title>Configure Run Options</title>
 <para>We implement consistent options for each benchmark instance. Common options are:</para>
 <para><table rows="5" cols="3"><row>
-<entry thead="yes" align='center'><para>option  </para>
-</entry><entry thead="yes" align='center'><para>value  </para>
-</entry><entry thead="yes" align='center'><para>function   </para>
+<entry thead="yes" align='center'><para>option   </para>
+</entry><entry thead="yes" align='center'><para>value   </para>
+</entry><entry thead="yes" align='center'><para>function    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para><computeroutput>-h</computeroutput>  </para>
-</entry><entry thead="no" align='center'><para>none  </para>
-</entry><entry thead="no" align='center'><para>display the help message   </para>
+<entry thead="no" align='center'><para><computeroutput>-h</computeroutput>   </para>
+</entry><entry thead="no" align='center'><para>none   </para>
+</entry><entry thead="no" align='center'><para>display the help message    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para><computeroutput>-t</computeroutput>  </para>
-</entry><entry thead="no" align='center'><para>integer  </para>
-</entry><entry thead="no" align='center'><para>configure the number of threads to run   </para>
+<entry thead="no" align='center'><para><computeroutput>-t</computeroutput>   </para>
+</entry><entry thead="no" align='center'><para>integer   </para>
+</entry><entry thead="no" align='center'><para>configure the number of threads to run    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para><computeroutput>-r</computeroutput>  </para>
-</entry><entry thead="no" align='center'><para>integer  </para>
-</entry><entry thead="no" align='center'><para>configure the number of rounds to run   </para>
+<entry thead="no" align='center'><para><computeroutput>-r</computeroutput>   </para>
+</entry><entry thead="no" align='center'><para>integer   </para>
+</entry><entry thead="no" align='center'><para>configure the number of rounds to run    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para><computeroutput>-m</computeroutput>  </para>
-</entry><entry thead="no" align='center'><para>string  </para>
+<entry thead="no" align='center'><para><computeroutput>-m</computeroutput>   </para>
+</entry><entry thead="no" align='center'><para>string   </para>
 </entry><entry thead="no" align='center'><para>configure the baseline models to run, tbb, omp, or tf   </para>
 </entry></row>
 </table>
@@ -184,5 +184,6 @@
 </sect2>
 </sect1>
     </detaileddescription>
+    <location file="install/benchmark_taskflow.dox"/>
   </compounddef>
 </doxygen>

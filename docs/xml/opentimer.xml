@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="opentimer" kind="page">
     <compoundname>opentimer</compoundname>
     <title>Static Timing Analysis</title>
@@ -40,30 +40,30 @@
 <title>Programming Effort</title>
 <para>The table below measures the software costs of two OpenTimer versions using the Linux tool <ulink url="https://dwheeler.com/sloccount/">SLOCCount</ulink>. In OpenTimer v2, a large amount of exhaustive OpenMP dependency clauses that were used to carry out task dependencies are now replaced with only a few lines of flexible Taskflow code (9123 vs 4482). The maximum cyclomatic complexity in a single function is reduced from 58 to 20, due to Taskflow&apos;s programmability.</para>
 <para> <table rows="3" cols="5"><row>
-<entry thead="yes" align='center'><para>Tool  </para>
-</entry><entry thead="yes" align='center'><para>Task Model  </para>
-</entry><entry thead="yes" align='center'><para>Lines of Code  </para>
-</entry><entry thead="yes" align='center'><para>Cyclomatic Complexity  </para>
-</entry><entry thead="yes" align='center'><para>Cost   </para>
+<entry thead="yes" align='center'><para>Tool   </para>
+</entry><entry thead="yes" align='center'><para>Task Model   </para>
+</entry><entry thead="yes" align='center'><para>Lines of Code   </para>
+</entry><entry thead="yes" align='center'><para>Cyclomatic Complexity   </para>
+</entry><entry thead="yes" align='center'><para>Cost    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para>OpenTimer v1  </para>
-</entry><entry thead="no" align='center'><para>OpenMP 4.5  </para>
-</entry><entry thead="no" align='center'><para>9123  </para>
-</entry><entry thead="no" align='center'><para>58  </para>
-</entry><entry thead="no" align='center'><para>$275,287   </para>
+<entry thead="no" align='center'><para>OpenTimer v1   </para>
+</entry><entry thead="no" align='center'><para>OpenMP 4.5   </para>
+</entry><entry thead="no" align='center'><para>9123   </para>
+</entry><entry thead="no" align='center'><para>58   </para>
+</entry><entry thead="no" align='center'><para>$275,287    </para>
 </entry></row>
 <row>
-<entry thead="no" align='center'><para>OpenTimer v2  </para>
-</entry><entry thead="no" align='center'><para>Taskflow  </para>
-</entry><entry thead="no" align='center'><para>4482  </para>
-</entry><entry thead="no" align='center'><para>20  </para>
+<entry thead="no" align='center'><para>OpenTimer v2   </para>
+</entry><entry thead="no" align='center'><para>Taskflow   </para>
+</entry><entry thead="no" align='center'><para>4482   </para>
+</entry><entry thead="no" align='center'><para>20   </para>
 </entry><entry thead="no" align='center'><para>$130,523   </para>
 </entry></row>
 </table>
 </para>
 <para>OpenTimer v1 relied on a pipeline data structure to adtop loop parallelism with OpenMP. We found it very difficult to go beyond this paradigm because of the insufficient support for dynamic dependencies in OpenMP. With Taskflow in place, we can break this bottleneck and easily model both static and dynamic task dependencies at programming time and runtime. The task dependency graph flows computations naturally with the timing graph, providing improved asynchrony and performance. The following figure shows a task graph to carry one iteration of timing update.</para>
-<para><dotfile name="/Users/twhuang/Code/taskflow/doxygen/images/opentimer_4.dot"></dotfile>
+<para><dotfile name="/home/thuang295/Code/taskflow/doxygen/images/opentimer_4.dot"></dotfile>
 </para>
 </sect1>
 <sect1 id="opentimer_1UseCaseOpenTimerPerformanceImprovement">
@@ -92,5 +92,6 @@
 </para>
 </sect1>
     </detaileddescription>
+    <location file="usecases/opentimer.dox"/>
   </compounddef>
 </doxygen>

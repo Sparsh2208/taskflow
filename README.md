@@ -6,7 +6,7 @@
 [![Windows](https://github.com/taskflow/taskflow/workflows/Windows/badge.svg)](https://github.com/taskflow/taskflow/actions?query=workflow%3AWindows)
 [![Wiki](image/api-doc.svg)][documentation]
 [![TFProf](image/tfprof.svg)](https://taskflow.github.io/tfprof/)
-[![Cite](image/cite-tpds.svg)][TPDS21]
+[![Cite](image/cite-tpds.svg)][TPDS22]
 
 Taskflow helps you quickly write parallel and heterogeneous task programs in modern C++
 
@@ -22,7 +22,7 @@ Taskflow lets you quickly implement task decomposition strategies
 that incorporate both regular and irregular compute patterns,
 together with an efficient *work-stealing* scheduler to optimize your multithreaded performance.
 
-| [Static Tasking](#get-started-with-taskflow) | [Dynamic Tasking](#dynamic-tasking) |
+| [Static Tasking](#start-your-first-taskflow-program) | [Subflow Tasking](#create-a-subflow-graph) |
 | :------------: | :-------------: |
 | ![](image/static_graph.svg) | <img align="right" src="image/dynamic_graph.svg" width="100%"> |
 
@@ -30,7 +30,7 @@ Taskflow supports conditional tasking for you to make rapid control-flow decisio
 across dependent tasks to implement cycles and conditions that were otherwise difficult to do
 with existing tools.
 
-| [Conditional Tasking](#conditional-tasking) |
+| [Conditional Tasking](#integrate-control-flow-to-a-task-graph) |
 | :-----------------: |
 | ![](image/condition.svg) |
 
@@ -38,7 +38,7 @@ Taskflow is composable. You can create large parallel graphs through
 composition of modular and reusable blocks that are easier to optimize
 at an individual scope.
 
-| [Taskflow Composition](#composable-tasking) |
+| [Taskflow Composition](#compose-task-graphs) |
 | :---------------: |
 |![](image/framework.svg)|
 
@@ -46,7 +46,7 @@ Taskflow supports heterogeneous tasking for you to
 accelerate a wide range of scientific computing applications
 by harnessing the power of CPU-GPU collaborative computing.
 
-| [Concurrent CPU-GPU Tasking](#concurrent-cpu-gpu-tasking) |
+| [Concurrent CPU-GPU Tasking](#offload-a-task-to-a-gpu) |
 | :-----------------: |
 | ![](image/cudaflow.svg) |
 
@@ -77,6 +77,7 @@ The following program (`simple.cpp`) creates four tasks
 `A`, `B`, `C`, and `D`, where `A` runs before `B` and `C`, and `D`
 runs after `B` and `C`.
 When `A` finishes, `B` and `C` can run in parallel.
+Try it live on [Compiler Explorer (godbolt)](https://godbolt.org/z/j8hx3xnnx)!
 
 
 
@@ -110,7 +111,7 @@ tell the compiler to include the [headers](./taskflow/).
 
 ```bash
 ~$ git clone https://github.com/taskflow/taskflow.git  # clone it only once
-~$ g++ -std=c++17 examples/simple.cpp -I. -O2 -pthread -o simple
+~$ g++ -std=c++20 examples/simple.cpp -I. -O2 -pthread -o simple
 ~$ ./simple
 TaskA
 TaskC 
@@ -275,26 +276,25 @@ f1_module_task.succeed(f2A, f2B)
 ## Launch Asynchronous Tasks
 
 Taskflow supports *asynchronous* tasking.
-You can launch tasks asynchronously to incorporate independent, dynamic 
-parallelism in your taskflows.
+You can launch tasks asynchronously to dynamically explore task graph parallelism.
 
 ```cpp
 tf::Executor executor;
-tf::Taskflow taskflow;
 
 // create asynchronous tasks directly from an executor
-tf::Future<std::optional<int>> future = executor.async([](){ 
+std::future<int> future = executor.async([](){ 
   std::cout << "async task returns 1\n";
   return 1;
 }); 
-executor.silent_async([](){ std::cout << "async task of no return\n"; });
+executor.silent_async([](){ std::cout << "async task does not return\n"; });
 
-// launch an asynchronous task from a running task
-taskflow.emplace([&](){
-  executor.async([](){ std::cout << "async task within a task\n"; });
-});
+// create asynchronous tasks with dynamic dependencies
+tf::AsyncTask A = executor.silent_dependent_async([](){ printf("A\n"); });
+tf::AsyncTask B = executor.silent_dependent_async([](){ printf("B\n"); }, A);
+tf::AsyncTask C = executor.silent_dependent_async([](){ printf("C\n"); }, A);
+tf::AsyncTask D = executor.silent_dependent_async([](){ printf("D\n"); }, B, C);
 
-executor.run(taskflow).wait();
+executor.wait_for_all();
 ```
 
 ## Execute a Taskflow
@@ -381,12 +381,15 @@ To use Taskflow, you only need a compiler that supports C++17:
 + GNU C++ Compiler at least v8.4 with -std=c++17
 + Clang C++ Compiler at least v6.0 with -std=c++17
 + Microsoft Visual Studio at least v19.27 with /std:c++17
-+ AppleClang Xode Version at least v12.0 with -std=c++17
++ AppleClang Xcode Version at least v12.0 with -std=c++17
 + Nvidia CUDA Toolkit and Compiler (nvcc) at least v11.1 with -std=c++17
 + Intel C++ Compiler at least v19.0.1 with -std=c++17
 + Intel DPC++ Clang Compiler at least v13.0.0 with -std=c++17 and SYCL20
 
 Taskflow works on Linux, Windows, and Mac OS X.
+
+Although %Taskflow supports primarily C++17, you can enable C++20 compilation
+through `-std=c++20` to achieve better performance due to new C++20 features.
 
 # Learn More about Taskflow
 
@@ -406,7 +409,7 @@ to learn more about Taskflow. To get involved:
 We are committed to support trustworthy developments for 
 both academic and industrial research projects in parallel 
 and heterogeneous computing. 
-If you are using Taskflow, please cite the following paper we publised at 2021 IEEE TPDS:
+If you are using Taskflow, please cite the following paper we published at 2021 IEEE TPDS:
 
 + Tsung-Wei Huang, Dian-Lun Lin, Chun-Xun Lin, and Yibo Lin, &quot;[Taskflow: A Lightweight Parallel and Heterogeneous Task Graph Computing System](https://tsung-wei-huang.github.io/papers/tpds21-taskflow.pdf),&quot; <i>IEEE Transactions on Parallel and Distributed Systems (TPDS)</i>, vol. 33, no. 6, pp. 1303-1320, June 2022
 
@@ -446,5 +449,5 @@ You are completely free to re-distribute your work derived from Taskflow.
 [PayMe]:                 https://www.paypal.me/twhuang/10
 [email me]:              mailto:twh760812@gmail.com
 [Cpp Conference 2018]:   https://github.com/CppCon/CppCon2018
-[TPDS21]:                https://tsung-wei-huang.github.io/papers/tpds21-taskflow.pdf
+[TPDS22]:                https://tsung-wei-huang.github.io/papers/tpds21-taskflow.pdf
 

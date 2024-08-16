@@ -5,7 +5,7 @@
   <title>Cookbook &raquo; Conditional Tasking | Taskflow QuickStart</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i%7CSource+Code+Pro:400,400i,600" />
   <link rel="stylesheet" href="m-dark+documentation.compiled.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#22272e" />
 </head>
@@ -72,7 +72,7 @@
             <li><a href="#CreateAMultiConditionTask">Create a Multi-condition Task</a></li>
           </ul>
         </nav>
-<p>Parallel workloads often require making control-flow decisions across dependent tasks. Taskflow supports an very efficient interface of conditional tasking for users to implement general control flow such as dynamic flow, cycles, and conditionals that are otherwise difficult to do with existing frameworks.</p><section id="CreateAConditionTask"><h2><a href="#CreateAConditionTask">Create a Condition Task</a></h2><p>A condition task evalutes a set of instructions and returns an integer index of the next successor task to execute. The index is defined with respect to the order of its successor construction. The following example creates an if-else block using a single condition task.</p><pre class="m-code"><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="w"> </span><span class="n">tf</span><span class="o">::</span><span class="n">Taskflow</span><span class="w"> </span><span class="n">taskflow</span><span class="p">;</span><span class="w"></span>
+<p>Parallel workloads often require making control-flow decisions across dependent tasks. Taskflow supports an very efficient interface of conditional tasking for users to implement general control flow such as dynamic flow, cycles, and conditionals that are otherwise difficult to do with existing frameworks.</p><section id="CreateAConditionTask"><h2><a href="#CreateAConditionTask">Create a Condition Task</a></h2><p>A condition task evaluates a set of instructions and returns an integer index of the next successor task to execute. The index is defined with respect to the order of its successor construction. The following example creates an if-else block using a single condition task.</p><pre class="m-code"><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="w"> </span><span class="n">tf</span><span class="o">::</span><span class="n">Taskflow</span><span class="w"> </span><span class="n">taskflow</span><span class="p">;</span><span class="w"></span>
 <span class="w"> </span><span class="mi">2</span><span class="o">:</span><span class="w"></span>
 <span class="w"> </span><span class="mi">3</span><span class="o">:</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">init</span><span class="p">,</span><span class="w"> </span><span class="n">cond</span><span class="p">,</span><span class="w"> </span><span class="n">yes</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">taskflow</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="w"></span>
 <span class="w"> </span><span class="mi">4</span><span class="o">:</span><span class="w">  </span><span class="p">[]</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
@@ -83,45 +83,45 @@
 <span class="w"> </span><span class="mi">9</span><span class="o">:</span><span class="w"></span>
 <span class="mi">10</span><span class="o">:</span><span class="w"> </span><span class="n">cond</span><span class="p">.</span><span class="n">succeed</span><span class="p">(</span><span class="n">init</span><span class="p">)</span><span class="w"></span>
 <span class="mi">11</span><span class="o">:</span><span class="w">     </span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">yes</span><span class="p">,</span><span class="w"> </span><span class="n">no</span><span class="p">);</span><span class="w">  </span><span class="c1">// executes yes if cond returns 0</span>
-<span class="mi">12</span><span class="o">:</span><span class="w">                         </span><span class="c1">// executes no  if cond returns 1</span></pre><div class="m-graph"><svg style="width: 19.250rem; height: 6.250rem;" viewBox="0.00 0.00 308.40 99.77">
-<g transform="scale(1 1) rotate(0) translate(4 95.77)">
+<span class="mi">12</span><span class="o">:</span><span class="w">                         </span><span class="c1">// executes no  if cond returns 1</span></pre><div class="m-graph"><svg style="width: 26.300rem; height: 9.800rem;" viewBox="0.00 0.00 262.60 98.00">
+<g transform="scale(1 1) rotate(0) translate(4 94)">
 <title>Taskflow</title>
 <g class="m-node m-flat">
 <title>p0x7f9e1e700030</title>
-<ellipse cx="27" cy="-45.38" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="27" y="-41.58">init</text>
+<ellipse cx="27" cy="-45" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-42.5" font-family="Helvetica,sans-Serif" font-size="10.00">init</text>
 </g>
 <g class="m-node">
 <title>p0x7f9e1e700140</title>
-<polygon points="143,-71.38 91,-45.38 143,-19.38 195,-45.38 143,-71.38"/>
-<text text-anchor="middle" x="143" y="-41.58">cond</text>
+<polygon points="124.3,-63 91.2,-45 124.3,-27 157.4,-45 124.3,-63"/>
+<text text-anchor="middle" x="124.3" y="-42.5" font-family="Helvetica,sans-Serif" font-size="10.00">cond</text>
 </g>
 <g class="m-edge">
 <title>p0x7f9e1e700030&#45;&gt;p0x7f9e1e700140</title>
-<path d="M54.15,-45.38C62.17,-45.38 71.35,-45.38 80.68,-45.38"/>
-<polygon points="80.82,-48.88 90.82,-45.38 80.82,-41.88 80.82,-48.88"/>
+<path d="M54.04,-45C62.37,-45 71.82,-45 80.99,-45"/>
+<polygon points="81.17,-48.5 91.17,-45 81.17,-41.5 81.17,-48.5"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x7f9e1e700250</title>
-<ellipse cx="270.7" cy="-73.38" rx="29.9" ry="18.27"/>
-<text text-anchor="middle" x="270.7" y="-69.58">yes</text>
+<ellipse cx="227.6" cy="-72" rx="27" ry="18"/>
+<text text-anchor="middle" x="227.6" y="-69.5" font-family="Helvetica,sans-Serif" font-size="10.00">yes</text>
 </g>
 <g class="m-edge">
 <title>p0x7f9e1e700140&#45;&gt;p0x7f9e1e700250</title>
-<path stroke-dasharray="5,2" d="M179.35,-53.26C195.95,-56.96 215.73,-61.36 232.55,-65.11"/>
-<polygon points="232.06,-68.59 242.58,-67.34 233.58,-61.75 232.06,-68.59"/>
-<text text-anchor="middle" x="218" y="-67.58">0</text>
+<path stroke-dasharray="5,2" d="M147.03,-50.79C160.16,-54.29 177.19,-58.83 192.13,-62.81"/>
+<polygon points="191.49,-66.27 202.06,-65.46 193.3,-59.5 191.49,-66.27"/>
+<text text-anchor="middle" x="179.1" y="-63" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7f9e1e700360</title>
-<ellipse cx="270.7" cy="-18.38" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="270.7" y="-14.58">no</text>
+<ellipse cx="227.6" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="227.6" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">no</text>
 </g>
 <g class="m-edge">
 <title>p0x7f9e1e700140&#45;&gt;p0x7f9e1e700360</title>
-<path stroke-dasharray="5,2" d="M179.68,-37.72C196.87,-34.03 217.42,-29.61 234.54,-25.94"/>
-<polygon points="235.66,-29.28 244.7,-23.75 234.19,-22.43 235.66,-29.28"/>
-<text text-anchor="middle" x="218" y="-35.58">1</text>
+<path stroke-dasharray="5,2" d="M147.03,-39.21C160.16,-35.71 177.19,-31.17 192.13,-27.19"/>
+<polygon points="193.3,-30.5 202.06,-24.54 191.49,-23.73 193.3,-30.5"/>
+<text text-anchor="middle" x="179.1" y="-34" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 </g>
 </svg>
@@ -140,40 +140,40 @@
 <span class="mi">13</span><span class="o">:</span><span class="w"> </span><span class="n">init</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">cond</span><span class="p">);</span><span class="w"></span>
 <span class="mi">14</span><span class="o">:</span><span class="w"> </span><span class="n">cond</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span><span class="w"> </span><span class="n">stop</span><span class="p">);</span><span class="w">  </span><span class="c1">// returns 0 to &#39;cond&#39; or 1 to &#39;stop&#39;</span>
 <span class="mi">15</span><span class="o">:</span><span class="w"></span>
-<span class="mi">16</span><span class="o">:</span><span class="w"> </span><span class="n">executor</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">taskflow</span><span class="p">).</span><span class="n">wait</span><span class="p">();</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 19.688rem; height: 6.000rem;" viewBox="0.00 0.00 315.47 96.00">
-<g transform="scale(1 1) rotate(0) translate(4 92)">
+<span class="mi">16</span><span class="o">:</span><span class="w"> </span><span class="n">executor</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">taskflow</span><span class="p">).</span><span class="n">wait</span><span class="p">();</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 26.300rem; height: 7.300rem;" viewBox="0.00 0.00 262.60 73.00">
+<g transform="scale(1 1) rotate(0) translate(4 69)">
 <title>Taskflow</title>
 <g class="m-node">
 <title>cond</title>
-<polygon points="143,-52 91,-26 143,0 195,-26 143,-52"/>
-<text text-anchor="middle" x="143" y="-22.2">cond</text>
+<polygon points="124.3,-36 91.2,-18 124.3,0 157.4,-18 124.3,-36"/>
+<text text-anchor="middle" x="124.3" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">cond</text>
 </g>
 <g class="m-edge">
 <title>cond&#45;&gt;cond</title>
-<path stroke-dasharray="5,2" d="M130.8,-45.91C127.86,-58.25 131.93,-70 143,-70 150.96,-70 155.3,-63.93 156.02,-55.94"/>
-<polygon points="159.5,-55.59 155.2,-45.91 152.52,-56.16 159.5,-55.59"/>
-<text text-anchor="middle" x="143" y="-75.2">0</text>
+<path stroke-dasharray="5,2" d="M116.24,-31.67C113.02,-42.66 115.71,-54 124.3,-54 130.21,-54 133.32,-48.64 133.65,-41.72"/>
+<polygon points="137.1,-41.14 132.36,-31.67 130.16,-42.03 137.1,-41.14"/>
+<text text-anchor="middle" x="124.3" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>stop</title>
-<ellipse cx="274.23" cy="-26" rx="33.47" ry="18.27"/>
-<text text-anchor="middle" x="274.23" y="-22.2">stop</text>
+<ellipse cx="227.6" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="227.6" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">stop</text>
 </g>
 <g class="m-edge">
 <title>cond&#45;&gt;stop</title>
-<path stroke-dasharray="5,2" d="M195.08,-26C206.85,-26 219.26,-26 230.63,-26"/>
-<polygon points="230.73,-29.5 240.73,-26 230.73,-22.5 230.73,-29.5"/>
-<text text-anchor="middle" x="218" y="-31.2">1</text>
+<path stroke-dasharray="5,2" d="M157.63,-18C167.97,-18 179.48,-18 190.09,-18"/>
+<polygon points="190.32,-21.5 200.32,-18 190.32,-14.5 190.32,-21.5"/>
+<text text-anchor="middle" x="179.1" y="-21" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node m-flat">
 <title>init</title>
-<ellipse cx="27" cy="-26" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="27" y="-22.2">init</text>
+<ellipse cx="27" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">init</text>
 </g>
 <g class="m-edge">
 <title>init&#45;&gt;cond</title>
-<path d="M54.15,-26C62.17,-26 71.35,-26 80.68,-26"/>
-<polygon points="80.82,-29.5 90.82,-26 80.82,-22.5 80.82,-29.5"/>
+<path d="M54.04,-18C62.37,-18 71.82,-18 80.99,-18"/>
+<polygon points="81.17,-21.5 91.17,-18 81.17,-14.5 81.17,-21.5"/>
 </g>
 </g>
 </svg>
@@ -209,169 +209,169 @@
 <span class="n">cond_2</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="n">H</span><span class="p">);</span><span class="w">       </span><span class="c1">// return 0 to &#39;G&#39; or 1 to &#39;H&#39;</span>
 <span class="n">cond_3</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">cond_3</span><span class="p">,</span><span class="w"> </span><span class="n">L</span><span class="p">);</span><span class="w">  </span><span class="c1">// return 0 to &#39;cond_3&#39; or 1 to &#39;L&#39;</span>
 
-<span class="n">taskflow</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">);</span><span class="w"></span></pre><p>The above code creates three condition tasks: (1) a condition task <code>cond_1</code> that loops back to <code>B</code> on returning <code>0</code>, or proceeds to <code>E</code> on returning <code>1</code>, (2) a condition task <code>cond_2</code> that goes to <code>G</code> on returning <code>0</code>, or <code>H</code> on returning <code>1</code>, (3) a condition task <code>cond_3</code> that loops back to itself on returning <code>0</code>, or proceeds to <code>L</code> on returning <code>1</code></p><div class="m-graph"><svg style="width: 61.500rem; height: 12.688rem;" viewBox="0.00 0.00 984.00 203.38">
-<g transform="scale(1 1) rotate(0) translate(4 199.38)">
+<span class="n">taskflow</span><span class="p">.</span><span class="n">dump</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">);</span><span class="w"></span></pre><p>The above code creates three condition tasks: (1) a condition task <code>cond_1</code> that loops back to <code>B</code> on returning <code>0</code>, or proceeds to <code>E</code> on returning <code>1</code>, (2) a condition task <code>cond_2</code> that goes to <code>G</code> on returning <code>0</code>, or <code>H</code> on returning <code>1</code>, (3) a condition task <code>cond_3</code> that loops back to itself on returning <code>0</code>, or proceeds to <code>L</code> on returning <code>1</code></p><div class="m-graph"><svg style="width: 81.000rem; height: 19.200rem;" viewBox="0.00 0.00 809.74 192.00">
+<g transform="scale(1 1) rotate(0) translate(4 188)">
 <title>Taskflow</title>
 <g class="m-node m-flat">
 <title>p0x7fecbdc02830</title>
-<ellipse cx="27" cy="-104" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="27" y="-100.2">A</text>
+<ellipse cx="27" cy="-94" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-91.5" font-family="Helvetica,sans-Serif" font-size="10.00">A</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fecbdc02940</title>
-<ellipse cx="118" cy="-132" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="118" y="-128.2">B</text>
+<ellipse cx="118" cy="-122" rx="27" ry="18"/>
+<text text-anchor="middle" x="118" y="-119.5" font-family="Helvetica,sans-Serif" font-size="10.00">B</text>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc02830&#45;&gt;p0x7fecbdc02940</title>
-<path d="M51.85,-111.5C61.53,-114.55 72.88,-118.12 83.37,-121.42"/>
-<polygon points="82.49,-124.81 93.08,-124.48 84.6,-118.14 82.49,-124.81"/>
+<path d="M51.85,-101.5C61.61,-104.57 73.06,-108.18 83.62,-111.5"/>
+<polygon points="82.8,-114.91 93.39,-114.57 84.9,-108.23 82.8,-114.91"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fecbdc02d80</title>
-<ellipse cx="118" cy="-77" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="118" y="-73.2">F</text>
+<ellipse cx="118" cy="-68" rx="27" ry="18"/>
+<text text-anchor="middle" x="118" y="-65.5" font-family="Helvetica,sans-Serif" font-size="10.00">F</text>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc02830&#45;&gt;p0x7fecbdc02d80</title>
-<path d="M51.85,-96.76C61.53,-93.83 72.88,-90.39 83.37,-87.2"/>
-<polygon points="84.53,-90.51 93.08,-84.26 82.5,-83.81 84.53,-90.51"/>
+<path d="M52.32,-86.9C61.82,-84.12 72.87,-80.89 83.12,-77.9"/>
+<polygon points="84.4,-81.17 93.02,-75.01 82.44,-74.45 84.4,-81.17"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fecbdc02a50</title>
-<ellipse cx="252" cy="-177" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="252" y="-173.2">C</text>
+<ellipse cx="224.46" cy="-166" rx="27" ry="18"/>
+<text text-anchor="middle" x="224.46" y="-163.5" font-family="Helvetica,sans-Serif" font-size="10.00">C</text>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc02940&#45;&gt;p0x7fecbdc02a50</title>
-<path d="M142.6,-140.05C163.62,-147.21 194.6,-157.77 218.06,-165.77"/>
-<polygon points="217.01,-169.11 227.61,-169.02 219.27,-162.48 217.01,-169.11"/>
+<path d="M141.15,-131.33C155.97,-137.57 175.69,-145.88 192.11,-152.8"/>
+<polygon points="190.76,-156.03 201.34,-156.68 193.48,-149.57 190.76,-156.03"/>
 </g>
 <g class="m-node">
 <title>p0x7fecbdc03600</title>
-<polygon points="252,-103 182,-77 252,-51 322,-77 252,-103"/>
-<text text-anchor="middle" x="252" y="-73.2">cond_2</text>
+<polygon points="224.46,-86 182.04,-68 224.46,-50 266.87,-68 224.46,-86"/>
+<text text-anchor="middle" x="224.46" y="-65.5" font-family="Helvetica,sans-Serif" font-size="10.00">cond_2</text>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc02d80&#45;&gt;p0x7fecbdc03600</title>
-<path d="M145.08,-77C153.05,-77 162.27,-77 171.88,-77"/>
-<polygon points="171.99,-80.5 181.99,-77 171.99,-73.5 171.99,-80.5"/>
+<path d="M145.09,-68C153.25,-68 162.57,-68 171.86,-68"/>
+<polygon points="171.87,-71.5 181.87,-68 171.87,-64.5 171.87,-71.5"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fecbdc02b60</title>
-<ellipse cx="395" cy="-177" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="395" y="-173.2">D</text>
+<ellipse cx="336.91" cy="-166" rx="27" ry="18"/>
+<text text-anchor="middle" x="336.91" y="-163.5" font-family="Helvetica,sans-Serif" font-size="10.00">D</text>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc02a50&#45;&gt;p0x7fecbdc02b60</title>
-<path d="M279.19,-177C301.35,-177 333.33,-177 357.92,-177"/>
-<polygon points="357.95,-180.5 367.95,-177 357.95,-173.5 357.95,-180.5"/>
+<path d="M251.63,-166C265.84,-166 283.62,-166 299.19,-166"/>
+<polygon points="299.54,-169.5 309.54,-166 299.54,-162.5 299.54,-169.5"/>
 </g>
 <g class="m-node">
 <title>p0x7fecbdc034f0</title>
-<polygon points="529,-174 459,-148 529,-122 599,-148 529,-174"/>
-<text text-anchor="middle" x="529" y="-144.2">cond_1</text>
+<polygon points="443.37,-155 400.96,-137 443.37,-119 485.79,-137 443.37,-155"/>
+<text text-anchor="middle" x="443.37" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">cond_1</text>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc02b60&#45;&gt;p0x7fecbdc034f0</title>
-<path d="M420.83,-171.55C436.02,-168.21 456.06,-163.8 474.7,-159.71"/>
-<polygon points="475.56,-163.11 484.57,-157.54 474.05,-156.27 475.56,-163.11"/>
+<path d="M362.14,-159.27C375.56,-155.55 392.48,-150.85 407.31,-146.73"/>
+<polygon points="408.49,-150.04 417.19,-143.99 406.61,-143.3 408.49,-150.04"/>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc034f0&#45;&gt;p0x7fecbdc02940</title>
-<path stroke-dasharray="5,2" d="M465.5,-145.55C378.86,-142.17 225.08,-136.15 155.27,-133.42"/>
-<polygon points="155.34,-129.92 145.21,-133.03 155.06,-136.91 155.34,-129.92"/>
-<text text-anchor="middle" x="345" y="-146.2">0</text>
+<path stroke-dasharray="5,2" d="M404.95,-135.26C342.33,-132.36 217.1,-126.55 155.26,-123.68"/>
+<polygon points="155.34,-120.18 145.19,-123.21 155.02,-127.17 155.34,-120.18"/>
+<text text-anchor="middle" x="288.41" y="-133" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fecbdc02c70</title>
-<ellipse cx="715" cy="-148" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="715" y="-144.2">E</text>
+<ellipse cx="571.29" cy="-137" rx="27" ry="18"/>
+<text text-anchor="middle" x="571.29" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">E</text>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc034f0&#45;&gt;p0x7fecbdc02c70</title>
-<path stroke-dasharray="5,2" d="M599.04,-148C625.8,-148 655.33,-148 677.76,-148"/>
-<polygon points="677.84,-151.5 687.84,-148 677.84,-144.5 677.84,-151.5"/>
-<text text-anchor="middle" x="622" y="-153.2">1</text>
+<path stroke-dasharray="5,2" d="M485.95,-137C501.4,-137 518.79,-137 533.76,-137"/>
+<polygon points="534.16,-140.5 544.16,-137 534.16,-133.5 534.16,-140.5"/>
+<text text-anchor="middle" x="507.33" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fecbdc031c0</title>
-<ellipse cx="858" cy="-148" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="858" y="-144.2">K</text>
+<ellipse cx="683.74" cy="-137" rx="27" ry="18"/>
+<text text-anchor="middle" x="683.74" y="-134.5" font-family="Helvetica,sans-Serif" font-size="10.00">K</text>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc02c70&#45;&gt;p0x7fecbdc031c0</title>
-<path d="M742.19,-148C764.35,-148 796.33,-148 820.92,-148"/>
-<polygon points="820.95,-151.5 830.95,-148 820.95,-144.5 820.95,-151.5"/>
+<path d="M598.46,-137C612.67,-137 630.45,-137 646.02,-137"/>
+<polygon points="646.37,-140.5 656.37,-137 646.37,-133.5 646.37,-140.5"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fecbdc02e90</title>
-<ellipse cx="395" cy="-81" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="395" y="-77.2">G</text>
+<ellipse cx="336.91" cy="-72" rx="27" ry="18"/>
+<text text-anchor="middle" x="336.91" y="-69.5" font-family="Helvetica,sans-Serif" font-size="10.00">G</text>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc03600&#45;&gt;p0x7fecbdc02e90</title>
-<path stroke-dasharray="5,2" d="M317.31,-78.82C331.13,-79.22 345.27,-79.62 357.58,-79.97"/>
-<polygon points="357.78,-83.47 367.88,-80.26 357.98,-76.48 357.78,-83.47"/>
-<text text-anchor="middle" x="345" y="-84.2">0</text>
+<path stroke-dasharray="5,2" d="M263.78,-69.39C275.42,-69.81 288.17,-70.27 299.67,-70.69"/>
+<polygon points="299.69,-74.19 309.81,-71.05 299.94,-67.19 299.69,-74.19"/>
+<text text-anchor="middle" x="288.41" y="-73" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fecbdc02fa0</title>
-<ellipse cx="395" cy="-26" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="395" y="-22.2">H</text>
+<ellipse cx="336.91" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="336.91" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">H</text>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc03600&#45;&gt;p0x7fecbdc02fa0</title>
-<path stroke-dasharray="5,2" d="M288.22,-64.26C310.57,-56.18 339.3,-45.79 361.17,-37.87"/>
-<polygon points="362.48,-41.12 370.69,-34.43 360.1,-34.54 362.48,-41.12"/>
-<text text-anchor="middle" x="345" y="-51.2">1</text>
+<path stroke-dasharray="5,2" d="M245.72,-58.83C262.23,-51.35 285.84,-40.67 304.76,-32.1"/>
+<polygon points="306.22,-35.28 313.89,-27.97 303.34,-28.91 306.22,-35.28"/>
+<text text-anchor="middle" x="288.41" y="-43" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fecbdc030b0</title>
-<ellipse cx="529" cy="-26" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="529" y="-22.2">I</text>
+<ellipse cx="443.37" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="443.37" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">I</text>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc02fa0&#45;&gt;p0x7fecbdc030b0</title>
-<path d="M422.08,-26C442.06,-26 469.85,-26 491.95,-26"/>
-<polygon points="491.98,-29.5 501.98,-26 491.98,-22.5 491.98,-29.5"/>
+<path d="M364,-18C376.72,-18 392.21,-18 406.06,-18"/>
+<polygon points="406.25,-21.5 416.25,-18 406.25,-14.5 406.25,-21.5"/>
 </g>
 <g class="m-node">
 <title>p0x7fecbdc03710</title>
-<polygon points="715,-52 645,-26 715,0 785,-26 715,-52"/>
-<text text-anchor="middle" x="715" y="-22.2">cond_3</text>
+<polygon points="571.29,-36 528.87,-18 571.29,0 613.7,-18 571.29,-36"/>
+<text text-anchor="middle" x="571.29" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">cond_3</text>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc030b0&#45;&gt;p0x7fecbdc03710</title>
-<path d="M556.36,-26C576.9,-26 606.53,-26 634.57,-26"/>
-<polygon points="634.81,-29.5 644.81,-26 634.81,-22.5 634.81,-29.5"/>
+<path d="M470.46,-18C484.42,-18 502.11,-18 518.71,-18"/>
+<polygon points="518.86,-21.5 528.86,-18 518.86,-14.5 518.86,-21.5"/>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc03710&#45;&gt;p0x7fecbdc03710</title>
-<path stroke-dasharray="5,2" d="M698.83,-46.37C695.23,-58.54 700.62,-70 715,-70 725.22,-70 730.9,-64.21 732.04,-56.49"/>
-<polygon points="735.51,-56.03 731.17,-46.37 728.54,-56.63 735.51,-56.03"/>
-<text text-anchor="middle" x="715" y="-75.2">0</text>
+<path stroke-dasharray="5,2" d="M561.16,-32.04C557.38,-42.91 560.75,-54 571.29,-54 578.53,-54 582.39,-48.76 582.86,-41.95"/>
+<polygon points="586.32,-41.43 581.41,-32.04 579.4,-42.44 586.32,-41.43"/>
+<text text-anchor="middle" x="571.29" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fecbdc032d0</title>
-<ellipse cx="858" cy="-26" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="858" y="-22.2">L</text>
+<ellipse cx="683.74" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="683.74" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">L</text>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc03710&#45;&gt;p0x7fecbdc032d0</title>
-<path stroke-dasharray="5,2" d="M785.26,-26C797.48,-26 809.76,-26 820.61,-26"/>
-<polygon points="820.93,-29.5 830.93,-26 820.93,-22.5 820.93,-29.5"/>
-<text text-anchor="middle" x="808" y="-31.2">1</text>
+<path stroke-dasharray="5,2" d="M613.73,-18C624.47,-18 635.96,-18 646.42,-18"/>
+<polygon points="646.47,-21.5 656.47,-18 646.47,-14.5 646.47,-21.5"/>
+<text text-anchor="middle" x="635.24" y="-21" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fecbdc033e0</title>
-<ellipse cx="949" cy="-26" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="949" y="-22.2">M</text>
+<ellipse cx="774.74" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="774.74" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">M</text>
 </g>
 <g class="m-edge">
 <title>p0x7fecbdc032d0&#45;&gt;p0x7fecbdc033e0</title>
-<path d="M885.22,-26C893.55,-26 902.91,-26 911.82,-26"/>
-<polygon points="911.97,-29.5 921.97,-26 911.97,-22.5 911.97,-29.5"/>
+<path d="M710.97,-18C719.29,-18 728.66,-18 737.56,-18"/>
+<polygon points="737.71,-21.5 747.71,-18 737.71,-14.5 737.71,-21.5"/>
 </g>
 </g>
 </svg>
@@ -383,351 +383,351 @@
 <span class="mi">6</span><span class="o">:</span><span class="w"></span>
 <span class="mi">7</span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="n">num_dependents</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
 <span class="mi">8</span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="n">num_strong_dependents</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"> </span>
-<span class="mi">9</span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="n">num_weak_dependents</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span></pre><p>When you submit a task to an executor, the scheduler starts with tasks of <em>zero dependents</em> (both zero strong and weak dependencies) and continues to execute successive tasks whenever their <em>strong dependencies</em> are met. However, the scheduler skips this rule when executing a condition task and jumps directly to its successors indexed by the return value.</p><div class="m-graph"><svg style="width: 65.375rem; height: 23.250rem;" viewBox="0.00 0.00 1045.82 372.08">
-<g transform="scale(1 1) rotate(0) translate(4 368.08)">
+<span class="mi">9</span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="n">num_weak_dependents</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span></pre><p>When you submit a task to an executor, the scheduler starts with tasks of <em>zero dependents</em> (both zero strong and weak dependencies) and continues to execute successive tasks whenever their <em>strong dependencies</em> are met. However, the scheduler skips this rule when executing a condition task and jumps directly to its successors indexed by the return value.</p><div class="m-graph"><svg style="width: 60.800rem; height: 34.600rem;" viewBox="0.00 0.00 607.80 346.00">
+<g transform="scale(1 1) rotate(0) translate(4 342)">
 <title>G</title>
 <g class="m-node m-flat">
 <title>atask</title>
-<ellipse cx="642.34" cy="-345.69" rx="52.15" ry="18.27"/>
-<text text-anchor="middle" x="642.34" y="-341.89">a task T</text>
+<ellipse cx="368.96" cy="-320" rx="32.93" ry="18"/>
+<text text-anchor="middle" x="368.96" y="-317.5" font-family="Helvetica,sans-Serif" font-size="10.00">a task T</text>
 </g>
 <g class="m-node">
 <title>cond</title>
-<polygon points="642.34,-290.31 472.34,-264.31 642.34,-238.31 812.34,-264.31 642.34,-290.31"/>
-<text text-anchor="middle" x="642.34" y="-260.51">is T a condition task?</text>
+<polygon points="368.96,-265 269.16,-247 368.96,-229 468.76,-247 368.96,-265"/>
+<text text-anchor="middle" x="368.96" y="-244.5" font-family="Helvetica,sans-Serif" font-size="10.00">is T a condition task?</text>
 </g>
 <g class="m-edge">
 <title>atask&#45;&gt;cond</title>
-<path d="M642.34,-327.08C642.34,-319.24 642.34,-309.73 642.34,-300.54"/>
-<polygon points="645.84,-300.41 642.34,-290.41 638.84,-300.41 645.84,-300.41"/>
+<path d="M368.96,-301.81C368.96,-293.79 368.96,-284.05 368.96,-275.07"/>
+<polygon points="372.46,-275.03 368.96,-265.03 365.46,-275.03 372.46,-275.03"/>
 </g>
 <g class="m-node m-flat">
 <title>invokeN</title>
-<ellipse cx="564.34" cy="-165.92" rx="59.29" ry="18.27"/>
-<text text-anchor="middle" x="564.34" y="-162.12">invoke(T)</text>
+<ellipse cx="317.96" cy="-164" rx="36.49" ry="18"/>
+<text text-anchor="middle" x="317.96" y="-161.5" font-family="Helvetica,sans-Serif" font-size="10.00">invoke(T)</text>
 </g>
 <g class="m-edge">
 <title>cond&#45;&gt;invokeN</title>
-<path stroke-dasharray="5,2" d="M624.25,-240.95C612.4,-226.31 596.9,-207.16 584.63,-192"/>
-<polygon points="587.21,-189.62 578.2,-184.04 581.77,-194.02 587.21,-189.62"/>
-<text text-anchor="middle" x="615.84" y="-207.51">no</text>
+<path stroke-dasharray="5,2" d="M359.13,-230.38C351.93,-218.95 342.02,-203.21 333.72,-190.03"/>
+<polygon points="336.58,-188 328.29,-181.4 330.66,-191.73 336.58,-188"/>
+<text text-anchor="middle" x="353.46" y="-203" font-family="Helvetica,sans-Serif" font-size="10.00">no</text>
 </g>
 <g class="m-node m-flat">
 <title>invokeY</title>
-<ellipse cx="814.34" cy="-165.92" rx="79.81" ry="18.27"/>
-<text text-anchor="middle" x="814.34" y="-162.12">R = invoke(T)</text>
+<ellipse cx="471.96" cy="-164" rx="48.72" ry="18"/>
+<text text-anchor="middle" x="471.96" y="-161.5" font-family="Helvetica,sans-Serif" font-size="10.00">R = invoke(T)</text>
 </g>
 <g class="m-edge">
 <title>cond&#45;&gt;invokeY</title>
-<path stroke-dasharray="5,2" d="M677.56,-243.57C706.42,-227.4 747.16,-204.57 776.67,-188.03"/>
-<polygon points="778.43,-191.06 785.44,-183.12 775,-184.95 778.43,-191.06"/>
-<text text-anchor="middle" x="762.34" y="-207.51">yes</text>
+<path stroke-dasharray="5,2" d="M386.9,-231.89C402.7,-219.47 425.95,-201.18 444.15,-186.87"/>
+<polygon points="446.42,-189.54 452.12,-180.61 442.09,-184.04 446.42,-189.54"/>
+<text text-anchor="middle" x="435.96" y="-203" font-family="Helvetica,sans-Serif" font-size="10.00">yes</text>
 </g>
 <g class="m-node m-flat">
 <title>decrement</title>
-<ellipse cx="332.34" cy="-92.15" rx="332.18" ry="18.27"/>
-<text text-anchor="middle" x="332.34" y="-88.35">decrement strong dependencies of each successor of T by one</text>
+<ellipse cx="188.96" cy="-91" rx="188.92" ry="18"/>
+<text text-anchor="middle" x="188.96" y="-88.5" font-family="Helvetica,sans-Serif" font-size="10.00">decrement strong dependencies of each successor of T by one</text>
 </g>
 <g class="m-edge">
 <title>invokeN&#45;&gt;decrement</title>
-<path d="M523.93,-152.42C489.07,-141.64 438.09,-125.87 397.48,-113.31"/>
-<polygon points="398.52,-109.96 387.93,-110.35 396.45,-116.65 398.52,-109.96"/>
+<path d="M294.6,-150.14C276.18,-140 250.07,-125.63 228.41,-113.72"/>
+<polygon points="229.89,-110.53 219.44,-108.78 226.52,-116.67 229.89,-110.53"/>
 </g>
 <g class="m-node m-flat">
 <title>enqueueR</title>
-<ellipse cx="860.34" cy="-92.15" rx="177.47" ry="18.27"/>
-<text text-anchor="middle" x="860.34" y="-88.35">enqueue the R&#45;th successor of T</text>
+<ellipse cx="497.96" cy="-91" rx="101.68" ry="18"/>
+<text text-anchor="middle" x="497.96" y="-88.5" font-family="Helvetica,sans-Serif" font-size="10.00">enqueue the R&#45;th successor of T</text>
 </g>
 <g class="m-edge">
 <title>invokeY&#45;&gt;enqueueR</title>
-<path d="M825.48,-147.55C830.92,-139.06 837.58,-128.67 843.61,-119.25"/>
-<polygon points="846.7,-120.92 849.15,-110.62 840.81,-117.15 846.7,-120.92"/>
+<path d="M478.25,-145.81C481.26,-137.62 484.92,-127.62 488.26,-118.48"/>
+<polygon points="491.57,-119.62 491.72,-109.03 485,-117.22 491.57,-119.62"/>
 </g>
 <g class="m-node m-flat">
 <title>enqueueS</title>
-<ellipse cx="332.34" cy="-18.38" rx="258.6" ry="18.27"/>
-<text text-anchor="middle" x="332.34" y="-14.58">enqueue successors of zero strong dpendencies</text>
+<ellipse cx="188.96" cy="-18" rx="150.9" ry="18"/>
+<text text-anchor="middle" x="188.96" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">enqueue successors of zero strong dependencies</text>
 </g>
 <g class="m-edge">
 <title>decrement&#45;&gt;enqueueS</title>
-<path d="M332.34,-73.41C332.34,-65.5 332.34,-56 332.34,-47.18"/>
-<polygon points="335.84,-46.92 332.34,-36.92 328.84,-46.92 335.84,-46.92"/>
+<path d="M188.96,-72.81C188.96,-64.79 188.96,-55.05 188.96,-46.07"/>
+<polygon points="192.46,-46.03 188.96,-36.03 185.46,-46.03 192.46,-46.03"/>
 </g>
 </g>
 </svg>
-</div><p>Each task has an <em>atomic</em> join counter to keep track of strong dependents that are met at runtime. When a task completes, the join counter is restored to the task&#x27;s strong dependency number in the graph, such that the subsequent execution can reuse the counter again.</p><section id="TaskLevelSchedulingExample"><h3><a href="#TaskLevelSchedulingExample">Example</a></h3><p>Let&#x27;s take a look at an example to understand how task-level scheduling works. Suppose we have the following taskflow of one condition task <code>cond</code> that forms a loop to itself on returning <code>0</code> and moves on to <code>stop</code> on returning <code>1</code>:</p><div class="m-graph"><svg style="width: 19.688rem; height: 6.000rem;" viewBox="0.00 0.00 315.47 96.00">
-<g transform="scale(1 1) rotate(0) translate(4 92)">
+</div><p>Each task has an <em>atomic</em> join counter to keep track of strong dependents that are met at runtime. When a task completes, the join counter is restored to the task&#x27;s strong dependency number in the graph, such that the subsequent execution can reuse the counter again.</p><section id="TaskLevelSchedulingExample"><h3><a href="#TaskLevelSchedulingExample">Example</a></h3><p>Let&#x27;s take a look at an example to understand how task-level scheduling works. Suppose we have the following taskflow of one condition task <code>cond</code> that forms a loop to itself on returning <code>0</code> and moves on to <code>stop</code> on returning <code>1</code>:</p><div class="m-graph"><svg style="width: 26.300rem; height: 7.300rem;" viewBox="0.00 0.00 262.60 73.00">
+<g transform="scale(1 1) rotate(0) translate(4 69)">
 <title>Taskflow</title>
 <g class="m-node">
 <title>cond</title>
-<polygon points="143,-52 91,-26 143,0 195,-26 143,-52"/>
-<text text-anchor="middle" x="143" y="-22.2">cond</text>
+<polygon points="124.3,-36 91.2,-18 124.3,0 157.4,-18 124.3,-36"/>
+<text text-anchor="middle" x="124.3" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">cond</text>
 </g>
 <g class="m-edge">
 <title>cond&#45;&gt;cond</title>
-<path stroke-dasharray="5,2" d="M130.8,-45.91C127.86,-58.25 131.93,-70 143,-70 150.96,-70 155.3,-63.93 156.02,-55.94"/>
-<polygon points="159.5,-55.59 155.2,-45.91 152.52,-56.16 159.5,-55.59"/>
-<text text-anchor="middle" x="143" y="-75.2">0</text>
+<path stroke-dasharray="5,2" d="M116.24,-31.67C113.02,-42.66 115.71,-54 124.3,-54 130.21,-54 133.32,-48.64 133.65,-41.72"/>
+<polygon points="137.1,-41.14 132.36,-31.67 130.16,-42.03 137.1,-41.14"/>
+<text text-anchor="middle" x="124.3" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>stop</title>
-<ellipse cx="274.23" cy="-26" rx="33.47" ry="18.27"/>
-<text text-anchor="middle" x="274.23" y="-22.2">stop</text>
+<ellipse cx="227.6" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="227.6" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">stop</text>
 </g>
 <g class="m-edge">
 <title>cond&#45;&gt;stop</title>
-<path stroke-dasharray="5,2" d="M195.08,-26C206.85,-26 219.26,-26 230.63,-26"/>
-<polygon points="230.73,-29.5 240.73,-26 230.73,-22.5 230.73,-29.5"/>
-<text text-anchor="middle" x="218" y="-31.2">1</text>
+<path stroke-dasharray="5,2" d="M157.63,-18C167.97,-18 179.48,-18 190.09,-18"/>
+<polygon points="190.32,-21.5 200.32,-18 190.32,-14.5 190.32,-21.5"/>
+<text text-anchor="middle" x="179.1" y="-21" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node m-flat">
 <title>init</title>
-<ellipse cx="27" cy="-26" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="27" y="-22.2">init</text>
+<ellipse cx="27" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">init</text>
 </g>
 <g class="m-edge">
 <title>init&#45;&gt;cond</title>
-<path d="M54.15,-26C62.17,-26 71.35,-26 80.68,-26"/>
-<polygon points="80.82,-29.5 90.82,-26 80.82,-22.5 80.82,-29.5"/>
+<path d="M54.04,-18C62.37,-18 71.82,-18 80.99,-18"/>
+<polygon points="81.17,-21.5 91.17,-18 81.17,-14.5 81.17,-21.5"/>
 </g>
 </g>
 </svg>
-</div><p>The scheduler starts with <code>init</code> task because it has no dependencies (both strong and weak dependencies). Then, the scheduler moves on to the condition task <code>cond</code>. If <code>cond</code> returns <code>0</code>, the scheduler enqueues <code>cond</code> and runs it again. If <code>cond</code> returns <code>1</code>, the scheduler enqueues <code>stop</code> and then moves on.</p></section></section><section id="AvoidCommonPitfalls"><h2><a href="#AvoidCommonPitfalls">Avoid Common Pitfalls</a></h2><p>Condition tasks are handy in creasing dynamic and cyclic control flows, but they are also easy to make mistakes. It is your responsibility to ensure a taskflow is properly conditioned. Top things to avoid include <em>no source tasks</em> to start with and <em>task race</em>. The figure below shows common pitfalls and their remedies.</p><div class="m-graph"><svg style="width: 62.062rem; height: 19.688rem;" viewBox="0.00 0.00 993.00 314.77">
-<g transform="scale(1 1) rotate(0) translate(4 310.77)">
+</div><p>The scheduler starts with <code>init</code> task because it has no dependencies (both strong and weak dependencies). Then, the scheduler moves on to the condition task <code>cond</code>. If <code>cond</code> returns <code>0</code>, the scheduler enqueues <code>cond</code> and runs it again. If <code>cond</code> returns <code>1</code>, the scheduler enqueues <code>stop</code> and then moves on.</p></section></section><section id="AvoidCommonPitfalls"><h2><a href="#AvoidCommonPitfalls">Avoid Common Pitfalls</a></h2><p>Condition tasks are handy in creasing dynamic and cyclic control flows, but they are also easy to make mistakes. It is your responsibility to ensure a taskflow is properly conditioned. Top things to avoid include <em>no source tasks</em> to start with and <em>task race</em>. The figure below shows common pitfalls and their remedies.</p><div class="m-graph"><svg style="width: 91.000rem; height: 26.100rem;" viewBox="0.00 0.00 910.00 261.00">
+<g transform="scale(1 1) rotate(0) translate(4 257)">
 <title>Taskflow</title>
 <g class="m-cluster">
 <title>cluster_error1</title>
-<polygon points="8,-106.38 8,-298.77 190,-298.77 190,-106.38 8,-106.38"/>
-<text text-anchor="middle" x="99" y="-281.97">error1: no source tasks</text>
+<polygon points="8,-91 8,-245 150,-245 150,-91 8,-91"/>
+<text text-anchor="middle" x="79" y="-233" font-family="Helvetica,sans-Serif" font-size="10.00">error1: no source tasks</text>
 </g>
 <g class="m-cluster">
 <title>cluster_fix1</title>
-<polygon points="198,-8 198,-291.15 351,-291.15 351,-8 198,-8"/>
-<text text-anchor="middle" x="274.5" y="-274.35">fix1: adds a source</text>
+<polygon points="158,-8 158,-245 300,-245 300,-8 158,-8"/>
+<text text-anchor="middle" x="229" y="-233" font-family="Helvetica,sans-Serif" font-size="10.00">fix1: adds a source</text>
 </g>
 <g class="m-cluster">
 <title>cluster_error2</title>
-<polygon points="359,-106.38 359,-298.77 503,-298.77 503,-106.38 359,-106.38"/>
-<text text-anchor="middle" x="431" y="-281.97">error2: race on D</text>
+<polygon points="308,-91 308,-245 450,-245 450,-91 308,-91"/>
+<text text-anchor="middle" x="379" y="-233" font-family="Helvetica,sans-Serif" font-size="10.00">error2: race on D</text>
 </g>
 <g class="m-cluster">
 <title>cluster_fix2</title>
-<polygon points="511,-8 511,-298.77 755,-298.77 755,-8 511,-8"/>
-<text text-anchor="middle" x="633" y="-281.97">fix2: adds an auxiliary task</text>
+<polygon points="458,-8 458,-245 672,-245 672,-8 458,-8"/>
+<text text-anchor="middle" x="565" y="-233" font-family="Helvetica,sans-Serif" font-size="10.00">fix2: adds an auxiliary task</text>
 </g>
 <g class="m-cluster">
 <title>cluster_risky</title>
-<polygon points="763,-106.38 763,-298.77 977,-298.77 977,-106.38 763,-106.38"/>
-<text text-anchor="middle" x="870" y="-281.97">risky: X might be raced</text>
+<polygon points="680,-91 680,-245 894,-245 894,-91 680,-91"/>
+<text text-anchor="middle" x="787" y="-233" font-family="Helvetica,sans-Serif" font-size="10.00">risky: X might be raced</text>
 </g>
 <g class="m-node">
 <title>e1A</title>
-<polygon points="59,-264.77 32,-238.77 59,-212.77 86,-238.77 59,-264.77"/>
-<text text-anchor="middle" x="59" y="-234.97">A</text>
+<polygon points="58,-218 31,-200 58,-182 85,-200 58,-218"/>
+<text text-anchor="middle" x="58" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">A</text>
 </g>
 <g class="m-edge">
 <title>e1A&#45;&gt;e1A</title>
-<path stroke-dasharray="5,2" d="M77.49,-247.47C90.77,-250.3 104,-247.4 104,-238.77 104,-232.36 96.71,-229.11 87.53,-229.02"/>
-<polygon points="87.07,-225.55 77.49,-230.07 87.8,-232.51 87.07,-225.55"/>
-<text text-anchor="middle" x="109" y="-234.97">0</text>
+<path stroke-dasharray="5,2" d="M75.55,-206.53C89.14,-208.97 103,-206.8 103,-200 103,-194.9 95.2,-192.4 85.57,-192.5"/>
+<polygon points="85.17,-189.03 75.55,-193.47 85.84,-195.99 85.17,-189.03"/>
+<text text-anchor="middle" x="106.5" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>e1B</title>
-<ellipse cx="51" cy="-132.77" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="51" y="-128.97">B</text>
+<ellipse cx="43" cy="-117" rx="27" ry="18"/>
+<text text-anchor="middle" x="43" y="-114.5" font-family="Helvetica,sans-Serif" font-size="10.00">B</text>
 </g>
 <g class="m-edge">
 <title>e1A&#45;&gt;e1B</title>
-<path stroke-dasharray="5,2" d="M57.2,-214.43C56,-198.71 54.4,-177.91 53.12,-161.36"/>
-<polygon points="56.6,-160.91 52.34,-151.21 49.62,-161.45 56.6,-160.91"/>
-<text text-anchor="middle" x="60" y="-181.97">1</text>
+<path stroke-dasharray="5,2" d="M55.18,-183.76C53.18,-172.95 50.43,-158.14 48.06,-145.31"/>
+<polygon points="51.43,-144.33 46.17,-135.13 44.55,-145.6 51.43,-144.33"/>
+<text text-anchor="middle" x="54.5" y="-156" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node m-flat">
 <title>e1C</title>
-<ellipse cx="123" cy="-132.77" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="123" y="-128.97">C</text>
+<ellipse cx="115" cy="-117" rx="27" ry="18"/>
+<text text-anchor="middle" x="115" y="-114.5" font-family="Helvetica,sans-Serif" font-size="10.00">C</text>
 </g>
 <g class="m-edge">
 <title>e1A&#45;&gt;e1C</title>
-<path stroke-dasharray="5,2" d="M68.72,-221.97C79.04,-205.2 95.51,-178.44 107.6,-158.79"/>
-<polygon points="110.72,-160.41 112.98,-150.06 104.76,-156.74 110.72,-160.41"/>
-<text text-anchor="middle" x="99" y="-181.97">2</text>
+<path stroke-dasharray="5,2" d="M66.17,-187.39C74.45,-175.62 87.52,-157.05 98.06,-142.08"/>
+<polygon points="101.02,-143.95 103.91,-133.76 95.29,-139.92 101.02,-143.95"/>
+<text text-anchor="middle" x="92.5" y="-156" font-family="Helvetica,sans-Serif" font-size="10.00">2</text>
 </g>
 <g class="m-node m-flat">
 <title>f1S</title>
-<ellipse cx="249" cy="-238.77" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="249" y="-234.97">S</text>
+<ellipse cx="208" cy="-200" rx="27" ry="18"/>
+<text text-anchor="middle" x="208" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">S</text>
 </g>
 <g class="m-node">
 <title>f1A</title>
-<polygon points="249,-158.77 222,-132.77 249,-106.77 276,-132.77 249,-158.77"/>
-<text text-anchor="middle" x="249" y="-128.97">A</text>
+<polygon points="208,-135 181,-117 208,-99 235,-117 208,-135"/>
+<text text-anchor="middle" x="208" y="-114.5" font-family="Helvetica,sans-Serif" font-size="10.00">A</text>
 </g>
 <g class="m-edge">
 <title>f1S&#45;&gt;f1A</title>
-<path d="M249,-220.13C249,-206.21 249,-186.35 249,-169.18"/>
-<polygon points="252.5,-168.92 249,-158.92 245.5,-168.92 252.5,-168.92"/>
+<path d="M208,-181.82C208,-171.19 208,-157.31 208,-145.2"/>
+<polygon points="211.5,-145.15 208,-135.15 204.5,-145.15 211.5,-145.15"/>
 </g>
 <g class="m-edge">
 <title>f1A&#45;&gt;f1A</title>
-<path stroke-dasharray="5,2" d="M267.49,-141.47C280.77,-144.3 294,-141.4 294,-132.77 294,-126.36 286.71,-123.11 277.53,-123.02"/>
-<polygon points="277.07,-119.55 267.49,-124.07 277.8,-126.51 277.07,-119.55"/>
-<text text-anchor="middle" x="299" y="-128.97">0</text>
+<path stroke-dasharray="5,2" d="M225.55,-123.53C239.14,-125.97 253,-123.8 253,-117 253,-111.9 245.2,-109.4 235.57,-109.5"/>
+<polygon points="235.17,-106.03 225.55,-110.47 235.84,-112.99 235.17,-106.03"/>
+<text text-anchor="middle" x="256.5" y="-114.5" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>f1B</title>
-<ellipse cx="238" cy="-34.38" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="238" y="-30.58">B</text>
+<ellipse cx="193" cy="-34" rx="27" ry="18"/>
+<text text-anchor="middle" x="193" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">B</text>
 </g>
 <g class="m-edge">
 <title>f1A&#45;&gt;f1B</title>
-<path stroke-dasharray="5,2" d="M246.39,-108.93C244.82,-95.13 242.8,-77.46 241.14,-62.9"/>
-<polygon points="244.61,-62.48 240,-52.94 237.66,-63.27 244.61,-62.48"/>
-<text text-anchor="middle" x="248" y="-75.97">1</text>
+<path stroke-dasharray="5,2" d="M205.18,-100.76C203.18,-89.95 200.43,-75.14 198.06,-62.31"/>
+<polygon points="201.43,-61.33 196.17,-52.13 194.55,-62.6 201.43,-61.33"/>
+<text text-anchor="middle" x="204.5" y="-73" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node m-flat">
 <title>f1C</title>
-<ellipse cx="310" cy="-34.38" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="310" y="-30.58">C</text>
+<ellipse cx="265" cy="-34" rx="27" ry="18"/>
+<text text-anchor="middle" x="265" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">C</text>
 </g>
 <g class="m-edge">
 <title>f1A&#45;&gt;f1C</title>
-<path stroke-dasharray="5,2" d="M259.07,-115.85C268.64,-100.74 283.17,-77.78 294.26,-60.25"/>
-<polygon points="297.32,-61.97 299.71,-51.65 291.4,-58.22 297.32,-61.97"/>
-<text text-anchor="middle" x="291" y="-75.97">2</text>
+<path stroke-dasharray="5,2" d="M216.17,-104.39C224.45,-92.62 237.52,-74.05 248.06,-59.08"/>
+<polygon points="251.02,-60.95 253.91,-50.76 245.29,-56.92 251.02,-60.95"/>
+<text text-anchor="middle" x="242.5" y="-73" font-family="Helvetica,sans-Serif" font-size="10.00">2</text>
 </g>
 <g class="m-node">
 <title>e2C</title>
-<polygon points="467,-264.77 439,-238.77 467,-212.77 495,-238.77 467,-264.77"/>
-<text text-anchor="middle" x="467" y="-234.97">C</text>
+<polygon points="415,-218 388,-200 415,-182 442,-200 415,-218"/>
+<text text-anchor="middle" x="415" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">C</text>
 </g>
 <g class="m-node m-flat">
 <title>e2D</title>
-<ellipse cx="395" cy="-132.77" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="395" y="-128.97">D</text>
+<ellipse cx="343" cy="-117" rx="27" ry="18"/>
+<text text-anchor="middle" x="343" y="-114.5" font-family="Helvetica,sans-Serif" font-size="10.00">D</text>
 </g>
 <g class="m-edge">
 <title>e2C&#45;&gt;e2D</title>
-<path stroke-dasharray="5,2" d="M456.38,-222.42C444.65,-205.49 425.63,-178.01 411.87,-158.13"/>
-<polygon points="414.71,-156.09 406.14,-149.86 408.96,-160.08 414.71,-156.09"/>
-<text text-anchor="middle" x="440" y="-181.97">0</text>
+<path stroke-dasharray="5,2" d="M405.29,-188.08C394.5,-175.94 376.79,-156.02 363.01,-140.51"/>
+<polygon points="365.47,-138.02 356.22,-132.87 360.24,-142.67 365.47,-138.02"/>
+<text text-anchor="middle" x="386.5" y="-156" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>e2F</title>
-<ellipse cx="467" cy="-132.77" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="467" y="-128.97">F</text>
+<ellipse cx="415" cy="-117" rx="27" ry="18"/>
+<text text-anchor="middle" x="415" y="-114.5" font-family="Helvetica,sans-Serif" font-size="10.00">F</text>
 </g>
 <g class="m-edge">
 <title>e2C&#45;&gt;e2F</title>
-<path stroke-dasharray="5,2" d="M467,-212.59C467,-197.16 467,-177.38 467,-161.5"/>
-<polygon points="470.5,-161.23 467,-151.23 463.5,-161.23 470.5,-161.23"/>
-<text text-anchor="middle" x="472" y="-181.97">1</text>
+<path stroke-dasharray="5,2" d="M415,-181.82C415,-171.19 415,-157.31 415,-145.2"/>
+<polygon points="418.5,-145.15 415,-135.15 411.5,-145.15 418.5,-145.15"/>
+<text text-anchor="middle" x="418.5" y="-156" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node m-flat">
 <title>e2E</title>
-<ellipse cx="394" cy="-238.77" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="394" y="-234.97">E</text>
+<ellipse cx="343" cy="-200" rx="27" ry="18"/>
+<text text-anchor="middle" x="343" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">E</text>
 </g>
 <g class="m-edge">
 <title>e2E&#45;&gt;e2D</title>
-<path d="M394.17,-220.13C394.32,-204.14 394.55,-180.31 394.73,-161.73"/>
-<polygon points="398.23,-161.53 394.83,-151.5 391.23,-161.46 398.23,-161.53"/>
+<path d="M343,-181.82C343,-171.19 343,-157.31 343,-145.2"/>
+<polygon points="346.5,-145.15 343,-135.15 339.5,-145.15 346.5,-145.15"/>
 </g>
 <g class="m-node">
 <title>f2C</title>
-<polygon points="662,-264.77 634,-238.77 662,-212.77 690,-238.77 662,-264.77"/>
-<text text-anchor="middle" x="662" y="-234.97">C</text>
+<polygon points="590,-218 563,-200 590,-182 617,-200 590,-218"/>
+<text text-anchor="middle" x="590" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">C</text>
 </g>
 <g class="m-node m-flat">
 <title>f2Daux</title>
-<ellipse cx="633" cy="-132.77" rx="41.94" ry="18.27"/>
-<text text-anchor="middle" x="633" y="-128.97">D&#45;aux</text>
+<ellipse cx="565" cy="-117" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="565" y="-114.5" font-family="Helvetica,sans-Serif" font-size="10.00">D&#45;aux</text>
 </g>
 <g class="m-edge">
 <title>f2C&#45;&gt;f2Daux</title>
-<path stroke-dasharray="5,2" d="M656.41,-217.72C651.92,-201.63 645.58,-178.89 640.63,-161.13"/>
-<polygon points="643.96,-160.03 637.9,-151.34 637.21,-161.91 643.96,-160.03"/>
-<text text-anchor="middle" x="654" y="-181.97">0</text>
+<path stroke-dasharray="5,2" d="M585.65,-184.89C582.21,-173.77 577.33,-157.94 573.17,-144.47"/>
+<polygon points="576.46,-143.27 570.17,-134.75 569.77,-145.33 576.46,-143.27"/>
+<text text-anchor="middle" x="581.5" y="-156" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>f2F</title>
-<ellipse cx="720" cy="-132.77" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="720" y="-128.97">F</text>
+<ellipse cx="637" cy="-117" rx="27" ry="18"/>
+<text text-anchor="middle" x="637" y="-114.5" font-family="Helvetica,sans-Serif" font-size="10.00">F</text>
 </g>
 <g class="m-edge">
 <title>f2C&#45;&gt;f2F</title>
-<path stroke-dasharray="5,2" d="M671.32,-221.06C680.68,-204.28 695.21,-178.23 705.96,-158.95"/>
-<polygon points="709.08,-160.53 710.9,-150.09 702.97,-157.12 709.08,-160.53"/>
-<text text-anchor="middle" x="699" y="-181.97">1</text>
+<path stroke-dasharray="5,2" d="M597.14,-186.7C603.84,-175.15 614.06,-157.54 622.47,-143.04"/>
+<polygon points="625.69,-144.46 627.69,-134.05 619.64,-140.95 625.69,-144.46"/>
+<text text-anchor="middle" x="619.5" y="-156" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node m-flat">
 <title>f2D</title>
-<ellipse cx="590" cy="-34.38" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="590" y="-30.58">D</text>
+<ellipse cx="529" cy="-34" rx="27" ry="18"/>
+<text text-anchor="middle" x="529" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">D</text>
 </g>
 <g class="m-edge">
 <title>f2Daux&#45;&gt;f2D</title>
-<path d="M625.31,-114.54C618.73,-99.78 609.15,-78.31 601.63,-61.45"/>
-<polygon points="604.75,-59.85 597.48,-52.14 598.35,-62.7 604.75,-59.85"/>
+<path d="M557.71,-99.61C552.74,-88.41 546.04,-73.34 540.37,-60.58"/>
+<polygon points="543.53,-59.08 536.27,-51.37 537.14,-61.93 543.53,-59.08"/>
 </g>
 <g class="m-node m-flat">
 <title>f2E</title>
-<ellipse cx="546" cy="-132.77" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="546" y="-128.97">E</text>
+<ellipse cx="493" cy="-117" rx="27" ry="18"/>
+<text text-anchor="middle" x="493" y="-114.5" font-family="Helvetica,sans-Serif" font-size="10.00">E</text>
 </g>
 <g class="m-edge">
 <title>f2E&#45;&gt;f2D</title>
-<path d="M553.66,-114.98C560.37,-100.28 570.23,-78.68 577.99,-61.69"/>
-<polygon points="581.31,-62.86 582.28,-52.3 574.94,-59.95 581.31,-62.86"/>
+<path d="M500.29,-99.61C505.26,-88.41 511.96,-73.34 517.63,-60.58"/>
+<polygon points="520.86,-61.93 521.73,-51.37 514.47,-59.08 520.86,-61.93"/>
 </g>
 <g class="m-node">
 <title>rP</title>
-<polygon points="896,-264.77 869,-238.77 896,-212.77 923,-238.77 896,-264.77"/>
-<text text-anchor="middle" x="896" y="-234.97">P</text>
+<polygon points="809,-218 782,-200 809,-182 836,-200 809,-218"/>
+<text text-anchor="middle" x="809" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">P</text>
 </g>
 <g class="m-node m-flat">
 <title>rQ</title>
-<ellipse cx="942" cy="-132.77" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="942" y="-128.97">Q</text>
+<ellipse cx="859" cy="-117" rx="27" ry="18"/>
+<text text-anchor="middle" x="859" y="-114.5" font-family="Helvetica,sans-Serif" font-size="10.00">Q</text>
 </g>
 <g class="m-edge">
 <title>rP&#45;&gt;rQ</title>
-<path stroke-dasharray="5,2" d="M903.8,-220.13C911.14,-203.55 922.2,-178.53 930.54,-159.68"/>
-<polygon points="933.77,-161.03 934.62,-150.46 927.37,-158.19 933.77,-161.03"/>
-<text text-anchor="middle" x="926" y="-181.97">0</text>
+<path stroke-dasharray="5,2" d="M816.59,-186.7C823.79,-175.04 834.8,-157.2 843.8,-142.62"/>
+<polygon points="846.82,-144.4 849.09,-134.05 840.86,-140.72 846.82,-144.4"/>
+<text text-anchor="middle" x="839.5" y="-156" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>rX</title>
-<ellipse cx="870" cy="-132.77" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="870" y="-128.97">X</text>
+<ellipse cx="787" cy="-117" rx="27" ry="18"/>
+<text text-anchor="middle" x="787" y="-114.5" font-family="Helvetica,sans-Serif" font-size="10.00">X</text>
 </g>
 <g class="m-edge">
 <title>rP&#45;&gt;rX</title>
-<path stroke-dasharray="5,2" d="M890.86,-217.22C886.83,-201.09 881.18,-178.49 876.78,-160.88"/>
-<polygon points="880.17,-160.02 874.35,-151.17 873.38,-161.72 880.17,-160.02"/>
-<text text-anchor="middle" x="889" y="-181.97">1</text>
+<path stroke-dasharray="5,2" d="M805.07,-184.52C802.08,-173.53 797.9,-158.11 794.3,-144.89"/>
+<polygon points="797.58,-143.61 791.58,-134.88 790.83,-145.44 797.58,-143.61"/>
+<text text-anchor="middle" x="802.5" y="-156" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node">
 <title>rM</title>
-<polygon points="814,-264.77 784,-238.77 814,-212.77 844,-238.77 814,-264.77"/>
-<text text-anchor="middle" x="814" y="-234.97">M</text>
+<polygon points="730,-218 703,-200 730,-182 757,-200 730,-218"/>
+<text text-anchor="middle" x="730" y="-197.5" font-family="Helvetica,sans-Serif" font-size="10.00">M</text>
 </g>
 <g class="m-edge">
 <title>rM&#45;&gt;rX</title>
-<path stroke-dasharray="5,2" d="M823.25,-220.6C832.23,-203.91 845.98,-178.38 856.24,-159.32"/>
-<polygon points="859.45,-160.75 861.11,-150.28 853.29,-157.43 859.45,-160.75"/>
-<text text-anchor="middle" x="850" y="-181.97">0</text>
+<path stroke-dasharray="5,2" d="M738.17,-187.39C746.45,-175.62 759.52,-157.05 770.06,-142.08"/>
+<polygon points="773.02,-143.95 775.91,-133.76 767.29,-139.92 773.02,-143.95"/>
+<text text-anchor="middle" x="764.5" y="-156" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>rN</title>
-<ellipse cx="798" cy="-132.77" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="798" y="-128.97">N</text>
+<ellipse cx="715" cy="-117" rx="27" ry="18"/>
+<text text-anchor="middle" x="715" y="-114.5" font-family="Helvetica,sans-Serif" font-size="10.00">N</text>
 </g>
 <g class="m-edge">
 <title>rM&#45;&gt;rN</title>
-<path stroke-dasharray="5,2" d="M810.57,-215.46C808.14,-199.69 804.87,-178.45 802.28,-161.58"/>
-<polygon points="805.67,-160.58 800.69,-151.23 798.75,-161.64 805.67,-160.58"/>
-<text text-anchor="middle" x="811" y="-181.97">1</text>
+<path stroke-dasharray="5,2" d="M727.18,-183.76C725.18,-172.95 722.43,-158.14 720.06,-145.31"/>
+<polygon points="723.43,-144.33 718.17,-135.13 716.55,-145.6 723.43,-144.33"/>
+<text text-anchor="middle" x="726.5" y="-156" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 </g>
 </svg>
@@ -748,89 +748,89 @@
 <span class="n">initi</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">cond1</span><span class="p">);</span><span class="w"></span>
 <span class="n">cond1</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">equl1</span><span class="p">,</span><span class="w"> </span><span class="n">cond2</span><span class="p">);</span><span class="w">  </span><span class="c1">// goes to cond2 if i&gt;1</span>
 <span class="n">cond2</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">equl2</span><span class="p">,</span><span class="w"> </span><span class="n">cond3</span><span class="p">);</span><span class="w">  </span><span class="c1">// goes to cond3 if i&gt;2</span>
-<span class="n">cond3</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">equl3</span><span class="p">,</span><span class="w"> </span><span class="n">grtr3</span><span class="p">);</span><span class="w">  </span><span class="c1">// goes to grtr3 if i&gt;3</span></pre><div class="m-graph"><svg style="width: 74.875rem; height: 10.312rem;" viewBox="0.00 0.00 1198.20 164.77">
-<g transform="scale(1 1) rotate(0) translate(4 160.77)">
+<span class="n">cond3</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">equl3</span><span class="p">,</span><span class="w"> </span><span class="n">grtr3</span><span class="p">);</span><span class="w">  </span><span class="c1">// goes to grtr3 if i&gt;3</span></pre><div class="m-graph"><svg style="width: 81.100rem; height: 15.200rem;" viewBox="0.00 0.00 811.47 152.00">
+<g transform="scale(1 1) rotate(0) translate(4 148)">
 <title>Taskflow</title>
 <g class="m-node m-flat">
 <title>p0x7fc231700030</title>
-<ellipse cx="27" cy="-107.38" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="27" y="-103.58">init</text>
+<ellipse cx="27" cy="-99" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">init</text>
 </g>
 <g class="m-node">
 <title>p0x7fc231700140</title>
-<polygon points="238,-133.38 91,-107.38 238,-81.38 385,-107.38 238,-133.38"/>
-<text text-anchor="middle" x="238" y="-103.58">cond1 (i&gt;1 ? 1 : 0)</text>
+<polygon points="179.24,-117 90.75,-99 179.24,-81 267.73,-99 179.24,-117"/>
+<text text-anchor="middle" x="179.24" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">cond1 (i&gt;1 ? 1 : 0)</text>
 </g>
 <g class="m-edge">
 <title>p0x7fc231700030&#45;&gt;p0x7fc231700140</title>
-<path d="M54.05,-107.38C61.76,-107.38 70.82,-107.38 80.71,-107.38"/>
-<polygon points="80.85,-110.88 90.85,-107.38 80.85,-103.88 80.85,-110.88"/>
+<path d="M54.17,-99C61.97,-99 71.02,-99 80.6,-99"/>
+<polygon points="80.76,-102.5 90.76,-99 80.76,-95.5 80.76,-102.5"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fc231700470</title>
-<ellipse cx="578" cy="-138.38" rx="39.7" ry="18.27"/>
-<text text-anchor="middle" x="578" y="-134.58">equl1</text>
+<ellipse cx="398.73" cy="-126" rx="27" ry="18"/>
+<text text-anchor="middle" x="398.73" y="-123.5" font-family="Helvetica,sans-Serif" font-size="10.00">equl1</text>
 </g>
 <g class="m-edge">
 <title>p0x7fc231700140&#45;&gt;p0x7fc231700470</title>
-<path stroke-dasharray="5,2" d="M335.4,-116.23C398.62,-122.02 478.56,-129.36 528.75,-133.96"/>
-<polygon points="528.72,-137.47 538.99,-134.9 529.36,-130.5 528.72,-137.47"/>
-<text text-anchor="middle" x="408" y="-127.58">0</text>
+<path stroke-dasharray="5,2" d="M234.85,-105.78C274.64,-110.72 327.43,-117.27 361.97,-121.56"/>
+<polygon points="361.72,-125.06 372.07,-122.81 362.58,-118.11 361.72,-125.06"/>
+<text text-anchor="middle" x="288.99" y="-115" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node">
 <title>p0x7fc231700250</title>
-<polygon points="578,-102.38 431,-76.38 578,-50.38 725,-76.38 578,-102.38"/>
-<text text-anchor="middle" x="578" y="-72.58">cond2 (i&gt;2 ? 1 : 0)</text>
+<polygon points="398.73,-90 310.24,-72 398.73,-54 487.22,-72 398.73,-90"/>
+<text text-anchor="middle" x="398.73" y="-69.5" font-family="Helvetica,sans-Serif" font-size="10.00">cond2 (i&gt;2 ? 1 : 0)</text>
 </g>
 <g class="m-edge">
 <title>p0x7fc231700140&#45;&gt;p0x7fc231700250</title>
-<path stroke-dasharray="5,2" d="M335.4,-98.54C377.67,-94.67 427.42,-90.1 470.76,-86.13"/>
-<polygon points="471.12,-89.61 480.76,-85.21 470.48,-82.64 471.12,-89.61"/>
-<text text-anchor="middle" x="408" y="-96.58">1</text>
+<path stroke-dasharray="5,2" d="M234.85,-92.22C264.71,-88.51 301.88,-83.9 333.17,-80.01"/>
+<polygon points="333.62,-83.49 343.11,-78.78 332.76,-76.54 333.62,-83.49"/>
+<text text-anchor="middle" x="288.99" y="-88" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fc231700580</title>
-<ellipse cx="918" cy="-107.38" rx="39.7" ry="18.27"/>
-<text text-anchor="middle" x="918" y="-103.58">equl2</text>
+<ellipse cx="618.22" cy="-99" rx="27" ry="18"/>
+<text text-anchor="middle" x="618.22" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">equl2</text>
 </g>
 <g class="m-edge">
 <title>p0x7fc231700250&#45;&gt;p0x7fc231700580</title>
-<path stroke-dasharray="5,2" d="M675.4,-85.23C738.62,-91.02 818.56,-98.36 868.75,-102.96"/>
-<polygon points="868.72,-106.47 878.99,-103.9 869.36,-99.5 868.72,-106.47"/>
-<text text-anchor="middle" x="748" y="-96.58">0</text>
+<path stroke-dasharray="5,2" d="M454.33,-78.78C494.13,-83.72 546.92,-90.27 581.46,-94.56"/>
+<polygon points="581.2,-98.06 591.56,-95.81 582.07,-91.11 581.2,-98.06"/>
+<text text-anchor="middle" x="508.48" y="-88" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node">
 <title>p0x7fc231700360</title>
-<polygon points="918,-71.38 771,-45.38 918,-19.38 1065,-45.38 918,-71.38"/>
-<text text-anchor="middle" x="918" y="-41.58">cond3 (i&gt;3 ? 1 : 0)</text>
+<polygon points="618.22,-63 529.73,-45 618.22,-27 706.71,-45 618.22,-63"/>
+<text text-anchor="middle" x="618.22" y="-42.5" font-family="Helvetica,sans-Serif" font-size="10.00">cond3 (i&gt;3 ? 1 : 0)</text>
 </g>
 <g class="m-edge">
 <title>p0x7fc231700250&#45;&gt;p0x7fc231700360</title>
-<path stroke-dasharray="5,2" d="M675.4,-67.54C717.67,-63.67 767.42,-59.1 810.76,-55.13"/>
-<polygon points="811.12,-58.61 820.76,-54.21 810.48,-51.64 811.12,-58.61"/>
-<text text-anchor="middle" x="748" y="-65.58">1</text>
+<path stroke-dasharray="5,2" d="M454.33,-65.22C484.2,-61.51 521.37,-56.9 552.66,-53.01"/>
+<polygon points="553.11,-56.49 562.6,-51.78 552.24,-49.54 553.11,-56.49"/>
+<text text-anchor="middle" x="508.48" y="-61" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fc231700690</title>
-<ellipse cx="1150.6" cy="-73.38" rx="39.7" ry="18.27"/>
-<text text-anchor="middle" x="1150.6" y="-69.58">equl3</text>
+<ellipse cx="776.47" cy="-72" rx="27" ry="18"/>
+<text text-anchor="middle" x="776.47" y="-69.5" font-family="Helvetica,sans-Serif" font-size="10.00">equl3</text>
 </g>
 <g class="m-edge">
 <title>p0x7fc231700360&#45;&gt;p0x7fc231700690</title>
-<path stroke-dasharray="5,2" d="M1005.85,-55.93C1038.34,-59.88 1074.05,-64.21 1101.74,-67.57"/>
-<polygon points="1101.6,-71.08 1111.94,-68.81 1102.44,-64.13 1101.6,-71.08"/>
-<text text-anchor="middle" x="1088" y="-70.58">0</text>
+<path stroke-dasharray="5,2" d="M666.95,-53.25C690.55,-57.33 718.53,-62.16 740.17,-65.9"/>
+<polygon points="739.79,-69.39 750.24,-67.64 740.98,-62.49 739.79,-69.39"/>
+<text text-anchor="middle" x="727.97" y="-67" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fc2317007a0</title>
-<ellipse cx="1150.6" cy="-18.38" rx="35.21" ry="18.27"/>
-<text text-anchor="middle" x="1150.6" y="-14.58">grtr3</text>
+<ellipse cx="776.47" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="776.47" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">grtr3</text>
 </g>
 <g class="m-edge">
 <title>p0x7fc231700360&#45;&gt;p0x7fc2317007a0</title>
-<path stroke-dasharray="5,2" d="M1007.17,-35.06C1040.88,-31.11 1077.87,-26.78 1105.7,-23.52"/>
-<polygon points="1106.37,-26.97 1115.89,-22.33 1105.56,-20.02 1106.37,-26.97"/>
-<text text-anchor="middle" x="1088" y="-31.58">1</text>
+<path stroke-dasharray="5,2" d="M666.95,-36.75C690.55,-32.67 718.53,-27.84 740.17,-24.1"/>
+<polygon points="740.98,-27.51 750.24,-22.36 739.79,-20.61 740.98,-27.51"/>
+<text text-anchor="middle" x="727.97" y="-29" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 </g>
 </svg>
@@ -847,79 +847,79 @@
 
 <span class="n">source</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">swcond</span><span class="p">);</span><span class="w"></span>
 <span class="n">swcond</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">case1</span><span class="p">,</span><span class="w"> </span><span class="n">case2</span><span class="p">,</span><span class="w"> </span><span class="n">case3</span><span class="p">);</span><span class="w"></span>
-<span class="n">target</span><span class="p">.</span><span class="n">succeed</span><span class="p">(</span><span class="n">case1</span><span class="p">,</span><span class="w"> </span><span class="n">case2</span><span class="p">,</span><span class="w"> </span><span class="n">case3</span><span class="p">);</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 35.312rem; height: 12.500rem;" viewBox="0.00 0.00 564.95 200.00">
-<g transform="scale(1 1) rotate(0) translate(4 196)">
+<span class="n">target</span><span class="p">.</span><span class="n">succeed</span><span class="p">(</span><span class="n">case1</span><span class="p">,</span><span class="w"> </span><span class="n">case2</span><span class="p">,</span><span class="w"> </span><span class="n">case3</span><span class="p">);</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 40.300rem; height: 15.200rem;" viewBox="0.00 0.00 402.69 152.00">
+<g transform="scale(1 1) rotate(0) translate(4 148)">
 <title>Taskflow</title>
 <g class="m-node m-flat">
 <title>p0x7fa25f000030</title>
-<ellipse cx="45.96" cy="-96" rx="45.92" ry="18.27"/>
-<text text-anchor="middle" x="45.96" y="-92.2">source</text>
+<ellipse cx="28.84" cy="-72" rx="28.69" ry="18"/>
+<text text-anchor="middle" x="28.84" y="-69.5" font-family="Helvetica,sans-Serif" font-size="10.00">source</text>
 </g>
 <g class="m-node">
 <title>p0x7fa25f000140</title>
-<polygon points="190.92,-122 128.92,-96 190.92,-70 252.92,-96 190.92,-122"/>
-<text text-anchor="middle" x="190.92" y="-92.2">switch</text>
+<polygon points="134.65,-90 94.73,-72 134.65,-54 174.57,-72 134.65,-90"/>
+<text text-anchor="middle" x="134.65" y="-69.5" font-family="Helvetica,sans-Serif" font-size="10.00">switch</text>
 </g>
 <g class="m-edge">
 <title>p0x7fa25f000030&#45;&gt;p0x7fa25f000140</title>
-<path d="M92.2,-96C100.64,-96 109.64,-96 118.64,-96"/>
-<polygon points="118.78,-99.5 128.78,-96 118.78,-92.5 118.78,-99.5"/>
+<path d="M57.94,-72C66.14,-72 75.35,-72 84.45,-72"/>
+<polygon points="84.62,-75.5 94.62,-72 84.62,-68.5 84.62,-75.5"/>
 </g>
 <g class="m-node">
 <title>p0x7fa25f000250</title>
-<polygon points="363.92,-192 298.92,-166 363.92,-140 428.92,-166 363.92,-192"/>
-<text text-anchor="middle" x="363.92" y="-162.2">case 1</text>
+<polygon points="257.57,-144 217.65,-126 257.57,-108 297.49,-126 257.57,-144"/>
+<text text-anchor="middle" x="257.57" y="-123.5" font-family="Helvetica,sans-Serif" font-size="10.00">case 1</text>
 </g>
 <g class="m-edge">
 <title>p0x7fa25f000140&#45;&gt;p0x7fa25f000250</title>
-<path stroke-dasharray="5,2" d="M222.89,-108.68C250.51,-119.98 291.15,-136.62 321.55,-149.06"/>
-<polygon points="320.45,-152.39 331.03,-152.94 323.1,-145.92 320.45,-152.39"/>
-<text text-anchor="middle" x="275.92" y="-136.2">0</text>
+<path stroke-dasharray="5,2" d="M155.35,-80.8C174.93,-89.54 205.2,-103.06 227.54,-113.04"/>
+<polygon points="226.32,-116.33 236.88,-117.21 229.18,-109.93 226.32,-116.33"/>
+<text text-anchor="middle" x="196.11" y="-102" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node">
 <title>p0x7fa25f000360</title>
-<polygon points="363.92,-122 298.92,-96 363.92,-70 428.92,-96 363.92,-122"/>
-<text text-anchor="middle" x="363.92" y="-92.2">case 2</text>
+<polygon points="257.57,-90 217.65,-72 257.57,-54 297.49,-72 257.57,-90"/>
+<text text-anchor="middle" x="257.57" y="-69.5" font-family="Helvetica,sans-Serif" font-size="10.00">case 2</text>
 </g>
 <g class="m-edge">
 <title>p0x7fa25f000140&#45;&gt;p0x7fa25f000360</title>
-<path stroke-dasharray="5,2" d="M253.18,-96C264.59,-96 276.63,-96 288.4,-96"/>
-<polygon points="288.64,-99.5 298.64,-96 288.64,-92.5 288.64,-99.5"/>
-<text text-anchor="middle" x="275.92" y="-101.2">1</text>
+<path stroke-dasharray="5,2" d="M174.57,-72C184.93,-72 196.26,-72 207.1,-72"/>
+<polygon points="207.3,-75.5 217.3,-72 207.3,-68.5 207.3,-75.5"/>
+<text text-anchor="middle" x="196.11" y="-75" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node">
 <title>p0x7fa25f000470</title>
-<polygon points="363.92,-52 298.92,-26 363.92,0 428.92,-26 363.92,-52"/>
-<text text-anchor="middle" x="363.92" y="-22.2">case 3</text>
+<polygon points="257.57,-36 217.65,-18 257.57,0 297.49,-18 257.57,-36"/>
+<text text-anchor="middle" x="257.57" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">case 3</text>
 </g>
 <g class="m-edge">
 <title>p0x7fa25f000140&#45;&gt;p0x7fa25f000470</title>
-<path stroke-dasharray="5,2" d="M222.89,-83.32C250.51,-72.02 291.15,-55.38 321.55,-42.94"/>
-<polygon points="323.1,-46.08 331.03,-39.06 320.45,-39.61 323.1,-46.08"/>
-<text text-anchor="middle" x="275.92" y="-68.2">2</text>
+<path stroke-dasharray="5,2" d="M155.35,-63.2C174.93,-54.46 205.2,-40.94 227.54,-30.96"/>
+<polygon points="229.18,-34.07 236.88,-26.79 226.32,-27.67 229.18,-34.07"/>
+<text text-anchor="middle" x="196.11" y="-48" font-family="Helvetica,sans-Serif" font-size="10.00">2</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fa25f000580</title>
-<ellipse cx="515.94" cy="-96" rx="41.02" ry="18.27"/>
-<text text-anchor="middle" x="515.94" y="-92.2">target</text>
+<ellipse cx="367.61" cy="-72" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="367.61" y="-69.5" font-family="Helvetica,sans-Serif" font-size="10.00">target</text>
 </g>
 <g class="m-edge">
 <title>p0x7fa25f000250&#45;&gt;p0x7fa25f000580</title>
-<path stroke-dasharray="5,2" d="M394.56,-152.17C418.44,-141.03 452.15,-125.3 477.82,-113.32"/>
-<polygon points="479.3,-116.49 486.88,-109.09 476.34,-110.15 479.3,-116.49"/>
-<text text-anchor="middle" x="451.92" y="-131.2">0</text>
+<path stroke-dasharray="5,2" d="M277.39,-116.59C293.63,-108.48 317.38,-96.6 336.3,-87.15"/>
+<polygon points="338.03,-90.19 345.41,-82.59 334.9,-83.93 338.03,-90.19"/>
+<text text-anchor="middle" x="319.03" y="-100" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-edge">
 <title>p0x7fa25f000360&#45;&gt;p0x7fa25f000580</title>
-<path stroke-dasharray="5,2" d="M428.98,-96C440.81,-96 453.01,-96 464.37,-96"/>
-<polygon points="464.53,-99.5 474.53,-96 464.53,-92.5 464.53,-99.5"/>
-<text text-anchor="middle" x="451.92" y="-101.2">0</text>
+<path stroke-dasharray="5,2" d="M297.57,-72C308.27,-72 319.82,-72 330.36,-72"/>
+<polygon points="330.49,-75.5 340.49,-72 330.49,-68.5 330.49,-75.5"/>
+<text text-anchor="middle" x="319.03" y="-75" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-edge">
 <title>p0x7fa25f000470&#45;&gt;p0x7fa25f000580</title>
-<path stroke-dasharray="5,2" d="M394.56,-39.83C418.44,-50.97 452.15,-66.7 477.82,-78.68"/>
-<polygon points="476.34,-81.85 486.88,-82.91 479.3,-75.51 476.34,-81.85"/>
-<text text-anchor="middle" x="451.92" y="-72.2">0</text>
+<path stroke-dasharray="5,2" d="M277.39,-27.41C293.63,-35.52 317.38,-47.4 336.3,-56.85"/>
+<polygon points="334.9,-60.07 345.41,-61.41 338.03,-53.81 334.9,-60.07"/>
+<text text-anchor="middle" x="319.03" y="-52" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 </g>
 </svg>
@@ -940,76 +940,76 @@
 
 <span class="n">source</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">swcond</span><span class="p">);</span><span class="w"></span>
 <span class="n">swcond</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">case1</span><span class="p">,</span><span class="w"> </span><span class="n">case2</span><span class="p">,</span><span class="w"> </span><span class="n">case3</span><span class="p">);</span><span class="w"></span>
-<span class="n">target</span><span class="p">.</span><span class="n">succeed</span><span class="p">(</span><span class="n">case1</span><span class="p">,</span><span class="w"> </span><span class="n">case2</span><span class="p">,</span><span class="w"> </span><span class="n">case3</span><span class="p">);</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 32.375rem; height: 9.688rem;" viewBox="0.00 0.00 517.87 154.77">
-<g transform="scale(1 1) rotate(0) translate(4 150.77)">
+<span class="n">target</span><span class="p">.</span><span class="n">succeed</span><span class="p">(</span><span class="n">case1</span><span class="p">,</span><span class="w"> </span><span class="n">case2</span><span class="p">,</span><span class="w"> </span><span class="n">case3</span><span class="p">);</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 37.300rem; height: 15.200rem;" viewBox="0.00 0.00 373.28 152.00">
+<g transform="scale(1 1) rotate(0) translate(4 148)">
 <title>Taskflow</title>
 <g class="m-node m-flat">
 <title>p0x7f96d3000030</title>
-<ellipse cx="45.96" cy="-73.38" rx="45.92" ry="18.27"/>
-<text text-anchor="middle" x="45.96" y="-69.58">source</text>
+<ellipse cx="28.84" cy="-72" rx="28.69" ry="18"/>
+<text text-anchor="middle" x="28.84" y="-69.5" font-family="Helvetica,sans-Serif" font-size="10.00">source</text>
 </g>
 <g class="m-node">
 <title>p0x7f96d3000140</title>
-<polygon points="190.92,-99.38 128.92,-73.38 190.92,-47.38 252.92,-73.38 190.92,-99.38"/>
-<text text-anchor="middle" x="190.92" y="-69.58">switch</text>
+<polygon points="134.65,-90 94.73,-72 134.65,-54 174.57,-72 134.65,-90"/>
+<text text-anchor="middle" x="134.65" y="-69.5" font-family="Helvetica,sans-Serif" font-size="10.00">switch</text>
 </g>
 <g class="m-edge">
 <title>p0x7f96d3000030&#45;&gt;p0x7f96d3000140</title>
-<path d="M92.2,-73.38C100.64,-73.38 109.64,-73.38 118.64,-73.38"/>
-<polygon points="118.78,-76.88 128.78,-73.38 118.78,-69.88 118.78,-76.88"/>
+<path d="M57.94,-72C66.14,-72 75.35,-72 84.45,-72"/>
+<polygon points="84.62,-75.5 94.62,-72 84.62,-68.5 84.62,-75.5"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x7f96d3000250</title>
-<ellipse cx="344.89" cy="-128.38" rx="45.92" ry="18.27"/>
-<text text-anchor="middle" x="344.89" y="-124.58">case 1</text>
+<ellipse cx="245.86" cy="-126" rx="28.01" ry="18"/>
+<text text-anchor="middle" x="245.86" y="-123.5" font-family="Helvetica,sans-Serif" font-size="10.00">case 1</text>
 </g>
 <g class="m-edge">
 <title>p0x7f96d3000140&#45;&gt;p0x7f96d3000250</title>
-<path stroke-dasharray="5,2" d="M224.9,-85.32C247.07,-93.34 276.53,-104.01 300.59,-112.71"/>
-<polygon points="299.59,-116.08 310.19,-116.19 301.98,-109.49 299.59,-116.08"/>
-<text text-anchor="middle" x="275.92" y="-108.58">0</text>
+<path stroke-dasharray="5,2" d="M154.67,-81.41C170.98,-89.47 194.8,-101.25 213.86,-110.67"/>
+<polygon points="212.54,-113.92 223.06,-115.22 215.65,-107.65 212.54,-113.92"/>
+<text text-anchor="middle" x="196.11" y="-105" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7f96d3000360</title>
-<ellipse cx="344.89" cy="-73.38" rx="45.92" ry="18.27"/>
-<text text-anchor="middle" x="344.89" y="-69.58">case 2</text>
+<ellipse cx="245.86" cy="-72" rx="28.01" ry="18"/>
+<text text-anchor="middle" x="245.86" y="-69.5" font-family="Helvetica,sans-Serif" font-size="10.00">case 2</text>
 </g>
 <g class="m-edge">
 <title>p0x7f96d3000140&#45;&gt;p0x7f96d3000360</title>
-<path stroke-dasharray="5,2" d="M253.29,-73.38C264.9,-73.38 276.98,-73.38 288.39,-73.38"/>
-<polygon points="288.65,-76.88 298.65,-73.38 288.65,-69.88 288.65,-76.88"/>
-<text text-anchor="middle" x="275.92" y="-78.58">1</text>
+<path stroke-dasharray="5,2" d="M174.77,-72C185.33,-72 196.73,-72 207.2,-72"/>
+<polygon points="207.31,-75.5 217.31,-72 207.31,-68.5 207.31,-75.5"/>
+<text text-anchor="middle" x="196.11" y="-75" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7f96d3000470</title>
-<ellipse cx="344.89" cy="-18.38" rx="45.92" ry="18.27"/>
-<text text-anchor="middle" x="344.89" y="-14.58">case 3</text>
+<ellipse cx="245.86" cy="-18" rx="28.01" ry="18"/>
+<text text-anchor="middle" x="245.86" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">case 3</text>
 </g>
 <g class="m-edge">
 <title>p0x7f96d3000140&#45;&gt;p0x7f96d3000470</title>
-<path stroke-dasharray="5,2" d="M224.9,-61.45C247.07,-53.43 276.53,-42.76 300.59,-34.06"/>
-<polygon points="301.98,-37.28 310.19,-30.58 299.59,-30.69 301.98,-37.28"/>
-<text text-anchor="middle" x="275.92" y="-49.58">2</text>
+<path stroke-dasharray="5,2" d="M154.67,-62.59C170.98,-54.53 194.8,-42.75 213.86,-33.33"/>
+<polygon points="215.65,-36.35 223.06,-28.78 212.54,-30.08 215.65,-36.35"/>
+<text text-anchor="middle" x="196.11" y="-46" font-family="Helvetica,sans-Serif" font-size="10.00">2</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7f96d3000580</title>
-<ellipse cx="468.86" cy="-73.38" rx="41.02" ry="18.27"/>
-<text text-anchor="middle" x="468.86" y="-69.58">target</text>
+<ellipse cx="338.2" cy="-72" rx="27.16" ry="18"/>
+<text text-anchor="middle" x="338.2" y="-69.5" font-family="Helvetica,sans-Serif" font-size="10.00">target</text>
 </g>
 <g class="m-edge">
 <title>p0x7f96d3000250&#45;&gt;p0x7f96d3000580</title>
-<path d="M376.04,-114.79C392.35,-107.44 412.65,-98.28 430.01,-90.45"/>
-<polygon points="431.64,-93.56 439.31,-86.26 428.76,-87.18 431.64,-93.56"/>
+<path d="M267.36,-113.75C279.54,-106.47 295.18,-97.12 308.56,-89.12"/>
+<polygon points="310.61,-91.97 317.4,-83.83 307.02,-85.96 310.61,-91.97"/>
 </g>
 <g class="m-edge">
 <title>p0x7f96d3000360&#45;&gt;p0x7f96d3000580</title>
-<path d="M390.96,-73.38C399.64,-73.38 408.79,-73.38 417.62,-73.38"/>
-<polygon points="417.8,-76.88 427.8,-73.38 417.8,-69.88 417.8,-76.88"/>
+<path d="M274.46,-72C282.81,-72 292.12,-72 300.95,-72"/>
+<polygon points="301.01,-75.5 311.01,-72 301.01,-68.5 301.01,-75.5"/>
 </g>
 <g class="m-edge">
 <title>p0x7f96d3000470&#45;&gt;p0x7f96d3000580</title>
-<path d="M376.04,-31.98C392.35,-39.33 412.65,-48.49 430.01,-56.32"/>
-<polygon points="428.76,-59.59 439.31,-60.51 431.64,-53.21 428.76,-59.59"/>
+<path d="M267.36,-30.25C279.54,-37.53 295.18,-46.88 308.56,-54.88"/>
+<polygon points="307.02,-58.04 317.4,-60.17 310.61,-52.03 307.02,-58.04"/>
 </g>
 </g>
 </svg>
@@ -1026,50 +1026,50 @@
 
 <span class="n">init</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">body</span><span class="p">);</span><span class="w"></span>
 <span class="n">body</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">cond</span><span class="p">);</span><span class="w"></span>
-<span class="n">cond</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">body</span><span class="p">,</span><span class="w"> </span><span class="n">done</span><span class="p">);</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 32.000rem; height: 3.750rem;" viewBox="0.00 0.00 512.22 60.00">
-<g transform="scale(1 1) rotate(0) translate(4 56)">
+<span class="n">cond</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">body</span><span class="p">,</span><span class="w"> </span><span class="n">done</span><span class="p">);</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 40.400rem; height: 4.400rem;" viewBox="0.00 0.00 403.94 44.00">
+<g transform="scale(1 1) rotate(0) translate(4 40)">
 <title>Taskflow</title>
 <g class="m-node m-flat">
 <title>p0x7f950d600030</title>
-<ellipse cx="27" cy="-26" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="27" y="-22.2">init</text>
+<ellipse cx="27" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">init</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7f950d600140</title>
-<ellipse cx="134.13" cy="-26" rx="43.27" ry="18.27"/>
-<text text-anchor="middle" x="134.13" y="-22.2">do i++</text>
+<ellipse cx="121.02" cy="-18" rx="30.04" ry="18"/>
+<text text-anchor="middle" x="121.02" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">do i++</text>
 </g>
 <g class="m-edge">
 <title>p0x7f950d600030&#45;&gt;p0x7f950d600140</title>
-<path d="M54.26,-26C62.3,-26 71.45,-26 80.6,-26"/>
-<polygon points="80.87,-29.5 90.87,-26 80.87,-22.5 80.87,-29.5"/>
+<path d="M54.12,-18C62.37,-18 71.68,-18 80.64,-18"/>
+<polygon points="80.92,-21.5 90.92,-18 80.92,-14.5 80.92,-21.5"/>
 </g>
 <g class="m-node">
 <title>p0x7f950d600250</title>
-<polygon points="303.27,-52 223.27,-26 303.27,0 383.27,-26 303.27,-52"/>
-<text text-anchor="middle" x="303.27" y="-22.2">while i&lt;5</text>
+<polygon points="246.49,-36 194.1,-18 246.49,0 298.89,-18 246.49,-36"/>
+<text text-anchor="middle" x="246.49" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">while i&lt;5</text>
 </g>
 <g class="m-edge">
 <title>p0x7f950d600140&#45;&gt;p0x7f950d600250</title>
-<path d="M177.18,-28.37C183.25,-28.63 189.42,-28.85 195.27,-29 203.97,-29.22 213.08,-29.25 222.14,-29.17"/>
-<polygon points="222.39,-32.67 232.34,-29.03 222.29,-25.67 222.39,-32.67"/>
+<path d="M151.28,-18C161,-18 172.22,-18 183.45,-18"/>
+<polygon points="183.73,-21.5 193.73,-18 183.73,-14.5 183.73,-21.5"/>
 </g>
 <g class="m-edge">
 <title>p0x7f950d600250&#45;&gt;p0x7f950d600140</title>
-<path stroke-dasharray="5,2" d="M263.46,-12.88C243.18,-7.61 217.92,-3.51 195.27,-7 189.09,-7.95 182.68,-9.43 176.44,-11.14"/>
-<polygon points="175.43,-7.79 166.84,-13.99 177.43,-14.5 175.43,-7.79"/>
-<text text-anchor="middle" x="200.27" y="-12.2">0</text>
+<path stroke-dasharray="5,2" d="M219.74,-9.04C204.95,-4.96 186,-1.53 169.04,-4 165.08,-4.58 160.98,-5.42 156.94,-6.4"/>
+<polygon points="155.83,-3.07 147.1,-9.08 157.67,-9.83 155.83,-3.07"/>
+<text text-anchor="middle" x="172.54" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7f950d600360</title>
-<ellipse cx="466.74" cy="-26" rx="37.45" ry="18.27"/>
-<text text-anchor="middle" x="466.74" y="-22.2">done</text>
+<ellipse cx="368.94" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="368.94" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">done</text>
 </g>
 <g class="m-edge">
 <title>p0x7f950d600250&#45;&gt;p0x7f950d600360</title>
-<path stroke-dasharray="5,2" d="M383.59,-26C395.67,-26 407.81,-26 418.89,-26"/>
-<polygon points="419.17,-29.5 429.17,-26 419.17,-22.5 419.17,-29.5"/>
-<text text-anchor="middle" x="406.27" y="-31.2">1</text>
+<path stroke-dasharray="5,2" d="M298.92,-18C309.93,-18 321.34,-18 331.64,-18"/>
+<polygon points="331.9,-21.5 341.9,-18 331.9,-14.5 331.9,-21.5"/>
+<text text-anchor="middle" x="320.44" y="-21" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 </g>
 </svg>
@@ -1094,61 +1094,61 @@
 <span class="n">init</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">cond</span><span class="p">);</span><span class="w"></span>
 <span class="n">cond</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">body</span><span class="p">,</span><span class="w"> </span><span class="n">done</span><span class="p">);</span><span class="w"></span>
 <span class="n">body</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">back</span><span class="p">);</span><span class="w"></span>
-<span class="n">back</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">cond</span><span class="p">);</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 32.438rem; height: 9.312rem;" viewBox="0.00 0.00 518.95 149.38">
-<g transform="scale(1 1) rotate(0) translate(4 145.38)">
+<span class="n">back</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">cond</span><span class="p">);</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 40.400rem; height: 13.300rem;" viewBox="0.00 0.00 404.49 133.00">
+<g transform="scale(1 1) rotate(0) translate(4 129)">
 <title>Taskflow</title>
 <g class="m-node m-flat">
 <title>p0x7fdba4000030</title>
-<ellipse cx="27" cy="-68" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="27" y="-64.2">init</text>
+<ellipse cx="27" cy="-53" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-50.5" font-family="Helvetica,sans-Serif" font-size="10.00">init</text>
 </g>
 <g class="m-node">
 <title>p0x7fdba4000140</title>
-<polygon points="171,-94 91,-68 171,-42 251,-68 171,-94"/>
-<text text-anchor="middle" x="171" y="-64.2">while i&lt;5</text>
+<polygon points="143.45,-71 91.05,-53 143.45,-35 195.84,-53 143.45,-71"/>
+<text text-anchor="middle" x="143.45" y="-50.5" font-family="Helvetica,sans-Serif" font-size="10.00">while i&lt;5</text>
 </g>
 <g class="m-edge">
 <title>p0x7fdba4000030&#45;&gt;p0x7fdba4000140</title>
-<path d="M54.04,-68C61.95,-68 71.11,-68 80.76,-68"/>
-<polygon points="80.96,-71.5 90.96,-68 80.96,-64.5 80.96,-71.5"/>
+<path d="M54.26,-53C62.2,-53 71.29,-53 80.55,-53"/>
+<polygon points="80.6,-56.5 90.6,-53 80.6,-49.5 80.6,-56.5"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fdba4000470</title>
-<ellipse cx="334.48" cy="-123" rx="37.45" ry="18.27"/>
-<text text-anchor="middle" x="334.48" y="-119.2">done</text>
+<ellipse cx="265.89" cy="-107" rx="27" ry="18"/>
+<text text-anchor="middle" x="265.89" y="-104.5" font-family="Helvetica,sans-Serif" font-size="10.00">done</text>
 </g>
 <g class="m-edge">
 <title>p0x7fdba4000140&#45;&gt;p0x7fdba4000470</title>
-<path stroke-dasharray="5,2" d="M210.68,-81.17C235.72,-89.7 268.25,-100.78 293.53,-109.4"/>
-<polygon points="292.59,-112.77 303.19,-112.68 294.85,-106.15 292.59,-112.77"/>
-<text text-anchor="middle" x="274" y="-108.2">1</text>
+<path stroke-dasharray="5,2" d="M166.82,-63.03C185.7,-71.49 212.92,-83.7 233.9,-93.1"/>
+<polygon points="232.49,-96.31 243.05,-97.21 235.35,-89.92 232.49,-96.31"/>
+<text text-anchor="middle" x="217.39" y="-89" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fdba4000250</title>
-<ellipse cx="334.48" cy="-68" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="334.48" y="-64.2">i++</text>
+<ellipse cx="265.89" cy="-53" rx="27" ry="18"/>
+<text text-anchor="middle" x="265.89" y="-50.5" font-family="Helvetica,sans-Serif" font-size="10.00">i++</text>
 </g>
 <g class="m-edge">
 <title>p0x7fdba4000140&#45;&gt;p0x7fdba4000250</title>
-<path stroke-dasharray="5,2" d="M251.32,-68C267.3,-68 283.36,-68 296.99,-68"/>
-<polygon points="297.35,-71.5 307.35,-68 297.35,-64.5 297.35,-71.5"/>
-<text text-anchor="middle" x="274" y="-73.2">0</text>
+<path stroke-dasharray="5,2" d="M195.88,-53C206.89,-53 218.3,-53 228.59,-53"/>
+<polygon points="228.86,-56.5 238.86,-53 228.86,-49.5 228.86,-56.5"/>
+<text text-anchor="middle" x="217.39" y="-56" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node">
 <title>p0x7fdba4000360</title>
-<polygon points="459.95,-52 408.95,-26 459.95,0 510.95,-26 459.95,-52"/>
-<text text-anchor="middle" x="459.95" y="-22.2">back</text>
+<polygon points="363.19,-36 330.09,-18 363.19,0 396.29,-18 363.19,-36"/>
+<text text-anchor="middle" x="363.19" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">back</text>
 </g>
 <g class="m-edge">
 <title>p0x7fdba4000250&#45;&gt;p0x7fdba4000360</title>
-<path d="M358.99,-60C375.99,-54.22 399.37,-46.27 419.24,-39.51"/>
-<polygon points="420.62,-42.74 428.96,-36.2 418.37,-36.11 420.62,-42.74"/>
+<path d="M289.96,-44.53C303,-39.74 319.41,-33.71 333.29,-28.62"/>
+<polygon points="334.69,-31.83 342.87,-25.1 332.28,-25.26 334.69,-31.83"/>
 </g>
 <g class="m-edge">
 <title>p0x7fdba4000360&#45;&gt;p0x7fdba4000140</title>
-<path stroke-dasharray="5,2" d="M412.46,-24.1C399.36,-23.65 385.1,-23.23 371.95,-23 338.65,-22.43 329.82,-17.27 297,-23 268.44,-27.98 237.8,-38.92 214,-48.76"/>
-<polygon points="212.42,-45.63 204.57,-52.75 215.15,-52.08 212.42,-45.63"/>
-<text text-anchor="middle" x="334.48" y="-28.2">0</text>
+<path stroke-dasharray="5,2" d="M336.9,-14.25C311.79,-11.25 272.32,-8.53 238.89,-15 216.35,-19.37 192.36,-29.09 174.2,-37.61"/>
+<polygon points="172.23,-34.67 164.75,-42.17 175.28,-40.97 172.23,-34.67"/>
+<text text-anchor="middle" x="265.89" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 </g>
 </svg>
@@ -1183,50 +1183,50 @@
 
 <span class="n">init</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">cond</span><span class="p">);</span><span class="w"></span>
 <span class="n">cond</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">body</span><span class="p">,</span><span class="w"> </span><span class="n">done</span><span class="p">);</span><span class="w"></span>
-<span class="n">body</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">cond</span><span class="p">);</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 23.750rem; height: 6.812rem;" viewBox="0.00 0.00 379.95 108.77">
-<g transform="scale(1 1) rotate(0) translate(4 104.77)">
+<span class="n">body</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">cond</span><span class="p">);</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 30.100rem; height: 10.400rem;" viewBox="0.00 0.00 300.89 104.00">
+<g transform="scale(1 1) rotate(0) translate(4 100)">
 <title>Taskflow</title>
 <g class="m-node m-flat">
 <title>p0x7fdba4000030</title>
-<ellipse cx="27" cy="-41.38" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="27" y="-37.58">init</text>
+<ellipse cx="27" cy="-44" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-41.5" font-family="Helvetica,sans-Serif" font-size="10.00">init</text>
 </g>
 <g class="m-node">
 <title>p0x7fdba4000140</title>
-<polygon points="171,-67.38 91,-41.38 171,-15.38 251,-41.38 171,-67.38"/>
-<text text-anchor="middle" x="171" y="-37.58">while i&lt;5</text>
+<polygon points="143.45,-62 91.05,-44 143.45,-26 195.84,-44 143.45,-62"/>
+<text text-anchor="middle" x="143.45" y="-41.5" font-family="Helvetica,sans-Serif" font-size="10.00">while i&lt;5</text>
 </g>
 <g class="m-edge">
 <title>p0x7fdba4000030&#45;&gt;p0x7fdba4000140</title>
-<path d="M54.04,-41.38C61.95,-41.38 71.11,-41.38 80.76,-41.38"/>
-<polygon points="80.96,-44.88 90.96,-41.38 80.96,-37.88 80.96,-44.88"/>
+<path d="M54.26,-44C62.2,-44 71.29,-44 80.55,-44"/>
+<polygon points="80.6,-47.5 90.6,-44 80.6,-40.5 80.6,-47.5"/>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fdba4000470</title>
-<ellipse cx="334.48" cy="-82.38" rx="37.45" ry="18.27"/>
-<text text-anchor="middle" x="334.48" y="-78.58">done</text>
+<ellipse cx="265.89" cy="-78" rx="27" ry="18"/>
+<text text-anchor="middle" x="265.89" y="-75.5" font-family="Helvetica,sans-Serif" font-size="10.00">done</text>
 </g>
 <g class="m-edge">
 <title>p0x7fdba4000140&#45;&gt;p0x7fdba4000470</title>
-<path stroke-dasharray="5,2" d="M216.55,-52.7C239.81,-58.6 268.12,-65.79 291.05,-71.61"/>
-<polygon points="290.3,-75.03 300.85,-74.1 292.02,-68.25 290.3,-75.03"/>
-<text text-anchor="middle" x="274" y="-72.58">1</text>
+<path stroke-dasharray="5,2" d="M172.69,-51.97C190.05,-56.87 212.42,-63.19 230.77,-68.37"/>
+<polygon points="229.92,-71.76 240.5,-71.11 231.82,-65.03 229.92,-71.76"/>
+<text text-anchor="middle" x="217.39" y="-68" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7fdba4000250</title>
-<ellipse cx="334.48" cy="-18.38" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="334.48" y="-14.58">i++</text>
+<ellipse cx="265.89" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="265.89" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">i++</text>
 </g>
 <g class="m-edge">
 <title>p0x7fdba4000140&#45;&gt;p0x7fdba4000250</title>
-<path stroke-dasharray="5,2" d="M227.12,-33.53C250.57,-30.19 277.23,-26.4 298,-23.44"/>
-<polygon points="298.56,-26.89 307.97,-22.02 297.58,-19.96 298.56,-26.89"/>
-<text text-anchor="middle" x="274" y="-32.58">0</text>
+<path stroke-dasharray="5,2" d="M176.09,-37.17C192.6,-33.61 212.84,-29.24 229.82,-25.57"/>
+<polygon points="230.88,-28.92 239.91,-23.39 229.4,-22.08 230.88,-28.92"/>
+<text text-anchor="middle" x="217.39" y="-31" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-edge">
 <title>p0x7fdba4000250&#45;&gt;p0x7fdba4000140</title>
-<path d="M307.37,-19.78C295.62,-20.57 281.58,-21.73 269,-23.38 256.54,-25.02 243.25,-27.2 230.63,-29.47"/>
-<polygon points="229.89,-26.05 220.69,-31.31 231.16,-32.93 229.89,-26.05"/>
+<path d="M239.1,-20.87C230.99,-21.96 222.04,-23.33 213.89,-25 203.22,-27.18 191.77,-30.08 181.3,-32.96"/>
+<polygon points="180.3,-29.6 171.63,-35.68 182.2,-36.34 180.3,-29.6"/>
 </g>
 </g>
 </svg>
@@ -1243,46 +1243,46 @@
 
 <span class="n">A</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">);</span><span class="w"></span>
 
-<span class="n">executor</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">taskflow</span><span class="p">).</span><span class="n">wait</span><span class="p">();</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 12.875rem; height: 9.438rem;" viewBox="0.00 0.00 206.00 150.77">
-<g transform="scale(1 1) rotate(0) translate(4 146.77)">
+<span class="n">executor</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">taskflow</span><span class="p">).</span><span class="n">wait</span><span class="p">();</span><span class="w"></span></pre><div class="m-graph"><svg style="width: 20.600rem; height: 12.700rem;" viewBox="0.00 0.00 206.00 127.00">
+<g transform="scale(1 1) rotate(0) translate(4 123)">
 <title>Taskflow</title>
 <g class="m-node">
 <title>p0x7bc400014030</title>
-<polygon points="99,-142.77 72,-116.77 99,-90.77 126,-116.77 99,-142.77"/>
-<text text-anchor="middle" x="99" y="-112.97">A</text>
+<polygon points="99,-119 72,-101 99,-83 126,-101 99,-119"/>
+<text text-anchor="middle" x="99" y="-98.5" font-family="Helvetica,sans-Serif" font-size="10.00">A</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7bc400014118</title>
-<ellipse cx="27" cy="-18.38" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="27" y="-14.58">B</text>
+<ellipse cx="27" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">B</text>
 </g>
 <g class="m-edge">
 <title>p0x7bc400014030&#45;&gt;p0x7bc400014118</title>
-<path stroke-dasharray="5,2" d="M88.06,-101.13C76.64,-85.83 58.52,-61.58 44.99,-43.46"/>
-<polygon points="47.55,-41.04 38.76,-35.12 41.94,-45.23 47.55,-41.04"/>
-<text text-anchor="middle" x="71" y="-59.97">0</text>
+<path stroke-dasharray="5,2" d="M89.29,-89.08C78.5,-76.94 60.79,-57.02 47.01,-41.51"/>
+<polygon points="49.47,-39.02 40.22,-33.87 44.24,-43.67 49.47,-39.02"/>
+<text text-anchor="middle" x="71.5" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7bc400014200</title>
-<ellipse cx="99" cy="-18.38" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="99" y="-14.58">C</text>
+<ellipse cx="99" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">C</text>
 </g>
 <g class="m-edge">
 <title>p0x7bc400014030&#45;&gt;p0x7bc400014200</title>
-<path stroke-dasharray="5,2" d="M99,-90.7C99,-77.41 99,-61.04 99,-47.34"/>
-<polygon points="102.5,-47.03 99,-37.03 95.5,-47.03 102.5,-47.03"/>
-<text text-anchor="middle" x="104" y="-59.97">1</text>
+<path stroke-dasharray="5,2" d="M99,-82.82C99,-72.19 99,-58.31 99,-46.2"/>
+<polygon points="102.5,-46.15 99,-36.15 95.5,-46.15 102.5,-46.15"/>
+<text text-anchor="middle" x="102.5" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-node m-flat">
 <title>p0x7bc4000142e8</title>
-<ellipse cx="171" cy="-18.38" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="171" y="-14.58">D</text>
+<ellipse cx="171" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="171" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">D</text>
 </g>
 <g class="m-edge">
 <title>p0x7bc400014030&#45;&gt;p0x7bc4000142e8</title>
-<path stroke-dasharray="5,2" d="M109.94,-101.13C121.36,-85.83 139.48,-61.58 153.01,-43.46"/>
-<polygon points="156.06,-45.23 159.24,-35.12 150.45,-41.04 156.06,-45.23"/>
-<text text-anchor="middle" x="148" y="-59.97">2</text>
+<path stroke-dasharray="5,2" d="M108.71,-89.08C119.5,-76.94 137.21,-57.02 150.99,-41.51"/>
+<polygon points="153.76,-43.67 157.78,-33.87 148.53,-39.02 153.76,-43.67"/>
+<text text-anchor="middle" x="142.5" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">2</text>
 </g>
 </g>
 </svg>
@@ -1310,80 +1310,80 @@
 <span class="n">C</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">);</span><span class="w"></span>
 <span class="n">D</span><span class="p">.</span><span class="n">precede</span><span class="p">(</span><span class="n">D</span><span class="p">);</span><span class="w"></span>
 
-<span class="n">executor</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">taskflow</span><span class="p">).</span><span class="n">wait</span><span class="p">();</span><span class="w">  </span><span class="c1">// counter == 40</span></pre><div class="m-graph"><svg style="width: 28.562rem; height: 6.000rem;" viewBox="0.00 0.00 457.00 96.00">
-<g transform="scale(1 1) rotate(0) translate(4 92)">
+<span class="n">executor</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">taskflow</span><span class="p">).</span><span class="n">wait</span><span class="p">();</span><span class="w">  </span><span class="c1">// counter == 40</span></pre><div class="m-graph"><svg style="width: 44.400rem; height: 7.300rem;" viewBox="0.00 0.00 444.00 73.00">
+<g transform="scale(1 1) rotate(0) translate(4 69)">
 <title>Taskflow</title>
 <g class="m-node m-flat">
 <title>p0x7bc400014030</title>
-<ellipse cx="27" cy="-26" rx="27" ry="18.27"/>
-<text text-anchor="middle" x="27" y="-22.2">init</text>
+<ellipse cx="27" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">init</text>
 </g>
 <g class="m-node">
 <title>p0x7bc400014118</title>
-<polygon points="118,-52 91,-26 118,0 145,-26 118,-52"/>
-<text text-anchor="middle" x="118" y="-22.2">A</text>
+<polygon points="118,-36 91,-18 118,0 145,-18 118,-36"/>
+<text text-anchor="middle" x="118" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">A</text>
 </g>
 <g class="m-edge">
 <title>p0x7bc400014030&#45;&gt;p0x7bc400014118</title>
-<path d="M54.22,-26C62.55,-26 71.91,-26 80.82,-26"/>
-<polygon points="80.97,-29.5 90.97,-26 80.97,-22.5 80.97,-29.5"/>
+<path d="M54.22,-18C62.55,-18 71.91,-18 80.82,-18"/>
+<polygon points="80.97,-21.5 90.97,-18 80.97,-14.5 80.97,-21.5"/>
 </g>
 <g class="m-edge">
 <title>p0x7bc400014118&#45;&gt;p0x7bc400014118</title>
-<path stroke-dasharray="5,2" d="M110.48,-45C108.36,-57.67 110.87,-70 118,-70 123.18,-70 125.92,-63.49 126.22,-55.07"/>
-<polygon points="129.71,-54.73 125.52,-45 122.72,-55.21 129.71,-54.73"/>
-<text text-anchor="middle" x="118" y="-75.2">0</text>
+<path stroke-dasharray="5,2" d="M110.91,-31.67C108.07,-42.66 110.44,-54 118,-54 123.2,-54 125.94,-48.64 126.23,-41.72"/>
+<polygon points="129.69,-41.21 125.09,-31.67 122.73,-42 129.69,-41.21"/>
+<text text-anchor="middle" x="118" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node">
 <title>p0x7bc400014200</title>
-<polygon points="218,-52 191,-26 218,0 245,-26 218,-52"/>
-<text text-anchor="middle" x="218" y="-22.2">B</text>
+<polygon points="215,-36 188,-18 215,0 242,-18 215,-36"/>
+<text text-anchor="middle" x="215" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">B</text>
 </g>
 <g class="m-edge">
 <title>p0x7bc400014118&#45;&gt;p0x7bc400014200</title>
-<path stroke-dasharray="5,2" d="M145,-26C155.97,-26 168.92,-26 180.79,-26"/>
-<polygon points="180.87,-29.5 190.87,-26 180.87,-22.5 180.87,-29.5"/>
-<text text-anchor="middle" x="168" y="-31.2">1</text>
+<path stroke-dasharray="5,2" d="M145.21,-18C155.28,-18 166.96,-18 177.81,-18"/>
+<polygon points="177.87,-21.5 187.87,-18 177.87,-14.5 177.87,-21.5"/>
+<text text-anchor="middle" x="166.5" y="-21" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-edge">
 <title>p0x7bc400014200&#45;&gt;p0x7bc400014200</title>
-<path stroke-dasharray="5,2" d="M209.63,-44.08C206.91,-57.06 209.7,-70 218,-70 224.1,-70 227.22,-63.02 227.37,-54.17"/>
-<polygon points="230.84,-53.68 226.37,-44.08 223.87,-54.38 230.84,-53.68"/>
-<text text-anchor="middle" x="218" y="-75.2">0</text>
+<path stroke-dasharray="5,2" d="M207.37,-31.29C204.11,-42.4 206.66,-54 215,-54 220.74,-54 223.73,-48.52 223.98,-41.48"/>
+<polygon points="227.42,-40.74 222.63,-31.29 220.48,-41.67 227.42,-40.74"/>
+<text text-anchor="middle" x="215" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node">
 <title>p0x7bc4000142e8</title>
-<polygon points="319,-52 291,-26 319,0 347,-26 319,-52"/>
-<text text-anchor="middle" x="319" y="-22.2">C</text>
+<polygon points="312,-36 285,-18 312,0 339,-18 312,-36"/>
+<text text-anchor="middle" x="312" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">C</text>
 </g>
 <g class="m-edge">
 <title>p0x7bc400014200&#45;&gt;p0x7bc4000142e8</title>
-<path stroke-dasharray="5,2" d="M245.01,-26C255.91,-26 268.79,-26 280.67,-26"/>
-<polygon points="280.78,-29.5 290.78,-26 280.78,-22.5 280.78,-29.5"/>
-<text text-anchor="middle" x="268" y="-31.2">1</text>
+<path stroke-dasharray="5,2" d="M242.21,-18C252.28,-18 263.96,-18 274.81,-18"/>
+<polygon points="274.87,-21.5 284.87,-18 274.87,-14.5 274.87,-21.5"/>
+<text text-anchor="middle" x="263.5" y="-21" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-edge">
 <title>p0x7bc4000142e8&#45;&gt;p0x7bc4000142e8</title>
-<path stroke-dasharray="5,2" d="M310.54,-44.54C307.98,-57.37 310.8,-70 319,-70 324.96,-70 328.08,-63.33 328.35,-54.76"/>
-<polygon points="331.82,-54.19 327.46,-44.54 324.85,-54.8 331.82,-54.19"/>
-<text text-anchor="middle" x="319" y="-75.2">0</text>
+<path stroke-dasharray="5,2" d="M304.37,-31.29C301.11,-42.4 303.66,-54 312,-54 317.74,-54 320.73,-48.52 320.98,-41.48"/>
+<polygon points="324.42,-40.74 319.63,-31.29 317.48,-41.67 324.42,-40.74"/>
+<text text-anchor="middle" x="312" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 <g class="m-node">
 <title>p0x7bc4000143d0</title>
-<polygon points="421,-52 393,-26 421,0 449,-26 421,-52"/>
-<text text-anchor="middle" x="421" y="-22.2">D</text>
+<polygon points="409,-36 382,-18 409,0 436,-18 409,-36"/>
+<text text-anchor="middle" x="409" y="-15.5" font-family="Helvetica,sans-Serif" font-size="10.00">D</text>
 </g>
 <g class="m-edge">
 <title>p0x7bc4000142e8&#45;&gt;p0x7bc4000143d0</title>
-<path stroke-dasharray="5,2" d="M347.06,-26C358.07,-26 370.97,-26 382.83,-26"/>
-<polygon points="382.92,-29.5 392.92,-26 382.92,-22.5 382.92,-29.5"/>
-<text text-anchor="middle" x="370" y="-31.2">1</text>
+<path stroke-dasharray="5,2" d="M339.21,-18C349.28,-18 360.96,-18 371.81,-18"/>
+<polygon points="371.87,-21.5 381.87,-18 371.87,-14.5 371.87,-21.5"/>
+<text text-anchor="middle" x="360.5" y="-21" font-family="Helvetica,sans-Serif" font-size="10.00">1</text>
 </g>
 <g class="m-edge">
 <title>p0x7bc4000143d0&#45;&gt;p0x7bc4000143d0</title>
-<path stroke-dasharray="5,2" d="M412.54,-44.54C409.98,-57.37 412.8,-70 421,-70 426.96,-70 430.08,-63.33 430.35,-54.76"/>
-<polygon points="433.82,-54.19 429.46,-44.54 426.85,-54.8 433.82,-54.19"/>
-<text text-anchor="middle" x="421" y="-75.2">0</text>
+<path stroke-dasharray="5,2" d="M401.37,-31.29C398.11,-42.4 400.66,-54 409,-54 414.74,-54 417.73,-48.52 417.98,-41.48"/>
+<polygon points="421.42,-40.74 416.63,-31.29 414.48,-41.67 421.42,-40.74"/>
+<text text-anchor="middle" x="409" y="-57" font-family="Helvetica,sans-Serif" font-size="10.00">0</text>
 </g>
 </g>
 </svg>
@@ -1432,7 +1432,7 @@
   <div class="m-container">
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
-        <p>Taskflow handbook is part of the <a href="https://taskflow.github.io">Taskflow project</a>, copyright © <a href="https://tsung-wei-huang.github.io/">Dr. Tsung-Wei Huang</a>, 2018&ndash;2022.<br />Generated by <a href="https://doxygen.org/">Doxygen</a> 1.8.20 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
+        <p>Taskflow handbook is part of the <a href="https://taskflow.github.io">Taskflow project</a>, copyright © <a href="https://tsung-wei-huang.github.io/">Dr. Tsung-Wei Huang</a>, 2018&ndash;2024.<br />Generated by <a href="https://doxygen.org/">Doxygen</a> 1.9.1 and <a href="https://mcss.mosra.cz/">m.css</a>.</p>
       </div>
     </div>
   </div>

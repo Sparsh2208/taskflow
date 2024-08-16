@@ -139,7 +139,7 @@ Debrief:
 the pipeline scheduling framework.
 The taskflow graph of this pipeline example is shown as follows,
 where 1) one condition task is used to decide which runtime task to run and
-2) four runtime tasks is used to schedule tokens at four parallel lines, respectively.
+2) four runtime tasks are used to schedule tokens at four parallel lines, respectively.
 
 @dotfile images/pipeline_basic_dependency_graph.dot
 
@@ -780,11 +780,11 @@ we reset the pipeline so the token identifier starts from @c 0 rather than @c 5.
 
 Visit the following pages to learn more about pipeline:
 
-1. @ref TaskParallelScalablePipeline
-2. @ref DataParallelPipeline
-3. @ref TextProcessingPipeline
-4. @ref GraphProcessingPipeline
-5. @ref TaskflowProcessingPipeline
++ @ref TaskParallelScalablePipeline
++ @ref DataParallelPipeline
++ @ref TextProcessingPipeline
++ @ref GraphProcessingPipeline
++ @ref TaskflowProcessingPipeline
 
 
 */

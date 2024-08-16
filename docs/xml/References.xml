@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="References" kind="page">
     <compoundname>References</compoundname>
     <title>References</title>
@@ -20,7 +20,7 @@
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>This page summarizes a list of publication related to Taskflow. If you are using Taskflow, please cite the following paper we publised at 2022 IEEE TPDS:</para>
+<para>This page summarizes a list of publication related to Taskflow. If you are using Taskflow, please cite the following paper we published at 2022 IEEE TPDS:</para>
 <para><itemizedlist>
 <listitem><para>Tsung-Wei Huang, Dian-Lun Lin, Chun-Xun Lin, and Yibo Lin, "<ulink url="https://tsung-wei-huang.github.io/papers/tpds21-taskflow.pdf">Taskflow: A Lightweight Parallel and Heterogeneous Task Graph Computing System</ulink>," <emphasis>IEEE Transactions on Parallel and Distributed Systems (TPDS)</emphasis>, vol. 33, no. 6, pp. 1303-1320, June 2022</para>
 </listitem></itemizedlist>
@@ -28,6 +28,21 @@
 <sect1 id="References_1RefConference">
 <title>Conference</title>
 <para><orderedlist>
+<listitem>
+<para>Dian-Lun Lin, Yanqing Zhang, Haoxing Ren, Shih-Hsin Wang, Brucek Khailany and Tsung-Wei Huang, "<ulink url="https://tsung-wei-huang.github.io/papers/2023-dac.pdf">GenFuzz: GPU-accelerated Hardware Fuzzing using Genetic Algorithm with Multiple Inputs</ulink>," <emphasis>ACM/IEEE Design Automation Conference (DAC)</emphasis>, San Francisco, CA, 2023 </para>
+</listitem>
+<listitem>
+<para>Tsung-Wei Huang, "<ulink url="https://tsung-wei-huang.github.io/papers/ipdps23.pdf">qTask: Task-parallel Quantum Circuit Simulation with Incrementality</ulink>," <emphasis>IEEE International Parallel and Distributed Processing Symposium (IPDPS)</emphasis>, St. Petersburg, Florida, 2023 </para>
+</listitem>
+<listitem>
+<para>Elmir Dzaka, Dian-Lun Lin, and Tsung-Wei Huang, "<ulink url="https://tsung-wei-huang.github.io/papers/pdco-23.pdf">Parallel And-Inverter Graph Simulation Using a Task-graph Computing System</ulink>," <emphasis>IEEE International Parallel and Distributed Processing Symposium Workshop (IPDPSW)</emphasis>, St. Petersburg, Florida, 2023 </para>
+</listitem>
+<listitem>
+<para>Tsung-Wei Huang and Leslie Hwang, "<ulink url="https://tsung-wei-huang.github.io/papers/hpec22-semaphore.pdf">Task-Parallel Programming with Constrained Parallelism</ulink>," <emphasis>IEEE High-Performance Extreme Computing Conference (HPEC)</emphasis>, MA, 2022 </para>
+</listitem>
+<listitem>
+<para>Tsung-Wei Huang, "<ulink url="https://tsung-wei-huang.github.io/papers/hpec22-ot.pdf">Enhancing the Performance Portability of Heterogeneous Circuit Analysis Programs</ulink>," <emphasis>IEEE High-Performance Extreme Computing Conference (HPEC)</emphasis>, MA, 2022 </para>
+</listitem>
 <listitem>
 <para>Dian-Lun Lin, Haoxing Ren, Yanqing Zhang, and Tsung-Wei Huang, "<ulink url="https://tsung-wei-huang.github.io/papers/icpp22-rtlflow.pdf">From RTL to CUDA: A GPU Acceleration Flow for RTL Simulation with Batch Stimulus</ulink>," <emphasis>ACM International Conference on Parallel Processing (ICPP)</emphasis>, Bordeaux, France, 2022 </para>
 </listitem>
@@ -92,5 +107,6 @@
 </para>
 </sect1>
     </detaileddescription>
+    <location file="references/references.dox"/>
   </compounddef>
 </doxygen>

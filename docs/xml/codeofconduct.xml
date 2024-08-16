@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.20" xml:lang="en-US">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
   <compounddef id="codeofconduct" kind="page">
     <compoundname>codeofconduct</compoundname>
     <title>Code of Conduct</title>
@@ -45,5 +45,6 @@ This code of conduct applies to all community situations online and offline, inc
 <para>To report any violations of the code of conduct, please <ulink url="https://taskflow.github.io/#tag_contact">contact the Taskflow team</ulink>. We will treat reports confidentially. </para>
 </sect1>
     </detaileddescription>
+    <location file="governance/codeofconduct.dox"/>
   </compounddef>
 </doxygen>
